@@ -4,6 +4,7 @@
 	<title>Very Unique And Catchy Company Name</title>
 	<link rel="stylesheet" type="text/css" href="./style/app.css">
 	<script src="https://use.fontawesome.com/fa11f26e3b.js"></script>
+	<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 </head>
 <body>
 
@@ -75,18 +76,40 @@
 			<span class="menu-icon fa fa-bars"></span>
 			<span class="logo fa fa-tag"></span>
 		</div>
+		<div id="container-contact-form">
+			<form id="frm-contact">
+				<div id="container-message-subject">
+					<span id="message-subject">Subject</span>
+					<div class="radio-button">
+						<input id="message-subject-application" type="radio" name="subject">
+						<span id="lbl-message-subject-application">Partner Application</span>
+					</div>
+					<div class="radio-button">
+						<input id="message-subject-feedback" type="radio" name="subject">
+						<span id="lbl-message-subject-feedback">Feedback</span>
+					</div>
+					<div class="radio-button">
+						<input id="message-subject-question" type="radio" name="subject">
+						<span id="lbl-message-subject-question">Question</span>
+					</div>
+				</div>
+				<input id="message-fullname" class="validate" type="text" name="fullname" placeholder="First- and lastname">
+				<input id="message-email" class="validate" type="text" name="email" placeholder="Email">
+				<input id="message-phone" type="text" name="phone" placeholder="Phone">
+				<input id="message-text" type="text" name="message" placeholder="Message">
+				<button id="btn-send-message" type="button">Send</button>
+			</form>
+		</div>
 	</div>
 
 <!-- ******************************************************************************************************* -->
 <!-- ******************************************************************************************************* -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 <script src="js/js-index.js"></script>
 <script src="js/js-event.js"></script>
 <script src="js/js-about.js"></script>
 <script src="js/js-contact.js"></script>
-<script>
-	
-</script>
 </body>
 </html>
