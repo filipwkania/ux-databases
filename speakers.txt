@@ -1,0 +1,70 @@
+[{
+	"id":"00001",
+	"fullname":"Speaker 1",
+	"occupation": "Job Title, Company",
+	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
+	"image":"images/portrait.jpg"
+},
+{
+	"id":"00002",
+	"fullname":"Speaker 2",
+	"occupation": "Job Title, Company",
+	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
+	"image":"images/portrait.jpg"
+},
+{
+	"id":"00003",
+	"fullname":"Speaker 3",
+	"occupation": "Job Title, Company",
+	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
+	"image":"images/portrait.jpg"
+},
+{
+	"id":"00004",
+	"fullname":"Speaker 4",
+	"occupation": "Job Title, Company",
+	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
+	"image":"images/portrait.jpg"
+},
+{
+	"id":"00005",
+	"fullname":"Speaker 5",
+	"occupation": "Job Title, Company",
+	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
+	"image":"images/portrait.jpg"
+},
+{
+	"id":"00006",
+	"fullname":"Speaker 6",
+	"occupation": "Job Title, Company",
+	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
+	"image":"images/portrait.jpg"
+},
+{
+	"id":"00007",
+	"fullname":"Speaker 7",
+	"occupation": "Job Title, Company",
+	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
+	"image":"images/portrait.jpg"
+},
+{
+	"id":"00008",
+	"fullname":"Speaker 8",
+	"occupation": "Job Title, Company",
+	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
+	"image":"images/portrait.jpg"
+},
+{
+	"id":"00009",
+	"fullname":"Speaker 9",
+	"occupation": "Job Title, Company",
+	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
+	"image":"images/portrait.jpg"
+},
+{
+	"id":"00010",
+	"fullname":"Speaker 10",
+	"occupation": "Job Title, Company",
+	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
+	"image":"images/portrait.jpg"
+}]
