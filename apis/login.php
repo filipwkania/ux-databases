@@ -13,7 +13,7 @@
 
 	if($user != false) {
 		$_SESSION['userRole'] = $user["role_name"];
-		echo '{"status":"ok", "message":"User logged in"}';
+		echo '{"status":"ok", "userRole":"'.$user["role_name"].'"}';
 	} else {
 		echo '{"status":"error", "message":"User not found"}';
 	}

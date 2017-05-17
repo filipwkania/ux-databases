@@ -140,4 +140,8 @@
         -ms-transform: rotatey(-180deg);
         -o-transform: rotatey(-180deg); }
 
+#wdw-accounts #container-edit,
+#wdw-accounts #container-users {
+  width: 50%; }
+
 /*# sourceMappingURL=app.css.map */

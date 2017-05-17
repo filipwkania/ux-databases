@@ -19,7 +19,33 @@
 <!-- **************************************************************************************************** -->
 <!-- ************************************************** -->
 <div id="wdw-accounts" class="wdw">
-	accounts page
+	<div id="container-edit">
+		<input id="txtEditUsername" placeholder="username"></input>
+		<input id="txtEditPassword" placeholder="password"></input>
+		<input id="txtEditName" placeholder="name"></input>
+		<input id="txtEditEmail" placeholder="email"></input>
+		<select id="selectEditRole">
+			<option value="admin">Admin</option>
+			<option value="member">Member</option>
+		</select>
+		<button id="btnEditSave">Save</button>
+	</div>
+	<div id="container-users">
+		<table id="table-users">
+			<thead>
+				<tr>
+					<th class="text-left">Name</th>
+					<th class="text-left">Username</th>
+					<th class="text-left">Email</th>
+					<th class="text-left">Role</th>
+					<th class="text-center">Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- placeholder for users -->
+			</tbody>
+		</table>
+	</div>
 </div>
 <!-- ************************************************** -->
 <!-- **************************************************************************************************** -->
