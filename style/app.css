@@ -175,4 +175,8 @@ input[type="text"] {
     background-color: #eaeaea;
     padding: 30px 40px; }
 
+#wdw-accounts #container-edit,
+#wdw-accounts #container-users {
+  width: 50%; }
+
 /*# sourceMappingURL=app.css.map */
