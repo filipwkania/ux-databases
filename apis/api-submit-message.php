@@ -1,6 +1,6 @@
 <?php
 	$FILENAME = '../messages.txt';
-	$sSubject = $_POST['subject'];
+	$sSubject = $_POST['type'];
 	$sFullname = $_POST['fullname'];
 	$sEmail = $_POST['email'];
 	$sPhone = $_POST['phone'];
