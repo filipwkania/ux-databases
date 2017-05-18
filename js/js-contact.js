@@ -10,6 +10,7 @@ $('#btn-send-message').click(function(){
           "dataType"        : "json"      
       }
     ).done(function(jData){
+    	console.log(jData);
     	if(jData.status == "ok"){
 	      alert("Your message has been successfully submitted!");
 	      $('#frm-contact').trigger('reset');

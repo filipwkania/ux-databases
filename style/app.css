@@ -59,6 +59,14 @@
 .stop-scrolling {
   overflow: hidden; }
 
+input[type="text"] {
+  height: 40px;
+  width: 350px;
+  margin: 10px 0px 10px 0px;
+  padding-left: 10px;
+  border: none;
+  font-size: 16px; }
+
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
@@ -139,5 +147,32 @@
         -moz-transform: rotatey(-180deg);
         -ms-transform: rotatey(-180deg);
         -o-transform: rotatey(-180deg); }
+
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+#content-container-contact {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  margin-top: 40px; }
+  #content-container-contact #txt-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 45vw;
+    max-width: 600px; }
+    #content-container-contact #txt-contact h2 {
+      margin-top: 20px; }
+    #content-container-contact #txt-contact p {
+      margin: 20px 0px; }
+  #content-container-contact #frm-contact {
+    display: flex;
+    flex-direction: column;
+    width: 45vw;
+    max-width: 600px;
+    background-color: #eaeaea;
+    padding: 30px 40px; }
 
 /*# sourceMappingURL=app.css.map */

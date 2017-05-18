@@ -54,13 +54,13 @@
 			<div id="txt-about">
 				<h2>About us and our speakers</h2>
 				<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est.
 				</p>
 				<p>
-				Phasellus sollicitudin risus dictum odio varius pharetra. Curabitur ut mollis tortor, eu auctor metus. Cras vehicula elementum metus, in posuere nibh.
+					Phasellus sollicitudin risus dictum odio varius pharetra. Curabitur ut mollis tortor, eu auctor metus. Cras vehicula elementum metus, in posuere nibh.
 				</p>
 				<p>
-				Phasellus sollicitudin risus dictum odio varius pharetra. Curabitur ut mollis tortor, eu auctor metus. Cras vehicula elementum metus, in posuere nibh.
+					Phasellus sollicitudin risus dictum odio varius pharetra. Curabitur ut mollis tortor, eu auctor metus. Cras vehicula elementum metus, in posuere nibh.
 				</p>
 			</div>
 		</div>
@@ -76,29 +76,40 @@
 			<span class="menu-icon fa fa-bars"></span>
 			<span class="logo fa fa-tag"></span>
 		</div>
-		<div id="container-contact-form">
-			<form id="frm-contact">
-				<div id="container-message-subject">
-					<span id="message-subject">Subject</span>
-					<div class="radio-button">
-						<input id="message-subject-application" type="radio" name="subject">
-						<span id="lbl-message-subject-application">Partner Application</span>
+		<div id="content-container-contact">
+			<div id="txt-contact">
+				<h2>Contact us</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est.
+				</p>
+				<p>
+					Phasellus sollicitudin risus dictum odio varius pharetra. Curabitur ut mollis tortor, eu auctor metus. Cras vehicula elementum metus, in posuere nibh.
+				</p>
+			</div>
+			<div id="container-contact-form">
+				<form id="frm-contact">
+					<div id="container-message-subject">
+						<span id="message-subject">Subject</span>
+						<div class="radio-button">
+							<input id="message-subject-application" type="radio" name="subject">
+							<span id="lbl-message-subject-application">Partner Application</span>
+						</div>
+						<div class="radio-button">
+							<input id="message-subject-feedback" type="radio" name="subject">
+							<span id="lbl-message-subject-feedback">Feedback</span>
+						</div>
+						<div class="radio-button">
+							<input id="message-subject-question" type="radio" name="subject">
+							<span id="lbl-message-subject-question">Question</span>
+						</div>
 					</div>
-					<div class="radio-button">
-						<input id="message-subject-feedback" type="radio" name="subject">
-						<span id="lbl-message-subject-feedback">Feedback</span>
-					</div>
-					<div class="radio-button">
-						<input id="message-subject-question" type="radio" name="subject">
-						<span id="lbl-message-subject-question">Question</span>
-					</div>
-				</div>
-				<input id="message-fullname" class="validate" type="text" name="fullname" placeholder="First- and lastname">
-				<input id="message-email" class="validate" type="text" name="email" placeholder="Email">
-				<input id="message-phone" type="text" name="phone" placeholder="Phone">
-				<input id="message-text" type="text" name="message" placeholder="Message">
-				<button id="btn-send-message" type="button">Send</button>
-			</form>
+					<input id="message-fullname" class="validate" type="text" name="fullname" placeholder="First- and lastname">
+					<input id="message-email" class="validate" type="text" name="email" placeholder="Email">
+					<input id="message-phone" type="text" name="phone" placeholder="Phone">
+					<input id="message-text" type="text" name="message" placeholder="Message">
+					<button id="btn-send-message" type="button">Send</button>
+				</form>
+			</div>
 		</div>
 	</div>
 
