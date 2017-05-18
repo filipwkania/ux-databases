@@ -35,11 +35,41 @@
   padding: 0;
   box-sizing: border-box; 
 }
+
+// WINDOWS
+
 .wdw {
 	display: flex;
 	width: 100vw;
 	height: 100vh;
 	margin-top: 75px;
+}
+
+// MODALS
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #F1F1F1;
+	color: #4E4E4E;
+    margin: 15% auto;
+    padding: 20px;
+    width: 45vw;
+    height: 50vh;
+    border-radius: 4px;
 }
 
 .header {
@@ -96,6 +126,41 @@
 	background-color: rgba(0, 0, 0, 0.4);
 	z-index: 98;
 }
+.button {
+	width: 250px;
+	height: 40px;
+	background-color: #ffd92d;
+	border: none;
+	box-shadow: none;
+	border-radius: 4px;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: lighter;
+	text-transform: uppercase;
+	cursor: pointer;
+	&:hover {
+		background-color: #ffe77d;
+	}
+}
+.cancel-button {
+	width: 250px;
+	height: 40px;
+	padding-left: 10px;
+	margin-top: 10px;
+	background-color: #C1C1C1;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: lighter;
+	text-transform: uppercase;
+	border-radius: 4px;
+	border: none;
+	box-shadow: none;
+	cursor: pointer;
+	&:hover {
+		background-color: #d1d1d1;
+	}
+
+}
 .stop-scrolling {
 	overflow: hidden;
 }
@@ -126,7 +191,7 @@ input[type="text"] {
 		#txt-about {
 			width: 45vw;
 			max-width: 600px;
-			padding: 0px 30px 0px 20px;
+			padding: 0px 30px 20px 20px;
 			background-color: rgba(57,57,57, 0.9);
 			color: #ffffff;
 			h2 {
@@ -184,25 +249,9 @@ input[type="text"] {
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
 // CONTACT
-
-#content-container-contact {
-	display: flex;
-	flex-direction: column;
-	width: 100vw;
-	align-items: center;
-	margin-top: 40px;
-	#txt-contact {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		width: 45vw;
-		max-width: 600px;
-		h2 {
-			margin-top: 20px;
-		}
-		p {
-			margin: 20px 0px;
-		}
+#mdl-contact {
+	#success-message-contact {
+		display: none;
 	}
 	#frm-contact {
 		display: flex;
