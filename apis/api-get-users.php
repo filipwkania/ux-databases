@@ -6,7 +6,8 @@
 	$aUsers = $query->fetchAll();
 
 	if($aUsers != false) {
-		echo '{"status":"ok", "data:'.$aUsers.'}';
+		$saUsers = json_encode($aUsers);
+		echo '{"status":"ok", "data":'.$saUsers.'}';
 	} else {
 		echo '{"status":"error", "message":"User not found"}';
 	}

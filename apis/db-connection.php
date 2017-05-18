@@ -2,7 +2,7 @@
 	$host = '127.0.0.1';
 	$db   = 'ux_databases';
 	$user = 'root';
-	$pass = '';
+	$pass = 'root';
 	$charset = 'utf8';
 
 	$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
