@@ -8,9 +8,6 @@
 	$sRole = $_POST['role'];
 	$sPassword = $_POST['password'];
 
-	$iRole = intval($sRole);
-	$iId = intval($sId);
-	
 	//update user values where id matches given id
 	$query = $pdo->prepare("UPDATE `ux_databases`.`user` 
 												SET 
@@ -22,7 +19,7 @@
 												WHERE `id_user` = :id;");
 	//execute query
 	$query->execute(['fullName'=>$sFullName, 'username'=>$sUsername, 'email'=>$sEmail,
-										'role'=>$iRole, 'password'=>$sPassword, 'id'=>$iId]);
+										'role'=>$sRole, 'password'=>$sPassword, 'id'=>$sId]);
 
 	$updated = $query->rowCount();
 

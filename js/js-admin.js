@@ -8,7 +8,11 @@ $(document).on("click", ".user-edit", function(source) {
 
 $(document).on("click", "#btnEditSave", function() {
 	fnSaveUser();
-})
+});
+
+$(document).on("click", ".user-delete", function(source) {
+	fnDeleteUser($(source.target).parent());
+});
 
 function fnLogin() {
 	// get values from fields
@@ -208,4 +212,25 @@ function fnClearEdit(){
 	$('#txtEditEmail').val("");
 	$('#txtEditPassword').val("");
 	$('#selectEditRole').val("");	
+}
+
+function fnDeleteUser(oSource) {
+	let sId = $(oSource).siblings('.user-id').val();
+	let sUrl = '../apis/api-delete-user.php';
+
+	let ajaxRequest = $.ajax({
+		url: sUrl,
+		data: {id:sId},
+		dataType: "JSON",
+		method: "POST"
+	});
+
+	ajaxRequest.done(function(jData) {
+		if(jData.status === "ok") {
+			$(oSource).parent().remove();
+			alert("User removed from database");
+		} else {
+			alert("Failed to remove user from database");
+		}
+	});
 }
