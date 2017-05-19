@@ -22,6 +22,10 @@ $(document).on("change", "#select-location", function(source) {
 	fnPrepareToEditLocation(source.target);
 });
 
+$(document).on("change", "#select-main-partner", function(source) {
+	fnPrepareToEditPartner(source.target);
+});
+
 $(document).on("click", "#btnSavePartner", function() {
 	fnSavePartner();
 });
@@ -366,6 +370,16 @@ function fnPrepareToEditLocation(oSource){
 	$("#txtLocationName").val(oLocation.location_name);
 }
 
+function fnPrepareToEditPartner(oSource) {
+	oPartner = JSON.parse($(oSource).val());
+
+	$("#txtPartnerId").val(oPartner.id_partner);
+	$("#txtPartnerName").val(oPartner.full_name);
+	$("#txtPartnerWebsite").val(oPartner.website);
+	$("#txtPartnerEmail").val(oPartner.email);
+	$("#txtPartnerPhone").val(oPartner.phone);
+}
+
 function fnClearLocationEdit() {
 	$('#container-location-create > input').val('');
 }
@@ -406,7 +420,7 @@ function fnSavePartner() {
 		if(jData.status === "ok") {
 			fnClearPartnerEdit();
 			fnFetchPartners();
-			alert("Partner added to database");
+			alert("Partner saved in database");
 		} else {
 			alert("Error while adding partner to db");
 		}
