@@ -1,4 +1,4 @@
-$(document).on("click", "#btnLogin", function() {
+$(document).on("click", "#btn-login", function() {
 	fnLogin();
 });
 
@@ -6,7 +6,7 @@ $(document).on("click", ".user-edit", function(source) {
 	fnPrepareToEditUser($(source.target).parent());
 });
 
-$(document).on("click", "#btnEditSave", function() {
+$(document).on("click", "#btn-edit-save", function() {
 	fnSaveUser();
 });
 
@@ -14,7 +14,7 @@ $(document).on("click", ".user-delete", function(source) {
 	fnDeleteUser($(source.target).parent());
 });
 
-$(document).on("click", "#btnSaveLocation", function() {
+$(document).on("click", "#btn-save-location", function() {
 	fnSaveLocation();
 });
 
@@ -26,24 +26,24 @@ $(document).on("change", "#select-main-partner", function(source) {
 	fnPrepareToEditPartner(source.target);
 });
 
-$(document).on("click", "#btnSavePartner", function() {
+$(document).on("click", "#btn-save-partner", function() {
 	fnSavePartner();
 });
 
 //PSEUDO MENU
-$(document).on("click", "#btnMenuEvents", function() {
+$(document).on("click", "#btn-menu-events", function() {
 	fnOpenWindow("wdw-events");
 });
 
-$(document).on("click", "#btnMenuAccounts", function() {
+$(document).on("click", "#btn-menu-accounts", function() {
 	fnOpenWindow("wdw-accounts");
 });
 //END OF PSEUDO MENU
 
 function fnLogin() {
 	// get values from fields
-	let sUsername = $('#txtUsername').val();
-	let sPassword = $('#txtPassword').val();
+	let sUsername = $('#txt-username').val();
+	let sPassword = $('#txt-password').val();
 
 	//AJAX for login
 	let sUrl = "../apis/login.php";
@@ -148,25 +148,25 @@ function fnPrepareToEditUser(oSource) {
 	let sUserRole = $(oSource).siblings('.user-userRole').text();
 
 	//put values into edit input elements
-	$('#txtEditId').val(sId);
-	$('#txtEditName').val(sFullName);
-	$('#txtEditUsername').val(sUsername);
-	$('#txtEditEmail').val(sEmail);
-	$('#txtEditPassword').val(sPassword);
-	$('#selectEditRole').val(sUserRole);
+	$('#txt-edit-id').val(sId);
+	$('#txt-edit-name').val(sFullName);
+	$('#txt-edit-username').val(sUsername);
+	$('#txt-edit-email').val(sEmail);
+	$('#txt-edit-password').val(sPassword);
+	$('#select-edit-role').val(sUserRole);
 }
 
 function fnSaveUser() {
 	//get values for updating/creating user
-	let sId = $('#txtEditId').val();
-	let sFullName = $('#txtEditName').val();
-	let sUsername = $('#txtEditUsername').val();
-	let sEmail = $('#txtEditEmail').val();
-	let sPassword = $('#txtEditPassword').val();
-	let iRole = $('#selectEditRole').val();
+	let sId = $('#txt-edit-id').val();
+	let sFullName = $('#txt-edit-name').val();
+	let sUsername = $('#txt-edit-username').val();
+	let sEmail = $('#txt-edit-email').val();
+	let sPassword = $('#txt-edit-password').val();
+	let iRole = $('#select-edit-role').val();
 	//check if we are updating or saving new user
 	//by looking at the id in the hidden field
-	if($('#txtEditId').val() != "") {
+	if($('#txt-edit-id').val() != "") {
 		//update user in database
 		let sUrl = "../apis/api-update-user.php";
 		
@@ -227,12 +227,12 @@ function fnSaveUser() {
 
 function fnUpdateUserInTable() {
 	//get values from input fields
-	let sId = $('#txtEditId').val();
-	let sFullName = $('#txtEditName').val();
-	let sUsername = $('#txtEditUsername').val();
-	let sEmail = $('#txtEditEmail').val();
-	let sPassword = $('#txtEditPassword').val();
-	let iRole = $('#selectEditRole').val();
+	let sId = $('#txt-edit-id').val();
+	let sFullName = $('#txt-edit-name').val();
+	let sUsername = $('#txt-edit-username').val();
+	let sEmail = $('#txt-edit-email').val();
+	let sPassword = $('#txt-edit-password').val();
+	let iRole = $('#select-edit-role').val();
 
 	//get row with the user to update his data
 	let oUserRowId = $('.user-id[value='+sId+']');
@@ -247,12 +247,12 @@ function fnUpdateUserInTable() {
 
 function fnClearEdit(){
 	//clear edit input fields
-	$('#txtEditId').val("");
-	$('#txtEditName').val("");
-	$('#txtEditUsername').val("");
-	$('#txtEditEmail').val("");
-	$('#txtEditPassword').val("");
-	$('#selectEditRole').val("");	
+	$('#txt-edit-id').val("");
+	$('#txt-edit-name').val("");
+	$('#txt-edit-username').val("");
+	$('#txt-edit-email').val("");
+	$('#txt-edit-password').val("");
+	$('#select-edit-role').val("");	
 }
 
 function fnDeleteUser(oSource) {
@@ -281,10 +281,10 @@ function fnDeleteUser(oSource) {
 
 function fnSaveLocation() {
 	//get values from fields
-	let sId = $('#txtLocationId').val();
-	let sName = $('#txtLocationName').val();
-	let sAddress = $('#txtLocationAddress').val();
-	let iSeats = $('#txtLocationSeats').val();
+	let sId = $('#txt-location-id').val();
+	let sName = $('#txt-location-name').val();
+	let sAddress = $('#txt-location-address').val();
+	let iSeats = $('#txt-location-seats').val();
 	let sUrl = '../apis/api-create-location.php';
 	let formData = {};
 
@@ -364,20 +364,20 @@ function fnPopulateLocationSelector(aLocations) {
 function fnPrepareToEditLocation(oSource){
 	oLocation = JSON.parse($(oSource).val());
 
-	$("#txtLocationId").val(oLocation.id_location);
-	$("#txtLocationAddress").val(oLocation.address);
-	$("#txtLocationSeats").val(oLocation.seats);
-	$("#txtLocationName").val(oLocation.location_name);
+	$("#txt-location-id").val(oLocation.id_location);
+	$("#txt-location-address").val(oLocation.address);
+	$("#txt-location-seats").val(oLocation.seats);
+	$("#txt-location-name").val(oLocation.location_name);
 }
 
 function fnPrepareToEditPartner(oSource) {
 	oPartner = JSON.parse($(oSource).val());
 
-	$("#txtPartnerId").val(oPartner.id_partner);
-	$("#txtPartnerName").val(oPartner.full_name);
-	$("#txtPartnerWebsite").val(oPartner.website);
-	$("#txtPartnerEmail").val(oPartner.email);
-	$("#txtPartnerPhone").val(oPartner.phone);
+	$("#txt-partner-id").val(oPartner.id_partner);
+	$("#txt-partner-name").val(oPartner.full_name);
+	$("#txt-partner-website").val(oPartner.website);
+	$("#txt-partner-email").val(oPartner.email);
+	$("#txt-partner-phone").val(oPartner.phone);
 }
 
 function fnClearLocationEdit() {
@@ -389,11 +389,11 @@ function fnClearPartnerEdit() {
 }
 
 function fnSavePartner() {
-	let sId = $("#txtPartnerId").val();
-	let sName = $("#txtPartnerName").val();
-	let sWebsite = $("#txtPartnerWebsite").val();
-	let sEmail = $("#txtPartnerEmail").val();
-	let sPhone = $("#txtPartnerPhone").val();
+	let sId = $("#txt-partner-id").val();
+	let sName = $("#txt-partner-name").val();
+	let sWebsite = $("#txt-partner-website").val();
+	let sEmail = $("#txt-partner-email").val();
+	let sPhone = $("#txt-partner-phone").val();
 	let formData = {};
 
 	formData.id = sId;
