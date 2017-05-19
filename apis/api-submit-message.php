@@ -1,37 +1,38 @@
 <?php
-	$FILENAME = '../messages.txt';
+	require_once('db-connection.php');
+	//$FILENAME = '../messages.txt';
 	$sSubject = $_POST['type'];
 	$sFullname = $_POST['fullname'];
 	$sEmail = $_POST['email'];
 	$sPhone = $_POST['phone'];
 	$sMessage = $_POST['message'];
 
-	// Create an empty array that may contain data after
-	$ajMessages = [];
-	// open the file and get the contents of it
-	$sMessages = file_get_contents($FILENAME);
-	if( $sMessages != null ){
-		// convert the text to an object
-		$ajMessages = json_decode( $sMessages ); // array with json
+	if($sSubject == 'application'){
+		$sSubject = 1;
+	}elseif($sSubject == 'feedback'){
+		$sSubject = 2;
+	}elseif($sSubject == 'question'){
+		$sSubject = 3;
 	}
-	// Create a string that looks like JSON
-	$sMessage = '{}';
-	// create a JSON object for the property 
-	$jMessage = json_decode($sMessage);
-	$jMessage->subject = $sSubject;
-	$jMessage->fullname = $sFullname;
-	$jMessage->email = $sEmail;
-	$jMessage->phone = $sPhone;
-	$sMessage->message = $sMessage;
 
-	// push the json object to the array
-	array_push($ajMessages, $jMessage);
+	//create message in db
+	$query = $pdo->prepare("INSERT INTO `ux_databases`.`message`
+													(`id_message`,`text`,`name`,`phone`,`email`,
+													`subject`,`is_answered`)
+													VALUES
+													(:id,:text,:fullname,:phone,:email,
+													:subject,:is_answered);");
+	//execute query
+	$query->execute(['id'=>null,'text'=>$sMessage, 'fullname'=>$sFullname, 'phone'=>$sPhone,
+									 'email'=>$sEmail,'subject'=>$sSubject, 'is_answered'=>0]);
 
-	// NOW THE OPPOSITE
-	// convert the array to text and make it look nice
-	$sajMessages = json_encode($ajMessages , JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+	//check how many rows were created
+	$created = $query->rowCount();
 
-	// save the text back to the file 
-	file_put_contents($FILENAME, $sajMessages);
-	echo '{"status":"ok", "message":"Message submitted"}';
+	if($created != null) {
+		echo '{"status":"ok"}';
+	} else {
+		echo '{"status":"error"}';
+	}
+
 ?>
