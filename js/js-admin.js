@@ -3,7 +3,7 @@ $(document).on("click", "#btnLogin", function() {
 });
 
 $(document).on("click", ".user-edit", function(source) {
-	fnPrepareToEdit($(source.target).parent());
+	fnPrepareToEditUser($(source.target).parent());
 });
 
 $(document).on("click", "#btnEditSave", function() {
@@ -16,6 +16,10 @@ $(document).on("click", ".user-delete", function(source) {
 
 $(document).on("click", "#btnSaveLocation", function() {
 	fnSaveLocation();
+});
+
+$(document).on("change", "#select-location", function(source) {
+	fnPrepareToEditLocation(source.target);
 });
 
 //PSEUDO MENU
@@ -63,6 +67,17 @@ function fnLogin() {
 function fnOpenWindow(sWindow) {
 	$('.wdw').hide();
 	$('#'+sWindow).css("display","flex");
+
+	switch(sWindow) {
+		case "wdw-events":
+			fnFetchLocations();
+			break;
+		case "wdw-accounts":
+			fnLoadUsers();
+			break;
+		default: 
+			break;
+	}
 }
 
 function fnLoadUsers() {
@@ -114,7 +129,7 @@ function fnPopulateUserTable(aUsers) {
 	}
 }
 
-function fnPrepareToEdit(oSource) {
+function fnPrepareToEditUser(oSource) {
 	//get values from clicked user
 	let sId = $(oSource).siblings('.user-id').val();
 	let sFullName = $(oSource).siblings('.user-fullName').text();
@@ -281,12 +296,71 @@ function fnSaveLocation() {
 		dataType: "JSON",
 		method: "POST"
 	});
-
+	// DEBUGGING CODE FOR AJAX REQUEST
+	// ajaxRequest.error(function(xhr, status, error) {
+	// 	console.log(xhr.responseText);	
+	// });
+	// END OF DEBUGGING
 	ajaxRequest.done(function(jData) {
 		if(jData.status === "ok") {
+			fnFetchLocations();
+			fnClearLocationEdit();
 			alert('Location saved in database!');
 		} else {
 			alert('Error while saving location to database');
 		}
 	});
+}
+
+function fnFetchLocations() {
+	let sUrl = '../apis/api-get-locations.php';
+
+	let ajaxRequest = $.ajax({
+		url: sUrl,
+		dataType: "JSON"
+	});
+
+	ajaxRequest.done(function(jData) {
+		if(jData.status === "ok") {
+			fnPopulateLocationSelector(jData.data);
+		} else {
+			console.log("Could not load locations from db");
+		}
+	});
+}
+
+function fnPopulateLocationSelector(aLocations) {
+	//clear location selector
+	$('#select-location').empty();
+	$('#select-location').append("<option>No location</option>");
+
+	//blueprint for location option
+	let blueprint = "<option value='{{optionValue}}'>{{locationName}}</option>";
+	
+	//populatin location selector with options
+	for(let i = 0; i < aLocations.length; i++) {
+		//working copy of blueprint
+		let temp = blueprint;
+
+		//put json string with location data in the option value
+		temp = temp.replace("{{optionValue}}", JSON.stringify(aLocations[i]));
+		//set location name
+		temp = temp.replace("{{locationName}}", aLocations[i].location_name);
+
+		//append location to selector
+		$('#select-location').append(temp);
+	}
+}
+
+function fnPrepareToEditLocation(oSource){
+	oLocation = JSON.parse($(oSource).val());
+
+	$("#txtLocationId").val(oLocation.id_location);
+	$("#txtLocationAddress").val(oLocation.address);
+	$("#txtLocationSeats").val(oLocation.seats);
+	$("#txtLocationName").val(oLocation.location_name);
+}
+
+function fnClearLocationEdit() {
+	$('#container-location-create > input').val('');
 }

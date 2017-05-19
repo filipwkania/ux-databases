@@ -60,7 +60,7 @@
 <!-- ************************************************** -->
 <div id="wdw-events" class="wdw">
 	<div id="container-event-location">
-	<h2>Event location</h2>
+		<h2>Event location</h2>
 		<div id="container-location-list">
 			<select id="select-location">
 				<option>No locations yet</option>
@@ -72,6 +72,25 @@
 			<input id="txtLocationAddress" placeholder="address">
 			<input id="txtLocationSeats" placeholder="seats">
 			<button id="btnSaveLocation">Save</button>
+		</div>
+	</div>
+	<div id="container-event-partners">
+		<h2>Event partners</h2>
+		<div id="container-main-partner">
+			<select id="select-main-partner">
+				<option>No main partner</option>
+			</select>
+		</div>
+		<div id="container-extra-partners">
+			<input type="checkbox" checked> No extra partners</input>	
+		</div>
+		<div id="container-edit-partner">
+			<input type="hidden" id="txtPartnerId">
+			<input id="txtPartnerName" placeholder="name"></input>
+			<input id="txtPartnerWebsite" placeholder="website"></input>
+			<input id="txtPartnerEmail" placeholder="email"></input>
+			<input id="txtPartnerPhone" placeholder="phone"></input>
+			<button id="btnSavePartner">Save</button>
 		</div>
 	</div>
 </div>
