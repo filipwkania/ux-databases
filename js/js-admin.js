@@ -14,6 +14,20 @@ $(document).on("click", ".user-delete", function(source) {
 	fnDeleteUser($(source.target).parent());
 });
 
+$(document).on("click", "#btnSaveLocation", function() {
+	fnSaveLocation();
+});
+
+//PSEUDO MENU
+$(document).on("click", "#btnMenuEvents", function() {
+	fnOpenWindow("wdw-events");
+});
+
+$(document).on("click", "#btnMenuAccounts", function() {
+	fnOpenWindow("wdw-accounts");
+});
+//END OF PSEUDO MENU
+
 function fnLogin() {
 	// get values from fields
 	let sUsername = $('#txtUsername').val();
@@ -176,6 +190,7 @@ function fnSaveUser() {
 
 		ajaxRequest.done(function(jData) {
 			if(jData.status === "ok") {
+				//if status is ok, reload users and clear edit fields
 				fnLoadUsers();
 				fnClearEdit();
 				alert("User added to database!");
@@ -187,6 +202,7 @@ function fnSaveUser() {
 }
 
 function fnUpdateUserInTable() {
+	//get values from input fields
 	let sId = $('#txtEditId').val();
 	let sFullName = $('#txtEditName').val();
 	let sUsername = $('#txtEditUsername').val();
@@ -206,6 +222,7 @@ function fnUpdateUserInTable() {
 }
 
 function fnClearEdit(){
+	//clear edit input fields
 	$('#txtEditId').val("");
 	$('#txtEditName').val("");
 	$('#txtEditUsername').val("");
@@ -215,7 +232,9 @@ function fnClearEdit(){
 }
 
 function fnDeleteUser(oSource) {
+	//get id of the user we want to delete
 	let sId = $(oSource).siblings('.user-id').val();
+
 	let sUrl = '../apis/api-delete-user.php';
 
 	let ajaxRequest = $.ajax({
@@ -227,10 +246,47 @@ function fnDeleteUser(oSource) {
 
 	ajaxRequest.done(function(jData) {
 		if(jData.status === "ok") {
+			//remove deleted user from the table
 			$(oSource).parent().remove();
 			alert("User removed from database");
 		} else {
 			alert("Failed to remove user from database");
+		}
+	});
+}
+
+function fnSaveLocation() {
+	//get values from fields
+	let sId = $('#txtLocationId').val();
+	let sName = $('#txtLocationName').val();
+	let sAddress = $('#txtLocationAddress').val();
+	let iSeats = $('#txtLocationSeats').val();
+	let sUrl = '../apis/api-create-location.php';
+	let formData = {};
+
+	formData.id = sId;
+	formData.name = sName;
+	formData.address = sAddress;
+	formData.seats = iSeats;
+
+	//if id is not empty, we are updating existing location
+	if(sId != "") {
+		//set url to update location
+		sUrl = '../apis/api-update-location.php';
+	}
+
+	let ajaxRequest = $.ajax({
+		data: formData,
+		url: sUrl,
+		dataType: "JSON",
+		method: "POST"
+	});
+
+	ajaxRequest.done(function(jData) {
+		if(jData.status === "ok") {
+			alert('Location saved in database!');
+		} else {
+			alert('Error while saving location to database');
 		}
 	});
 }

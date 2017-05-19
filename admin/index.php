@@ -6,6 +6,10 @@
 	<script src="https://use.fontawesome.com/fa11f26e3b.js"></script>
 </head>
 <body>
+<div id="menu-admin">
+	<button id="btnMenuEvents">Events</button>
+	<button id="btnMenuAccounts">Accounts</button>
+</div>
 <!-- **************************************************************************************************** -->
 <!-- ************************************************** -->
 <div id="wdw-login" class="wdw">
@@ -55,12 +59,28 @@
 <!-- **************************************************************************************************** -->
 <!-- ************************************************** -->
 <div id="wdw-events" class="wdw">
-	events page
+	<div id="container-event-location">
+	<h2>Event location</h2>
+		<div id="container-location-list">
+			<select id="select-location">
+				<option>No locations yet</option>
+			</select>
+		</div>
+		<div id="container-location-create">
+			<input type="hidden" id="txtLocationId">
+			<input id="txtLocationName" placeholder="name">
+			<input id="txtLocationAddress" placeholder="address">
+			<input id="txtLocationSeats" placeholder="seats">
+			<button id="btnSaveLocation">Save</button>
+		</div>
+	</div>
 </div>
 <!-- ************************************************** -->
 <!-- **************************************************************************************************** -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../js/js-admin.js"></script>
-
+<script>
+	fnOpenWindow('wdw-events');
+</script>
 </body>
 </html>
