@@ -24,7 +24,7 @@
 													:subject,:is_answered);");
 	//execute query
 	$query->execute(['id'=>null,'text'=>$sMessage, 'fullname'=>$sFullname, 'phone'=>$sPhone,
-									 'email'=>$sEmail,'subject'=>$sSubject, 'is_answered'=>0]);
+									 'email'=>$sEmail,'subject'=>$sSubject, 'is_answered'=>false]);
 
 	//check how many rows were created
 	$created = $query->rowCount();

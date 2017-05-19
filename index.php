@@ -27,6 +27,24 @@
 			<span class="menu-icon fa fa-bars"></span>
 			<span class="logo fa fa-tag"></span>
 		</div>
+		<div id="header-image-index"></div>
+		<div id="event-container">
+			<div class="card-event">
+				<a class="card-event-image-link">
+					<div class="card-event-image">
+						<div class="card-event-image-overlay">
+							<h2 class="card-event-title">New Event</h2>
+							<span class="card-event-catch-phrase">This is a new event</span>
+						</div>
+					</div>
+				</a>
+				<div class="event-card-details">
+					<span class="event-card-time">19.05.2017, 17:00</span>
+					<span class="event-card-location">IT University of Copenhagen</span>
+					<div class="event-card-brief-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est.</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 <!-- ******************************************************************************************************* -->
@@ -38,6 +56,7 @@
 			<span class="menu-icon fa fa-bars"></span>
 			<span class="logo fa fa-tag"></span>
 		</div>
+		
 	</div>
 
 <!-- ******************************************************************************************************* -->

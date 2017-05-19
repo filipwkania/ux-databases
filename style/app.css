@@ -126,8 +126,50 @@ input[type="text"] {
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
+#wdw-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  #wdw-index #header-image-index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 375px;
+    margin-left: 0px;
+    background-image: url("../images/header-image-index.jpg"); }
+  #wdw-index #event-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 90vw;
+    margin-top: 40px; }
+    #wdw-index #event-container .card-event {
+      width: 25vw;
+      heigth: 35vw; }
+      #wdw-index #event-container .card-event .card-event-image {
+        width: 100%;
+        heigth: auto;
+        cursor: pointer; }
+      #wdw-index #event-container .card-event .card-event-image-overlay {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 10px;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: white; }
+        #wdw-index #event-container .card-event .card-event-image-overlay:hover {
+          background-color: rgba(0, 0, 0, 0.2); }
+      #wdw-index #event-container .card-event .event-card-details {
+        display: flex;
+        flex-direction: column; }
+
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
 #wdw-about {
   display: flex;
+  display: none;
   flex-direction: column; }
   #wdw-about #header-image-about {
     display: flex;

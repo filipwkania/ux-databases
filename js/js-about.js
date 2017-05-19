@@ -24,7 +24,7 @@ function fnDisplaySpeakers(){
 				var sSpeakerOccupation = ajSpeakers[i].occupation;
 				var sSpeakerDescription = ajSpeakers[i].description;
 				var sSpeakerImagePath = ajSpeakers[i].picture;
-				// copy blueprint
+				// copy the blueprint
 				var sTempSpeaker = sSpeakerBluePrint;
 		      	// replace the placeholders
 		      	sTempSpeaker = sTempSpeaker.replace("{{id}}", sSpeakerId);
@@ -66,7 +66,6 @@ $('#btn-send-message').click(function(){
 	// add message type to form data
 	formData = formData + '&type=' + sMessageType;
 
-	console.log(formData);
 	// post data to api
     $.ajax(
       {
