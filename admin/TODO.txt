@@ -1,0 +1,8 @@
+TODO
+
+- load event categories from db
+- load user roles from db
+- load event levels from db
+- add date/time picker for event start/end
+- finish event create
+- add update/load/delete event

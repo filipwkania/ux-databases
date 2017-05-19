@@ -70,10 +70,10 @@
 			<div id="container-event-create">
 				<input id="txt-event-name"></input>
 				<input id="txt-event-description"></input>
-				<input id="txt-event-dgenda"></input>
-				<input id="txt-event-dtart"></input>
-				<input id="txt-event-dnd"></input>
-				<input id="check-event-dustenance" type="checkbox">Sustenance</input>
+				<input id="txt-event-agenda"></input>
+				<input id="txt-event-start"></input>
+				<input id="txt-event-end"></input>
+				<input id="check-event-sustenance" type="checkbox">Sustenance</input>
 				<select id="select-event-level">
 					<option value="1">For all</option>
 					<option value="2">Intermediate</option>
@@ -86,6 +86,7 @@
 					<option value="2">Business/Administration</option>
 					<option value="3">General</option>
 				</select>
+				<input id="txt-event-price">0</input>
 			</div>
 		</div>
 	</div>
