@@ -22,6 +22,10 @@ $(document).on("change", "#select-location", function(source) {
 	fnPrepareToEditLocation(source.target);
 });
 
+$(document).on("click", "#btnSavePartner", function() {
+	fnSavePartner();
+});
+
 //PSEUDO MENU
 $(document).on("click", "#btnMenuEvents", function() {
 	fnOpenWindow("wdw-events");
@@ -71,6 +75,7 @@ function fnOpenWindow(sWindow) {
 	switch(sWindow) {
 		case "wdw-events":
 			fnFetchLocations();
+			fnFetchPartners();
 			break;
 		case "wdw-accounts":
 			fnLoadUsers();
@@ -363,4 +368,87 @@ function fnPrepareToEditLocation(oSource){
 
 function fnClearLocationEdit() {
 	$('#container-location-create > input').val('');
+}
+
+function fnClearPartnerEdit() {
+	$('#container-partner-create > input').val('');
+}
+
+function fnSavePartner() {
+	let sId = $("#txtPartnerId").val();
+	let sName = $("#txtPartnerName").val();
+	let sWebsite = $("#txtPartnerWebsite").val();
+	let sEmail = $("#txtPartnerEmail").val();
+	let sPhone = $("#txtPartnerPhone").val();
+	let formData = {};
+
+	formData.id = sId;
+	formData.name = sName;
+	formData.website = sWebsite;
+	formData.email = sEmail;
+	formData.phone = sPhone;
+
+	let sUrl = "../apis/api-create-partner.php";
+
+	//If id is not empty it means we are updating, not creating
+	if(sId != "") {
+		sUrl = "../apis/api-update-partner.php";
+	}
+
+	let ajaxRequest = $.ajax({
+		url: sUrl,
+		data: formData,
+		dataType: "JSON",
+		method: "POST"
+	});
+
+	ajaxRequest.done(function(jData) {
+		if(jData.status === "ok") {
+			fnClearPartnerEdit();
+			fnFetchPartners();
+			alert("Partner added to database");
+		} else {
+			alert("Error while adding partner to db");
+		}
+	});
+}
+
+function fnFetchPartners() {
+	let sUrl = '../apis/api-get-partners.php';
+
+	let ajaxRequest = $.ajax({
+		url: sUrl,
+		dataType: "JSON"
+	});
+
+	ajaxRequest.done(function(jData) {
+		if(jData.status === "ok") {
+			fnPopulateMainPartnerSelector(jData.data);
+		} else {
+			console.log("Could not load partners from db");
+		}
+	});
+}
+
+function fnPopulateMainPartnerSelector(aPartners) {
+	//clear main-partner selector
+	$('#select-main-partner').empty();
+	$('#select-main-partner').append("<option>No main-partner</option>");
+
+	//blueprint for main-partner option
+	let blueprint = "<option value='{{optionValue}}'>{{mainPartnerName}}</option>";
+	
+	//populatin main-partner selector with options
+	for(let i = 0; i < aPartners.length; i++) {
+		//working copy of blueprint
+		let temp = blueprint;
+
+		//put json string with main-partner data in the option value
+		temp = temp.replace("{{optionValue}}", JSON.stringify(aPartners[i]));
+		//set main-partner name
+		temp = temp.replace("{{mainPartnerName}}", aPartners[i].full_name);
+
+		//append main-partner to selector
+		$('#select-main-partner').append(temp);
+	}
 }

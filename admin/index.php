@@ -84,7 +84,7 @@
 		<div id="container-extra-partners">
 			<input type="checkbox" checked> No extra partners</input>	
 		</div>
-		<div id="container-edit-partner">
+		<div id="container-partner-create">
 			<input type="hidden" id="txtPartnerId">
 			<input id="txtPartnerName" placeholder="name"></input>
 			<input id="txtPartnerWebsite" placeholder="website"></input>
