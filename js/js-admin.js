@@ -78,11 +78,11 @@ function fnOpenWindow(sWindow) {
 
 	switch(sWindow) {
 		case "wdw-events":
-			fnFetchLocations();
-			fnFetchPartners();
+			fnPopulateEventPage();
 			break;
 		case "wdw-accounts":
 			fnLoadUsers();
+			fnPopulateSelector('roles', 'edit-role', 'id_user_role', 'role_name');
 			break;
 		default: 
 			break;
@@ -465,4 +465,43 @@ function fnPopulateMainPartnerSelector(aPartners) {
 		//append main-partner to selector
 		$('#select-main-partner').append(temp);
 	}
+}
+
+function fnPopulateSelector(sItems, sSelector, sValue, sName) {
+	let sUrl = '../apis/api-get-'+sItems+'.php';
+
+	let ajaxRequest = $.ajax({
+		url: sUrl,
+		dataType: "JSON",
+	});
+
+	ajaxRequest.done(function(jData) {
+		//if we have some items in db, load them into selector
+		if(jData.status === "ok") {
+			let aItems = jData.data;
+			let blueprint = "<option value='{{optionValue}}'>{{itemName}}</option>";
+			$('#select-'+sSelector).empty();
+			
+			for(let i = 0; i < aItems.length; i++) {
+				let temp = blueprint;
+				//sValue and sName refer to columns names in db
+				temp = temp.replace('{{optionValue}}', aItems[i][sValue] );
+				temp = temp.replace('{{itemName}}', aItems[i][sName]);
+
+				$('#select-'+sSelector).append(temp);
+			}
+		}
+	});
+		// DEBUGGING CODE FOR AJAX REQUEST
+	// ajaxRequest.error(function(xhr, status, error) {
+	// 	console.log(xhr.responseText);	
+	// });
+	// END OF DEBUGGING
+}
+
+function fnPopulateEventPage() {
+	fnFetchLocations();
+	fnFetchPartners();
+	fnPopulateSelector('categories', 'event-category', 'id_event_category', 'category_name');
+	fnPopulateSelector('levels', 'event-level', 'id_event_level', 'level_name');
 }

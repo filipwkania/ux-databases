@@ -32,8 +32,8 @@
 		<input id="txt-edit-name" placeholder="name"></input>
 		<input id="txt-edit-email" placeholder="email"></input>
 		<select id="select-edit-role">
-			<option value="1">Admin</option>
-			<option value="3">Member</option>
+<!-- 			<option value="1">Admin</option>
+			<option value="3">Member</option> -->
 		</select>
 		<button id="btn-edit-save">Save</button>
 	</div>
@@ -75,16 +75,16 @@
 				<input id="txt-event-end"></input>
 				<input id="check-event-sustenance" type="checkbox">Sustenance</input>
 				<select id="select-event-level">
-					<option value="1">For all</option>
+<!-- 					<option value="1">For all</option>
 					<option value="2">Intermediate</option>
-					<option value="3">Advanced</option>
+					<option value="3">Advanced</option> -->
 				</select>
 				<input id="txt-catch-phrase"></input>
 				<input id="txt-brief-description"></input>
 				<select id="select-event-category">
-					<option value="1">Tech talk</option>
+<!-- 					<option value="1">Tech talk</option>
 					<option value="2">Business/Administration</option>
-					<option value="3">General</option>
+					<option value="3">General</option> -->
 				</select>
 				<input id="txt-event-price">0</input>
 			</div>
