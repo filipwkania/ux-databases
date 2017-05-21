@@ -65,17 +65,6 @@ function fnDisplayEvents(){
   var sUrl = 'apis/api-get-events.php';
   $.getJSON(sUrl, function(jData){
     //console.log(jData);
-    // fake data - speakers
-    var ajSpeakers = jData.speakers;
-    for(i = 0; i < ajSpeakers.length; i++){
-      var oSpeaker = ajSpeakers[i];
-      var iSpeakerId = ajSpeakers[i].id;
-      sessionStorage.setItem(iSpeakerId, JSON.stringify(oSpeaker));
-    }
-
-
-
-
     var ajEvents = jData.data;
     for(i = 0; i < ajEvents.length; i++){
       var sEventId = ajEvents[i].id_event;
@@ -108,6 +97,24 @@ function fnDisplayEvents(){
     // append blueprint to event list
     $('#event-container').append(sTempEvent);
     $('.card-event-image').css("background-image", 'url("./images/'+sEventImagePath+'")');
+    }
+    fnLoadSpeakers();
+  })
+}
+
+// load speakers
+function fnLoadSpeakers(){
+  // AJAX with the server
+  var sUrl = 'apis/api-get-speakers.php';
+  $.getJSON(sUrl, function(jData){
+    if(jData.status == 'ok'){
+      var ajSpeakers = jData.data;
+      for(i = 0; i < ajSpeakers.length; i++){
+        var jSpeaker = ajSpeakers[i];
+        sessionStorage.setItem('speaker-'+jSpeaker.id_speaker, JSON.stringify(jSpeaker));
+      }
+    }else{
+      console.log('Error - Speakers not found');
     }
   })
 }

@@ -27,7 +27,7 @@ $(document).on('click', '.card-event-image', function(){
 
   $('#map-caption').text(oEvent.location);
 
-  // speakers - FAKE DATA !!!!
+  var ajSpeakers = [];
   var sSpeakerBluePrint = '<div class="card-speaker">\
                           <div class="card-speaker-header">\
                             <div class="card-speaker-header-background"></div>\
@@ -39,17 +39,20 @@ $(document).on('click', '.card-event-image', function(){
                             <div id="speaker-card-description">{{description}}</div>\
                           </div>\
                         </div>'
-  var ajSpeakers = [];
-  var soSpeaker = sessionStorage.getItem('00001');
-  ajSpeakers.push(JSON.parse(soSpeaker));
-  soSpeaker = sessionStorage.getItem('00002');
-  ajSpeakers.push(JSON.parse(soSpeaker));
-  soSpeaker = sessionStorage.getItem('00003');
-  ajSpeakers.push(JSON.parse(soSpeaker));
+  // AJAX WITH THE SERVER
+  var sUrl = 'apis/api-get-event-speakers.php?id='+iEventId;
+
+  $.getJSON(sUrl, function(jData){
+    var ajSpeakerIds = jData.data;
+    for(i = 0; i < ajSpeakerIds.length; i++){
+      var iSpeakerId = ajSpeakerIds[i].id_speaker;
+      var sSpeaker = sessionStorage.getItem('speaker-'+iSpeakerId);
+      ajSpeakers.push(JSON.parse(sSpeaker));
+    }
 
   for(i = 0; i < ajSpeakers.length; i++){
-    var sSpeakerImage = ajSpeakers[i].image;
-    var sSpeakerName = ajSpeakers[i].fullname;
+    var sSpeakerImage = ajSpeakers[i].picture;
+    var sSpeakerName = ajSpeakers[i].full_name;
     var sSpeakerOccupation = ajSpeakers[i].occupation;
     var sSpeakerDescription = ajSpeakers[i].description;
 
@@ -61,6 +64,5 @@ $(document).on('click', '.card-event-image', function(){
 
     $('#event-contributors-container').append(sTempSpeaker);
   }
-  
-  console.log(oEvent);
+  })
 })
