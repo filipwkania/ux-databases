@@ -30,6 +30,10 @@ $(document).on("click", "#btn-save-partner", function() {
 	fnSavePartner();
 });
 
+$(document).on("click", "#btn-save-event", function() {
+	fnSaveEvent();
+});
+
 //PSEUDO MENU
 $(document).on("click", "#btn-menu-events", function() {
 	fnOpenWindow("wdw-events");
@@ -492,11 +496,6 @@ function fnPopulateSelector(sItems, sSelector, sValue, sName) {
 			}
 		}
 	});
-		// DEBUGGING CODE FOR AJAX REQUEST
-	// ajaxRequest.error(function(xhr, status, error) {
-	// 	console.log(xhr.responseText);	
-	// });
-	// END OF DEBUGGING
 }
 
 function fnPopulateEventPage() {
@@ -504,4 +503,72 @@ function fnPopulateEventPage() {
 	fnFetchPartners();
 	fnPopulateSelector('categories', 'event-category', 'id_event_category', 'category_name');
 	fnPopulateSelector('levels', 'event-level', 'id_event_level', 'level_name');
+}
+
+function fnSaveEvent() {
+	let sUrl = '../apis/api-create-event.php';
+	let sCategory = $('#select-event-category').val();
+	let sLevel = $('#select-event-level').val();
+
+	//if sustenance is checked, put 1
+	// otherwise put 0
+	let iSustenance = $('#check-event-sustenance').is(':checked') ? 1 : 0;
+
+	if($('#select-location').val() === "") {
+		alert('Select location or create a new one');
+	} else if (sCategory === "") {
+		alert('Select event category');
+	} else if (sLevel === "") {
+		alert('Select event level');
+	} else {
+		//get ids from selectors
+		let sLocation = JSON.parse($('#select-location').val()).id_location;
+		let sMainPartner = 0;
+		//if main partner is selected change 0 to his id
+		if($('select-main-partner').val() != "") {
+			sMainPartner = JSON.parse($('#select-main-partner').val()).id_partner;
+		}
+		let formData = {};
+
+		formData.name = $('#txt-event-name').val();
+		formData.description = $('#txt-event-description').val();
+		formData.agenda = $('#txt-event-agenda').val();
+		formData.start = $('#txt-event-start').val();
+		formData.end = $('#txt-event-end').val();
+		formData.catchPhrase = $('#txt-event-catch-phrase').val();
+		formData.briefDescription = $('#txt-event-brief-description').val();
+		formData.price = $('#txt-event-price').val();
+		formData.sustenance = iSustenance;
+		formData.level = sLevel;
+		formData.category = sCategory;
+		formData.location = sLocation;
+		formData.mainPartner = sMainPartner;
+
+		console.log(formData);
+		
+		let ajaxRequest = $.ajax({
+			url: sUrl,
+			data: formData,
+			dataType: "JSON",
+			method: "POST"
+		});
+
+		ajaxRequest.done(function(jData) {
+			if(jData.status === "ok") {
+				fnFetchEvents();
+				alert('Event saved in database');
+			} else {
+				alert('Error while saving event in database');
+			}
+		});
+	// DEBUGGING CODE FOR AJAX REQUEST
+	// ajaxRequest.error(function(xhr, status, error) {
+	// 	console.log(xhr.responseText);	
+	// });
+	// END OF DEBUGGING
+	}
+}
+
+function fnFetchEvents() {
+
 }

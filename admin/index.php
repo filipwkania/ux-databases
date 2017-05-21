@@ -68,25 +68,26 @@
 				<option>No events to edit</option>
 			</select>
 			<div id="container-event-create">
-				<input id="txt-event-name"></input>
-				<input id="txt-event-description"></input>
-				<input id="txt-event-agenda"></input>
-				<input id="txt-event-start"></input>
-				<input id="txt-event-end"></input>
+				<input id="txt-event-name" placeholder="name"></input>
+				<input id="txt-event-description" placeholder="description"></input>
+				<input id="txt-event-agenda" placeholder="agenda"></input>
+				<input id="txt-event-start" placeholder="start" value="1970-01-01 00:00:01"></input>
+				<input id="txt-event-end" placeholder="end" value="1970-01-01 00:00:01"></input>
 				<input id="check-event-sustenance" type="checkbox">Sustenance</input>
 				<select id="select-event-level">
-<!-- 					<option value="1">For all</option>
+<!-- 			<option value="1">For all</option>
 					<option value="2">Intermediate</option>
 					<option value="3">Advanced</option> -->
 				</select>
-				<input id="txt-catch-phrase"></input>
-				<input id="txt-brief-description"></input>
+				<input id="txt-event-catch-phrase" placeholder="catch phrase"></input>
+				<input id="txt-event-brief-description" placeholder="description"></input>
 				<select id="select-event-category">
-<!-- 					<option value="1">Tech talk</option>
+<!-- 			<option value="1">Tech talk</option>
 					<option value="2">Business/Administration</option>
 					<option value="3">General</option> -->
 				</select>
-				<input id="txt-event-price">0</input>
+				<input id="txt-event-price" placeholder="price"></input>
+				<button id="btn-save-event">Save</button>
 			</div>
 		</div>
 	</div>
