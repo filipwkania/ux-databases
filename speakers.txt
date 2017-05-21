@@ -1,30 +1,30 @@
 [{
 	"id":"00001",
-	"fullname":"Speaker 1",
+	"fullname":"Jane Doe",
 	"occupation": "Job Title, Company",
 	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
-	"image":"images/portrait.jpg"
+	"image":"portrait.jpg"
 },
 {
 	"id":"00002",
-	"fullname":"Speaker 2",
+	"fullname":"John Doe",
 	"occupation": "Job Title, Company",
 	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
-	"image":"images/portrait.jpg"
+	"image":"portrait2.jpg"
 },
 {
 	"id":"00003",
-	"fullname":"Speaker 3",
+	"fullname":"John Doe",
 	"occupation": "Job Title, Company",
 	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
-	"image":"images/portrait.jpg"
+	"image":"portrait3.jpg"
 },
 {
 	"id":"00004",
-	"fullname":"Speaker 4",
+	"fullname":"Jane Doe",
 	"occupation": "Job Title, Company",
 	"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est, in maximus nunc consectetur ut.",
-	"image":"images/portrait.jpg"
+	"image":"portrait4.jpg"
 },
 {
 	"id":"00005",

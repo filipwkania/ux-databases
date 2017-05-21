@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 	<title>Very Unique And Catchy Company Name</title>
@@ -29,19 +29,20 @@
 		</div>
 		<div id="header-image-index"></div>
 		<div id="event-container">
-			<div class="card-event">
-				<a class="card-event-image-link">
-					<div class="card-event-image">
-						<div class="card-event-image-overlay">
-							<h2 class="card-event-title">New Event</h2>
-							<span class="card-event-catch-phrase">This is a new event</span>
-						</div>
-					</div>
-				</a>
-				<div class="event-card-details">
-					<span class="event-card-time">19.05.2017, 17:00</span>
-					<span class="event-card-location">IT University of Copenhagen</span>
-					<div class="event-card-brief-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan tortor, et pretium tortor. Sed et porttitor nulla. Curabitur vulputate nibh est.</div>
+			<div id="event-filters">
+				<span id="filter-level-toggle" class="filter-button" data-filter="level">Level</span>
+				<div id="filter-level-dropdown" class="filter-dropdown-content">
+					<span class="filter-level" data-level-selector="1">For All</span>
+					<span class="filter-level" data-level-selector="2">Intermediate</span>
+					<span class="filter-level" data-level-selector="3">Advanced</span>
+					<span id="filter-level-reset">All Levels</span>
+				</div>
+				<span id="filter-category-toggle" class="filter-button" data-filter="category">Category</span>
+				<div id="filter-category-dropdown" class="filter-dropdown-content">
+					<span class="filter-category" data-category-selector="1">Business/Administration</span>
+					<span class="filter-category" data-category="2">General</span>
+					<span class="filter-category" data-category-selector="3">Tech Talk</span>
+					<span id="filter-category-reset">All Categories</span>
 				</div>
 			</div>
 		</div>
@@ -56,7 +57,38 @@
 			<span class="menu-icon fa fa-bars"></span>
 			<span class="logo fa fa-tag"></span>
 		</div>
-		
+		<div id="header-image-event">
+			<div id="txt-event">
+				<h2 id="wdw-event-title"></h2>
+	            <span id="wdw-event-catch-phrase"></span>
+	            <div id="container-event-header-info">
+	            	<div id="wdw-event-time">
+	            		<span id="wdw-event-time-start"></span>
+	            		<span id="wdw-event-time-end"></span>
+	            	</div>
+	            	<span id="wdw-event-location"></span>
+	            	<span id="wdw-event-category"></span>
+	            	<span id="wdw-event-level"></span>
+	            </div>
+            </div>
+		</div>
+		<div id="wdw-event-content-container">
+			<div id="separator-details" class="separator">Details</div>
+			<div id="event-details-container">
+				<div id="event-description">
+					<div id="event-description-text"></div>
+					<button id="btn-reserve-seat" class="button">Reserve</button>
+				</div>
+				<div id="event-location">
+					<div id="map"></div>
+					<span id="map-caption"></span>
+				</div>
+			</div>
+			<div id="separator-contributors" class="separator">Contributors</div>
+
+			<div id="event-contributors-container">
+			</div>
+		</div>
 	</div>
 
 <!-- ******************************************************************************************************* -->
