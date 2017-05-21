@@ -120,21 +120,22 @@ $('.filter-button').click(function(){
 })
 
 $('.filter-level').click(function(){
+  $('.card-event').removeClass('filter-level-hide');
   var sLevel = $(this).attr('data-level-selector');
-  $('.card-event').css("display", "flex");
-  $('.card-event[data-level!='+sLevel+']').css("display", "none");
+  $('.card-event[data-level!='+sLevel+']').addClass('filter-level-hide');
 })
 
 $('#filter-level-reset').click(function(){
-  $('.card-event').css("display", "flex");
+  $('.card-event').removeClass('filter-level-hide');
 })
 
-$('.filter-level').click(function(){
-  var sLevel = $(this).attr('data-level-selector');
-  $('.card-event').css("display", "flex");
-  $('.card-event[data-level!='+sLevel+']').css("display", "none");
+$('.filter-category').click(function(){
+  $('.card-event').removeClass('filter-category-hide');
+  var sCategory = $(this).attr('data-category-selector');
+  console.log(sCategory);
+  $('.card-event[data-category!='+sCategory+']').addClass('filter-category-hide');
 })
 
-$('#filter-level-reset').click(function(){
-  $('.card-event').css("display", "flex");
+$('#filter-category-reset').click(function(){
+  $('.card-event').removeClass('filter-category-hide');
 })

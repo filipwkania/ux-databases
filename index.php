@@ -40,7 +40,7 @@
 				<span id="filter-category-toggle" class="filter-button" data-filter="category">Category</span>
 				<div id="filter-category-dropdown" class="filter-dropdown-content">
 					<span class="filter-category" data-category-selector="1">Business/Administration</span>
-					<span class="filter-category" data-category="2">General</span>
+					<span class="filter-category" data-category-selector="2">General</span>
 					<span class="filter-category" data-category-selector="3">Tech Talk</span>
 					<span id="filter-category-reset">All Categories</span>
 				</div>
