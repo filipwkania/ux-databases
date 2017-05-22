@@ -3,6 +3,7 @@
 <head>
 	<title>Admin Page</title>
 	<link rel="stylesheet" type="text/css" href="../style/app.css">
+	<link rel="stylesheet" type="text/css" href="../dist/jquery.datetimepicker.min.css"/ >
 	<script src="https://use.fontawesome.com/fa11f26e3b.js"></script>
 </head>
 <body>
@@ -147,9 +148,12 @@
 <!-- ************************************************** -->
 <!-- **************************************************************************************************** -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../dist/jquery.datetimepicker.full.min.js"></script>
 <script src="../js/js-admin.js"></script>
 <script>
 	fnOpenWindow('wdw-events');
+	$('#txt-event-start').datetimepicker();
+	$('#txt-event-end').datetimepicker();
 </script>
 </body>
 </html>
