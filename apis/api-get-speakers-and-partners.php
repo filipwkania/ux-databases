@@ -1,9 +1,10 @@
 <?php 
 	require_once('db-connection.php');
 
-	// $sEventIds = $_POST['eventIds'];
-	$sEventIds = '1';
+	$sEventIds = $_POST['eventIds'];
+	// $sEventIds = '1';
 
+	//load speakers
 	$query = $pdo->prepare("
 	 SELECT es.id_event, s.full_name, s.occupation, s.description, s.picture 
 	 FROM speaker s
@@ -12,9 +13,9 @@
 
 	$query->execute(["ids"=>$sEventIds]);
 
-	//load speakers
 	$aSpeakers = $query->fetchAll();
 
+	//load partners
 	$query = $pdo->prepare("
 	 SELECT eep.id_event, p.logo, p.website
 	 FROM partner p
@@ -23,7 +24,6 @@
 
 	$query->execute(["ids"=>$sEventIds]);
 
-	//load partners
 	$aPartners = $query->fetchAll();
 		
 	$saSpeakers = json_encode($aSpeakers);

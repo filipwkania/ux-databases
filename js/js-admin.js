@@ -26,12 +26,28 @@ $(document).on("change", "#select-main-partner", function(source) {
 	fnPrepareToEditPartner(source.target);
 });
 
+$(document).on("change", "#select-event", function(source) {
+	fnPrepareToEditEvent(source.target);
+});
+
 $(document).on("click", "#btn-save-partner", function() {
 	fnSavePartner();
 });
 
 $(document).on("click", "#btn-save-event", function() {
 	fnSaveEvent();
+});
+
+$(document).on("click", "#btn-clear-edit-event", function() {
+	fnClearEventEdit();
+}); 
+
+$(document).on("click", "#btn-clear-edit-location", function() {
+	fnClearLocationEdit();
+});
+
+$(document).on("click", "#btn-clear-edit-partner", function() {
+	fnClearPartnerEdit();
 });
 
 //PSEUDO MENU
@@ -140,6 +156,39 @@ function fnPopulateUserTable(aUsers) {
 		// append user row to table
 		$('#tbody-users').append(sHtmlToAppend);
 	}
+}
+
+function fnPrepareToEditEvent(oSource) {
+	console.log($(oSource).val());
+	//get event attributes
+	let oEvent = JSON.parse($(oSource).val());
+
+
+	//put values into the edit fields
+	$('#txt-event-id').val(oEvent.id_event);
+	$('#txt-event-name').val(oEvent.name);
+	$('#txt-event-description').val(oEvent.description);
+	$('#txt-event-agenda').val(oEvent.agenda);
+	$('#txt-event-start').val(oEvent.start);
+	$('#txt-event-end').val(oEvent.end);
+	oEvent.sustenance ? $('#check-event-sustenance').attr('checked', true) : 
+	$('#check-event-sustenance').attr('checked', false);
+	$('#select-event-level').val(oEvent.level);
+	$('#txt-event-catch-phrase').val(oEvent.catch_phrase);
+	$('#txt-event-brief-description').val(oEvent.brief_description);
+	$('#select-event-category').val(oEvent.category);
+	$('#txt-event-price').val(oEvent.price);
+
+	//select main partner if any
+	oEvent.main_partner > 0 
+	? $('#select-main-partner option[id="main-partner-'
+		+oEvent.main_partner+'"]').attr("selected", "selected")
+	: $('#select-main-partner').val("");
+	//select main partner if any
+	oEvent.location > 0 
+	? $('#select-location option[id="location-'
+		+oEvent.location+'"]').attr("selected", "selected")
+	: $('#select-location').val("");
 }
 
 function fnPrepareToEditUser(oSource) {
@@ -348,7 +397,8 @@ function fnPopulateLocationSelector(aLocations) {
 	$('#select-location').append("<option>No location</option>");
 
 	//blueprint for location option
-	let blueprint = "<option value='{{optionValue}}'>{{locationName}}</option>";
+	let blueprint = "<option id='location-{{locationId}}' \
+		value='{{optionValue}}'>{{locationName}}</option>";
 	
 	//populatin location selector with options
 	for(let i = 0; i < aLocations.length; i++) {
@@ -359,6 +409,8 @@ function fnPopulateLocationSelector(aLocations) {
 		temp = temp.replace("{{optionValue}}", JSON.stringify(aLocations[i]));
 		//set location name
 		temp = temp.replace("{{locationName}}", aLocations[i].location_name);
+		//set id for easy auto-select
+		temp = temp.replace("{{locationId}}", aLocations[i].id_location);
 
 		//append location to selector
 		$('#select-location').append(temp);
@@ -454,7 +506,8 @@ function fnPopulateMainPartnerSelector(aPartners) {
 	$('#select-main-partner').append("<option>No main-partner</option>");
 
 	//blueprint for main-partner option
-	let blueprint = "<option value='{{optionValue}}'>{{mainPartnerName}}</option>";
+	let blueprint = "<option id = 'main-partner-{{partnerId}}'\
+	 value='{{optionValue}}'>{{mainPartnerName}}</option>";
 	
 	//populatin main-partner selector with options
 	for(let i = 0; i < aPartners.length; i++) {
@@ -465,6 +518,8 @@ function fnPopulateMainPartnerSelector(aPartners) {
 		temp = temp.replace("{{optionValue}}", JSON.stringify(aPartners[i]));
 		//set main-partner name
 		temp = temp.replace("{{mainPartnerName}}", aPartners[i].full_name);
+		//set id for easy auto-select
+		temp = temp.replace("{{partnerId}}", aPartners[i].id_partner);
 
 		//append main-partner to selector
 		$('#select-main-partner').append(temp);
@@ -501,6 +556,7 @@ function fnPopulateSelector(sItems, sSelector, sValue, sName) {
 function fnPopulateEventPage() {
 	fnFetchLocations();
 	fnFetchPartners();
+	fnFetchEvents();
 	fnPopulateSelector('categories', 'event-category', 'id_event_category', 'category_name');
 	fnPopulateSelector('levels', 'event-level', 'id_event_level', 'level_name');
 }
@@ -570,5 +626,38 @@ function fnSaveEvent() {
 }
 
 function fnFetchEvents() {
+	let sUrl = '../apis/api-get-events.php';
 
+	let ajaxRequest = $.ajax({
+		url: sUrl,
+		dataType: "JSON"
+	});
+
+	ajaxRequest.done(function(jData) {
+		if(jData.status === "ok") {
+			fnLoadEventsToSelector(jData.data);
+		} else {
+			console.log('Could not load events');
+		}
+	});
+}
+
+function fnLoadEventsToSelector(aEvents) {
+	$('#select-event').empty();
+	$('#select-event').append('<option>No event selected</option>');
+
+	let blueprint = "<option value='{{optionValue}}'>{{optionName}}</option>";
+
+	for(let i = 0; i < aEvents.length; i++) {
+		let temp = blueprint;
+
+		temp = temp.replace('{{optionValue}}', JSON.stringify(aEvents[i]));
+		temp = temp.replace('{{optionName}}', aEvents[i]['name']);
+
+		$('#select-event').append(temp);
+	}
+}
+
+function fnClearEventEdit() {
+	$('container-event-create > input').val("");
 }
