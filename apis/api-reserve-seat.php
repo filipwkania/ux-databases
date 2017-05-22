@@ -1,32 +1,45 @@
 <?php
 	require_once('db-connection.php');
+
 	$iEventId = $_POST['event'];
 	$sFullname = $_POST['fullname'];
 	$sEmail = $_POST['email'];
 
-	//create participant in db
-	$query = $pdo->prepare("INSERT INTO `ux_databases`.`participant`
-													(`id_participant`,`full_name`,`email`,`id_user`)
-													VALUES
-													(:id,:fullname,:email,:idUser);");
-	//execute query
-	$query->execute(['id'=>null,'fullname'=>$sFullname, 'email'=>$sEmail, 'idUser'=>null]);
+	try {
+    $pdo->beginTransaction();
+		//add participant id and event id to event_participants
+		$query = $pdo->prepare(
+			"INSERT INTO `ux_databases`.`participant`
+			(`id_participant`,`full_name`,`email`,`id_user`)
+			VALUES
+			(:id, :fullName, :email, :idUser);");
 
-	$iParticipantId = $pdo->lastInsertId();
+		//execute query
+		$query->execute(['id'=>null, 'fullName'=>$sFullname, 'email'=>$sEmail,
+										 'email'=>$sEmail, 'idUser'=> null]);
 
-	//add participant id and event id to event_participants
-	$query = $pdo->prepare("INSERT INTO `ux_databases`.`event_participants`
-													(`id_event`,`id_participant`)
-													VALUES
-													(:id_event,:id_participant);");
+		//get id of last item created
+		$lastItemId = $pdo->lastInsertId();
 
-	//execute query
-	$query->execute(['id_event'=>$iEventId, 'id_participant'=>$iParticipantId]);
+		if(! $lastItemId > 0) {
+			echo '{"status":"error"}';
+			exit();
+		}
 
-	//check how many rows were created
-	$created = $query->rowCount();
+		$query = $pdo->prepare("INSERT INTO `ux_databases`.`event_participants`
+														(`id_event`,`id_participant`)
+														VALUES
+														(:eventId, :participantId);");
 
-	if($created != null) {
+		$query->execute(['eventId'=>$iEventId, 'participantId'=>$lastItemId]);
+    $pdo->commit();
+
+	}	catch (Exception $e){
+	    $pdo->rollback();
+	    echo '{"status":"error", "message":"'.$e.'"}';
+	}
+
+	if($query->rowCount() > 0) {
 		echo '{"status":"ok"}';
 	} else {
 		echo '{"status":"error"}';
