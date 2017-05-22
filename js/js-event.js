@@ -9,6 +9,7 @@ $(document).on('click', '.card-event-image', function(){
   // hide event overview and show event details
   $('.wdw').css("display", "none");
   $('#wdw-event').css("display", "flex");
+  $('#wdw-event').append('<input id="details-event-id" type="hidden" value="'+iEventId+'">');
   // add event info
   $('#header-image-event').css("background-image", 'url("./images/'+sEventImagePath+'")');
   $('#header-image-event').css("background-size", "cover");
@@ -25,7 +26,7 @@ $(document).on('click', '.card-event-image', function(){
   $('#event-description-text').text(oEvent.description);
   // ADD MISSING MAP !!!
 
-  $('#map-caption').text(oEvent.location);
+  //$('#map-caption').text(oEvent.location);
 
   var ajSpeakers = [];
   var sSpeakerBluePrint = '<div class="card-speaker">\
@@ -66,3 +67,50 @@ $(document).on('click', '.card-event-image', function(){
   }
   })
 })
+
+// RESERVE SEAT
+$('#btn-reserve-seat').click(function(){
+  fnDisplayReservationModal();
+})
+$('#btn-cancel-reservation').click(function(){
+  fnHideReservationModal();
+})
+$('#btn-confirm-reservation').click(function(){
+  // get data from form
+  var formData = $('#frm-reservation').serialize();
+  var iEventId = $('#details-event-id').val();
+  formData = formData+'&event='+iEventId;
+  console.log(formData);
+
+  // post data to api
+    $.ajax(
+      {
+          "type"            : "post",
+          "url"             : "apis/api-reserve-seat.php",
+          "data"            : formData,
+          "dataType"        : "json"      
+      }
+    ).done(function(jData){
+      console.log(jData);
+      /*
+      if(jData.status == "ok"){
+        $('#mdl-reservation').css("display", "none");
+        $('#frm-reservation').trigger('reset');
+        alert("Thanks, your reservation has been successfully submitted!");
+      }else{
+        $('#mdl-reservation').css("display", "none");
+        $('#frm-reservation').trigger('reset');
+        alert("Sorry, there has been a problem with your reservation. Please try again!");
+      }
+      */
+  })
+})
+
+
+function fnDisplayReservationModal(){
+  $('#mdl-reservation').css("display", "flex");
+}
+function fnHideReservationModal(){
+  $('#mdl-reservation').css("display", "none");
+  $('#frm-reservation').trigger('reset');
+}

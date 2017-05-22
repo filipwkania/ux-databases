@@ -62,9 +62,8 @@ function fnDisplayEvents(){
                           </div>\
                         </div>'
   // AJAX with the server
-  var sUrl = 'apis/api-get-events.php';
+  var sUrl = 'apis/api-get-events-formatted.php';
   $.getJSON(sUrl, function(jData){
-    //console.log(jData);
     var ajEvents = jData.data;
     for(i = 0; i < ajEvents.length; i++){
       var sEventId = ajEvents[i].id_event;

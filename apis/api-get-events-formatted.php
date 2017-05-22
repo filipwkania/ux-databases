@@ -14,10 +14,10 @@
 	 location.lat AS location_lat, 
 	 location.lng AS location_lng
 	 FROM event
-	 INNER JOIN event_level ON event_level.id_event_level  = event.level 
-	 INNER JOIN event_category ON event_category.id_event_category = event.category
-	 INNER JOIN partner ON partner.id_partner = event.main_partner
-	 INNER JOIN location ON location.id_location = event.location;");
+	 LEFT JOIN event_level ON event_level.id_event_level  = event.level 
+	 LEFT JOIN event_category ON event_category.id_event_category = event.category
+	 LEFT JOIN partner ON partner.id_partner = event.main_partner
+	 LEFT JOIN location ON location.id_location = event.location;");
 
 	$query->execute();
 
@@ -25,7 +25,7 @@
 
 	if($aEvents != false) {
 		$saEvents = json_encode($aEvents);
-		echo '{"status":"ok", "data":'.$saEvents.'};';
+		echo '{"status":"ok", "data":'.$saEvents.'}';
 	} else {
 		echo '{"status":"error"}';
 	}

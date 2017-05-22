@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<html>
+<html> 
 <head>
 	<title>Very Unique And Catchy Company Name</title>
 	<link rel="stylesheet" type="text/css" href="style/app.css">
@@ -13,7 +13,6 @@
 	<div id="menu">
 		<div class="menu-link" data-go-to="wdw-index">Home</div>
 		<div class="menu-link" data-go-to="wdw-about">About us</div>
-		<div class="menu-link" data-go-to="wdw-contact">Contact</div>
 	</div>
 
 	<div id="content-overlay"></div>
@@ -88,6 +87,22 @@
 
 			<div id="event-contributors-container">
 			</div>
+		</div>
+	</div>
+
+	<!-- ******************************************************************************************************* -->
+<!-- ******************************************************************************************************* -->
+<!-- ******************************************************************************************************* -->
+
+	<div id="mdl-reservation" class="modal">
+		<div class="modal-content">
+			<form id="frm-reservation">
+				<h2>Reserve a seat</h2>
+				<input id="reservation-fullname" type="text" name="fullname"></input>
+				<input id="reservation-email" type="text" name="email"></input>
+				<button id="btn-cancel-reservation" class="cancel-button" type="button">Cancel</button>
+				<button id="btn-confirm-reservation" class="button" type="button">Send</button>
+			</form>
 		</div>
 	</div>
 

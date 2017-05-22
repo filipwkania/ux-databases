@@ -1,6 +1,5 @@
 <?php
-	require_once('db-connection.php');
-	//$FILENAME = '../messages.txt';
+	require_once('db-connection.php'); 
 	$sSubject = $_POST['type'];
 	$sFullname = $_POST['fullname'];
 	$sEmail = $_POST['email'];
