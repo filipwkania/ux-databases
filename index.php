@@ -26,7 +26,12 @@
 			<span class="menu-icon fa fa-bars"></span>
 			<span class="logo fa fa-tag"></span>
 		</div>
-		<div id="header-image-index"></div>
+		<div id="header-image-index">
+			<div id="header-image-index-text">
+				<h1 id="header-title">Events</h1>
+				<h3 id="header-tagline">Find interesting Tech Events and safe your seat</h3>
+			</div>
+		</div>
 		<div id="event-container">
 			<div id="event-filters">
 				<span id="filter-level-toggle" class="filter-button" data-filter="level">Level</span>
