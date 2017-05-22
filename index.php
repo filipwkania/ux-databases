@@ -33,20 +33,25 @@
 			</div>
 		</div>
 		<div id="event-container">
-			<div id="event-filters">
-				<span id="filter-level-toggle" class="filter-button" data-filter="level">Level</span>
-				<div id="filter-level-dropdown" class="filter-dropdown-content">
-					<span class="filter-level" data-level-selector="1">For All</span>
-					<span class="filter-level" data-level-selector="2">Intermediate</span>
-					<span class="filter-level" data-level-selector="3">Advanced</span>
-					<span id="filter-level-reset">All Levels</span>
+			<div id="event-filters-container">
+				<span id="lbl-filters">Filters:</span>
+				<div id="dropdown-filter-level">
+					<span id="filter-category-toggle" class="filter-button" data-filter="category">Category</span>
+					<div id="filter-category-dropdown" class="filter-dropdown-content">
+						<span class="filter-category" data-category-selector="1">Business/Administration</span>
+						<span class="filter-category" data-category-selector="2">General</span>
+						<span class="filter-category" data-category-selector="3">Tech Talk</span>
+						<span id="filter-category-reset" class="filter-category">All Categories</span>
+					</div>
 				</div>
-				<span id="filter-category-toggle" class="filter-button" data-filter="category">Category</span>
-				<div id="filter-category-dropdown" class="filter-dropdown-content">
-					<span class="filter-category" data-category-selector="1">Business/Administration</span>
-					<span class="filter-category" data-category-selector="2">General</span>
-					<span class="filter-category" data-category-selector="3">Tech Talk</span>
-					<span id="filter-category-reset">All Categories</span>
+				<div id="dropdown-filter-level">
+					<span id="filter-level-toggle" class="filter-button" data-filter="level">Level</span>
+					<div id="filter-level-dropdown" class="filter-dropdown-content">
+						<span class="filter-level" data-level-selector="For All">For All</span>
+						<span class="filter-level" data-level-selector="Intermediate">Intermediate</span>
+						<span class="filter-level" data-level-selector="Advanced">Advanced</span>
+						<span id="filter-level-reset" class="filter-level">Reset</span>
+					</div>
 				</div>
 			</div>
 		</div>

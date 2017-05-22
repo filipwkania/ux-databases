@@ -120,10 +120,12 @@ function fnLoadSpeakers(){
 
 // FILTERS
 // display dropdowns
+/*
 $('.filter-button').click(function(){
   var sFilterOption = $(this).attr('data-filter');
   $('#filter-'+sFilterOption+'-dropdown').toggle('show');
 })
+*/
 
 $('.filter-level').click(function(){
   $('.card-event').removeClass('filter-level-hide');
@@ -138,7 +140,6 @@ $('#filter-level-reset').click(function(){
 $('.filter-category').click(function(){
   $('.card-event').removeClass('filter-category-hide');
   var sCategory = $(this).attr('data-category-selector');
-  console.log(sCategory);
   $('.card-event[data-category!='+sCategory+']').addClass('filter-category-hide');
 })
 
