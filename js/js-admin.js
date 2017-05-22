@@ -202,54 +202,59 @@ function fnPopulateUserTable(aUsers) {
 }
 
 function fnPrepareToEditEvent(oSource) {
-	console.log($(oSource).val());
-	//get event attributes
-	let oEvent = JSON.parse($(oSource).val());
+
+	if($(oSource).val() === "select-no-event") {
+		fnClearEventEdit();
+	} else {
+		console.log($(oSource).val());
+		//get event attributes
+		let oEvent = JSON.parse($(oSource).val());
 
 
-	//put values into the edit fields
-	$('#txt-event-id').val(oEvent.id_event);
-	$('#txt-event-name').val(oEvent.name);
-	$('#txt-event-description').val(oEvent.description);
-	$('#txt-event-agenda').val(oEvent.agenda);
-	$('#txt-event-start').val(oEvent.start);
-	$('#txt-event-end').val(oEvent.end);
-	oEvent.sustenance ? $('#check-event-sustenance').attr('checked', true) : 
-	$('#check-event-sustenance').attr('checked', false);
-	$('#select-event-level').val(oEvent.level);
-	$('#txt-event-catch-phrase').val(oEvent.catch_phrase);
-	$('#txt-event-brief-description').val(oEvent.brief_description);
-	$('#select-event-category').val(oEvent.category);
-	$('#txt-event-price').val(oEvent.price);
+		//put values into the edit fields
+		$('#txt-event-id').val(oEvent.id_event);
+		$('#txt-event-name').val(oEvent.name);
+		$('#txt-event-description').val(oEvent.description);
+		$('#txt-event-agenda').val(oEvent.agenda);
+		$('#txt-event-start').val(oEvent.start);
+		$('#txt-event-end').val(oEvent.end);
+		oEvent.sustenance ? $('#check-event-sustenance').attr('checked', true) : 
+		$('#check-event-sustenance').attr('checked', false);
+		$('#select-event-level').val(oEvent.level);
+		$('#txt-event-catch-phrase').val(oEvent.catch_phrase);
+		$('#txt-event-brief-description').val(oEvent.brief_description);
+		$('#select-event-category').val(oEvent.category);
+		$('#txt-event-price').val(oEvent.price);
 
-	//select main partner if any
-	oEvent.main_partner > 0 
-	? $('#select-main-partner option[id="main-partner-'
-		+oEvent.main_partner+'"]').attr("selected", "selected")
-	: $('#select-main-partner').val("");
-	//select main partner if any
-	oEvent.location > 0 
-	? $('#select-location option[id="location-'
-		+oEvent.location+'"]').attr("selected", "selected")
-	: $('#select-location').val("");
-}
+		//select main partner if any
+		oEvent.main_partner > 0 
+		? $('#select-main-partner option[id="main-partner-'
+			+oEvent.main_partner+'"]').attr("selected", "selected")
+		: $('#select-main-partner').val("");
+		//select main partner if any
+		oEvent.location > 0 
+		? $('#select-location option[id="location-'
+			+oEvent.location+'"]').attr("selected", "selected")
+		: $('#select-location').val("");
+	}
 
-function fnPrepareToEditUser(oSource) {
-	//get values from clicked user
-	let sId = $(oSource).siblings('.user-id').val();
-	let sFullName = $(oSource).siblings('.user-fullName').text();
-	let sUsername = $(oSource).siblings('.user-username').text();
-	let sEmail = $(oSource).siblings('.user-email').text();
-	let sPassword = $(oSource).siblings('.user-password').text();
-	let sUserRole = $(oSource).siblings('.user-userRole').text();
+	function fnPrepareToEditUser(oSource) {
+		//get values from clicked user
+		let sId = $(oSource).siblings('.user-id').val();
+		let sFullName = $(oSource).siblings('.user-fullName').text();
+		let sUsername = $(oSource).siblings('.user-username').text();
+		let sEmail = $(oSource).siblings('.user-email').text();
+		let sPassword = $(oSource).siblings('.user-password').text();
+		let sUserRole = $(oSource).siblings('.user-userRole').text();
 
-	//put values into edit input elements
-	$('#txt-edit-id').val(sId);
-	$('#txt-edit-name').val(sFullName);
-	$('#txt-edit-username').val(sUsername);
-	$('#txt-edit-email').val(sEmail);
-	$('#txt-edit-password').val(sPassword);
-	$('#select-edit-role').val(sUserRole);
+		//put values into edit input elements
+		$('#txt-edit-id').val(sId);
+		$('#txt-edit-name').val(sFullName);
+		$('#txt-edit-username').val(sUsername);
+		$('#txt-edit-email').val(sEmail);
+		$('#txt-edit-password').val(sPassword);
+		$('#select-edit-role').val(sUserRole);		
+	}
 }
 
 function fnSaveSpeaker() {
@@ -472,7 +477,7 @@ function fnFetchLocations() {
 function fnPopulateLocationSelector(aLocations) {
 	//clear location selector
 	$('#select-location').empty();
-	$('#select-location').append("<option>No location</option>");
+	$('#select-location').append("<option value='select-no-location'>No location</option>");
 
 	//blueprint for location option
 	let blueprint = "<option id='location-{{locationId}}' \
@@ -496,22 +501,30 @@ function fnPopulateLocationSelector(aLocations) {
 }
 
 function fnPrepareToEditLocation(oSource){
-	oLocation = JSON.parse($(oSource).val());
+	if($(oSource).val() === "select-no-location") {
+		fnClearLocationEdit();
+	} else {
+		oLocation = JSON.parse($(oSource).val());
 
-	$("#txt-location-id").val(oLocation.id_location);
-	$("#txt-location-address").val(oLocation.address);
-	$("#txt-location-seats").val(oLocation.seats);
-	$("#txt-location-name").val(oLocation.location_name);
+		$("#txt-location-id").val(oLocation.id_location);
+		$("#txt-location-address").val(oLocation.address);
+		$("#txt-location-seats").val(oLocation.seats);
+		$("#txt-location-name").val(oLocation.location_name);		
+	}
 }
 
 function fnPrepareToEditPartner(oSource) {
-	oPartner = JSON.parse($(oSource).val());
+	if($(oSource).val() === "select-no-main-partner") {
+		fnClearPartnerEdit();
+	} else {
+		oPartner = JSON.parse($(oSource).val());
 
-	$("#txt-partner-id").val(oPartner.id_partner);
-	$("#txt-partner-name").val(oPartner.full_name);
-	$("#txt-partner-website").val(oPartner.website);
-	$("#txt-partner-email").val(oPartner.email);
-	$("#txt-partner-phone").val(oPartner.phone);
+		$("#txt-partner-id").val(oPartner.id_partner);
+		$("#txt-partner-name").val(oPartner.full_name);
+		$("#txt-partner-website").val(oPartner.website);
+		$("#txt-partner-email").val(oPartner.email);
+		$("#txt-partner-phone").val(oPartner.phone);
+	}
 }
 
 function fnClearLocationEdit() {
@@ -581,7 +594,7 @@ function fnFetchPartners() {
 function fnPopulateMainPartnerSelector(aPartners) {
 	//clear main-partner selector
 	$('#select-main-partner').empty();
-	$('#select-main-partner').append("<option>No main-partner</option>");
+	$('#select-main-partner').append("<option value='select-no-main-partner'>No main-partner</option>");
 
 	//blueprint for main-partner option
 	let blueprint = "<option id = 'main-partner-{{partnerId}}'\
@@ -723,7 +736,7 @@ function fnFetchEvents() {
 
 function fnLoadEventsToSelector(aEvents) {
 	$('#select-event').empty();
-	$('#select-event').append('<option>No event selected</option>');
+	$('#select-event').append('<option value="select-no-event">No event selected</option>');
 
 	let blueprint = "<option value='{{optionValue}}'>{{optionName}}</option>";
 
@@ -738,5 +751,5 @@ function fnLoadEventsToSelector(aEvents) {
 }
 
 function fnClearEventEdit() {
-	$('container-event-create > input').val("");
+	$('#container-event-create > input').val("");
 }
