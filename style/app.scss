@@ -1,4 +1,5 @@
-//@import 'helpers/sass-flexbox';
+@import "../helpers/sass-flexbox";
+
 @mixin transition($time){
   transition: $time;
   -webkit-transition: $time;
