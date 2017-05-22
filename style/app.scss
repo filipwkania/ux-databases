@@ -5,7 +5,8 @@ $secondary-color-light: #eaeaea;
 $secondary-color-dark : #393939; 
 $overlay-grey-background: rgba(57, 57, 57, 0.9);
 
-
+$font-regular: 'Open Sans', sans-serif;
+$font-header: 'Open Sans Condensed', sans-serif;
 @mixin transition($time){
   transition: $time;
   -webkit-transition: $time;
