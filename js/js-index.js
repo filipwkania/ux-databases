@@ -72,10 +72,12 @@ function fnDisplayEvents(){
       var sEventImagePath = ajEvents[i].picture;
       var sEventStart = ajEvents[i].start;
       var sEventEnd = ajEvents[i].end;
-      var sEventLocation = ajEvents[i].location;
+      var sEventLocation = ajEvents[i].location_name;
       var sEventBriefDescription = ajEvents[i].brief_description;
       var sEventLevel = ajEvents[i].level;
       var sEventCategory = ajEvents[i].category;
+      var iEventLevelId = ajEvents[i].level_id;
+      var iEventCategoryId = ajEvents[i].category_id;
       // save event to session storage
       var oEvent = (ajEvents[i]);
       sessionStorage.setItem(sEventId, JSON.stringify(oEvent));
@@ -83,8 +85,8 @@ function fnDisplayEvents(){
       var sTempEvent = sEventBluePrint;
       // replace placeholders
       sTempEvent = sTempEvent.replace('{{id}}', sEventId);
-      sTempEvent = sTempEvent.replace('{{class-level}}', sEventLevel);
-      sTempEvent = sTempEvent.replace('{{class-category}}', sEventCategory);
+      sTempEvent = sTempEvent.replace('{{class-level}}', iEventLevelId);
+      sTempEvent = sTempEvent.replace('{{class-category}}', iEventCategoryId);
       sTempEvent = sTempEvent.replace('{{title}}', sEventTitle);
       sTempEvent = sTempEvent.replace("{{catch-phrase}}", sEventCatchPhrase);
       sTempEvent = sTempEvent.replace("{{start-time}}", sEventStart);
@@ -119,13 +121,6 @@ function fnLoadSpeakers(){
 }
 
 // FILTERS
-// display dropdowns
-/*
-$('.filter-button').click(function(){
-  var sFilterOption = $(this).attr('data-filter');
-  $('#filter-'+sFilterOption+'-dropdown').toggle('show');
-})
-*/
 
 $('.filter-level').click(function(){
   $('.card-event').removeClass('filter-level-hide');

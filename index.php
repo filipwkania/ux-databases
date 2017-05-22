@@ -3,6 +3,7 @@
 <head>
 	<title>Very Unique And Catchy Company Name</title>
 	<link rel="stylesheet" type="text/css" href="style/app.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300" rel="stylesheet">
 	<script src="https://use.fontawesome.com/fa11f26e3b.js"></script>
 </head>
 <body>
@@ -47,9 +48,9 @@
 				<div id="dropdown-filter-level">
 					<span id="filter-level-toggle" class="filter-button" data-filter="level">Level</span>
 					<div id="filter-level-dropdown" class="filter-dropdown-content">
-						<span class="filter-level" data-level-selector="For All">For All</span>
-						<span class="filter-level" data-level-selector="Intermediate">Intermediate</span>
-						<span class="filter-level" data-level-selector="Advanced">Advanced</span>
+						<span class="filter-level" data-level-selector="1">For All</span>
+						<span class="filter-level" data-level-selector="2">Intermediate</span>
+						<span class="filter-level" data-level-selector="3">Advanced</span>
 						<span id="filter-level-reset" class="filter-level">Reset</span>
 					</div>
 				</div>
