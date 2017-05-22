@@ -129,6 +129,20 @@
 			<button id="btn-clear-edit-partner">Clear</button>
 		</div>
 	</div>
+	<div id="container-event-speakers">
+		<h2>Event speakers</h2>
+		<div id="container-speakers-list">
+			<input type="checkbox" checked> No speakers</input>	
+		</div>
+		<div id="container-speaker-create">
+			<input id="txt-speaker-id" type="hidden"></input>
+			<input id="txt-speaker-name" placeholder="full name"></input>
+			<input id="txt-speaker-occupation" placeholder="occupation"></input>
+			<input id="txt-speaker-description" placeholder="description"></input>
+			<button id="btn-save-speaker">Save</button>
+			<button id="btn-clear-edit-speaker">Clear</button>
+		</div>
+	</div>
 </div>
 <!-- ************************************************** -->
 <!-- **************************************************************************************************** -->

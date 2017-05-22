@@ -2,6 +2,14 @@ $(document).on("click", "#btn-login", function() {
 	fnLogin();
 });
 
+$(document).on("click", "#btn-save-speaker", function() {
+	fnSaveSpeaker();
+});
+
+$(document).on("click", "#btn-clear-edit-speaker" ,function() {
+	fnClearSpeakerEdit();
+});
+
 $(document).on("click", ".user-edit", function(source) {
 	fnPrepareToEditUser($(source.target).parent());
 });
@@ -109,6 +117,41 @@ function fnOpenWindow(sWindow) {
 	}
 }
 
+function fnFetchSpeakers() {
+	let sUrl = "../apis/api-get-speakers.php";
+
+	let ajaxRequest = $.ajax({
+		url: sUrl,
+		dataType: "JSON"
+	});
+
+	ajaxRequest.done(function(jData) {
+		if(jData.status === "ok") {
+			fnLoadSpeakers(jData.data);
+		} else {
+			console.log("Failed to load speakers");
+		}
+	});
+}
+
+function fnLoadSpeakers(aSpeakers) {
+	$('#container-speakers-list').empty();
+	$('#container-speakers-list').append('<input type="checkbox" checked> No speakers</input>');
+
+	let blueprint = "<input type='checkbox' id='speaker-{{speakerId}}' \
+	value = '{{speakerValue}}'>{{speakerName}}</input>";
+
+	for(let i = 0; i < aSpeakers.length; i++) {
+		let temp = blueprint;
+
+		temp = temp.replace('{{speakerId}}', aSpeakers[i].id_speaker);
+		temp = temp.replace('{{speakerValue}}', JSON.stringify(aSpeakers[i]));
+		temp = temp.replace('{{speakerName}}', aSpeakers[i].full_name);
+
+		$('#container-speakers-list').append(temp);
+	}
+}
+
 function fnLoadUsers() {
 	//AJAX for getting users
 	let sUrl = "../apis/api-get-users.php";
@@ -209,6 +252,37 @@ function fnPrepareToEditUser(oSource) {
 	$('#select-edit-role').val(sUserRole);
 }
 
+function fnSaveSpeaker() {
+	let sUrl = "../apis/api-create-speaker.php";
+	let formData = {};
+
+	formData.id = $('#txt-speaker-id').val();
+	formData.name = $('#txt-speaker-name').val();
+	formData.occupation = $('#txt-speaker-occupation').val();
+	formData.description = $('#txt-speaker-description').val();
+
+	if(formData.id != "") {
+		sUrl = "../apis/api-update-speaker.php";
+	}
+
+	let ajaxRequest = $.ajax({
+		url: sUrl,
+		data: formData,
+		dataType: "JSON",
+		method: "POST"
+	});
+
+	ajaxRequest.done(function(jData) {
+		if(jData.status === "ok") {
+			fnFetchSpeakers();
+			fnClearSpeakerEdit();
+			alert("Speaker is now saved in database");
+		} else {
+			alert("Failed to save speaker in database");
+		}
+	});
+}
+
 function fnSaveUser() {
 	//get values for updating/creating user
 	let sId = $('#txt-edit-id').val();
@@ -296,6 +370,10 @@ function fnUpdateUserInTable() {
 	$(oUserRowId).siblings('.user-email').text(sEmail);
 	$(oUserRowId).siblings('.user-password').text(sPassword);
 	$(oUserRowId).siblings('.user-userRole').text(iRole);
+}
+
+function fnClearSpeakerEdit() {
+	$('#container-speaker-create > input').val("");
 }
 
 function fnClearEdit(){
@@ -557,6 +635,7 @@ function fnPopulateEventPage() {
 	fnFetchLocations();
 	fnFetchPartners();
 	fnFetchEvents();
+	fnFetchSpeakers();
 	fnPopulateSelector('categories', 'event-category', 'id_event_category', 'category_name');
 	fnPopulateSelector('levels', 'event-level', 'id_event_level', 'level_name');
 }
