@@ -476,7 +476,7 @@ input[type="text"] {
 /********************************************************************************************************************************/
 #wdw-accounts #container-edit,
 #wdw-accounts #container-users {
-  width: 50%; }
+  width: 49%; }
 
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
@@ -485,5 +485,13 @@ input[type="text"] {
   flex-direction: column; }
   #wdw-events h2 {
     margin-top: 25px; }
+
+#wdw-accounts select,
+#wdw-accounts input:not([type="checkbox"]),
+#wdw-events select,
+#wdw-events input:not([type="checkbox"]) {
+  min-width: 200px;
+  max-width: 250px;
+  margin: 5px; }
 
 /*# sourceMappingURL=app.css.map */

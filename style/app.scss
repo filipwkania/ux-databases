@@ -489,7 +489,7 @@ input[type="text"] {
 #wdw-accounts {
 	#container-edit,
 	#container-users {
-		width: 50%;
+		width: 49%;
 	}
 }
 
@@ -501,5 +501,16 @@ input[type="text"] {
 	flex-direction: column;
 	h2 {
 		margin-top: 25px;
+	}
+}
+
+// ACCOUNTS+EVENTS COMMON
+#wdw-accounts,
+#wdw-events {
+	select,
+	input:not([type="checkbox"]) {
+		min-width: 200px;
+		max-width: 250px;
+		margin: 5px;
 	}
 }

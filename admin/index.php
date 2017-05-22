@@ -152,8 +152,9 @@
 <script src="../js/js-admin.js"></script>
 <script>
 	fnOpenWindow('wdw-events');
-	$('#txt-event-start').datetimepicker();
-	$('#txt-event-end').datetimepicker();
+	let currentDate = new Date();
+	$('#txt-event-start').datetimepicker({startDate: 'currentDate'});
+	$('#txt-event-end').datetimepicker({startDate: 'currentDate'});
 </script>
 </body>
 </html>
