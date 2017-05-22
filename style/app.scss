@@ -1,4 +1,10 @@
 @import "../helpers/sass-flexbox";
+$primary-color: #ffd92d;
+$primary-hover-color: #ffe77d;
+$secondary-color-light: #eaeaea;
+$secondary-color-dark : #393939; 
+$overlay-grey-background: rgba(57, 57, 57, 0.9);
+
 
 @mixin transition($time){
   transition: $time;
@@ -75,10 +81,8 @@
 }
 
 .header {
-	//@include display-flex();
-	//@include justify-content(space-between);
-	display: flex;
-	justify-content: space-between;
+	@include display-flex();
+	@include justify-content(space-between);
 	align-items: center;
 	position: absolute;
 	width: 100vw;
@@ -215,21 +219,65 @@ input[type="text"] {
 		justify-content: space-around;
 		max-width: 90vw;
 		margin-top: 40px;
-		#event-filter {
-			//display: flex;
-			//align-self: flex-end;
+		#event-filters-container {
+			@include display-flex();
+			@include justify-content(flex-end);
+			width: 100%;
+			span {
+				margin: 0px 40px 20px 0px;
+				font-size: 18px;
+			}
 			.filter-button {
+				@include display-flex();
 				cursor: pointer;
+				
+			}
+			#dropdown-filter-level {
+				overflow: hidden;
+				&:hover .filter-dropdown-content {
+					@include display-flex();
+				}
+			}
+			#dropdown-category-level {
+				overflow: hidden;
+				&:hover .filter-dropdown-content {
+					@include display-flex();
+				}
 			}
 			.filter-dropdown-content {
 			    display: none;
-			    min-width: 160px;
-			    overflow: auto;
-			    right: 0;
+			    @include display-flex();
+			    @include flex-direction(column);
+			    @include align-items(space-around);
+			    @include justify-content(space-around);
+			    position: absolute;
+			    margin-top: -1px;
+			    background-color: #ffd92d;
+			    color: #393939;
+			    border-top-right-radius: 4px;
+			    border-bottom-right-radius: 4px;
+			    border-bottom-left-radius: 4px;
 			    z-index: 1;
-			    span {
-			    	display: block;
-			    	cursor: pointer;
+			    font-family: 'Open Sans', sans-serif;
+			    font-size: 14px;
+			    .filter-level {
+			    	float: none;
+				    padding: 10px 15px 10px 15px;
+				    margin: 0px;
+				    text-decoration: none;
+				    text-align: left;
+				    cursor: pointer;
+			    }
+			    .filter-category {
+			    	float: none;
+				    padding: 10px 15px 10px 15px;
+				    margin: 0px;
+				    text-decoration: none;
+				    text-align: left;
+				    cursor: pointer;
+				    &:hover {
+				    	color: white;
+				    }
 			    }
 			}
 		}
