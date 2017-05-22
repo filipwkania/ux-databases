@@ -68,6 +68,7 @@
 				<option>No events to edit</option>
 			</select>
 			<div id="container-event-create">
+				<input id="txt-event-id" type="hidden"></input>
 				<input id="txt-event-name" placeholder="name"></input>
 				<input id="txt-event-description" placeholder="description"></input>
 				<input id="txt-event-agenda" placeholder="agenda"></input>
@@ -88,6 +89,7 @@
 				</select>
 				<input id="txt-event-price" placeholder="price"></input>
 				<button id="btn-save-event">Save</button>
+				<button id="btn-clear-edit-event">Clear</button>
 			</div>
 		</div>
 	</div>
@@ -104,6 +106,7 @@
 			<input id="txt-location-address" placeholder="address">
 			<input id="txt-location-seats" placeholder="seats">
 			<button id="btn-save-location">Save</button>
+			<button id="btn-clear-edit-location">Clear</button>
 		</div>
 	</div>
 	<div id="container-event-partners">
@@ -123,6 +126,21 @@
 			<input id="txt-partner-email" placeholder="email"></input>
 			<input id="txt-partner-phone" placeholder="phone"></input>
 			<button id="btn-save-partner">Save</button>
+			<button id="btn-clear-edit-partner">Clear</button>
+		</div>
+	</div>
+	<div id="container-event-speakers">
+		<h2>Event speakers</h2>
+		<div id="container-speakers-list">
+			<input type="checkbox" checked> No speakers</input>	
+		</div>
+		<div id="container-speaker-create">
+			<input id="txt-speaker-id" type="hidden"></input>
+			<input id="txt-speaker-name" placeholder="full name"></input>
+			<input id="txt-speaker-occupation" placeholder="occupation"></input>
+			<input id="txt-speaker-description" placeholder="description"></input>
+			<button id="btn-save-speaker">Save</button>
+			<button id="btn-clear-edit-speaker">Clear</button>
 		</div>
 	</div>
 </div>

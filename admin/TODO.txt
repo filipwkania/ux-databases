@@ -1,5 +1,3 @@
 TODO
 
-- finish event create
-- add update/load/delete event
 - add date/time picker for event start/end
