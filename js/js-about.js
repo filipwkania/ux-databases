@@ -14,7 +14,7 @@ function fnDisplaySpeakers(){
 								</div>\
 							</div>';
 	// AJAX with the server
-	var sUrl = './apis/api-get-speakers.php';
+	var sUrl = 'apis/api-get-speakers.php';
 	$.getJSON(sUrl, function(jData){
 		if(jData.status == 'ok'){
 			var ajSpeakers = jData.data;

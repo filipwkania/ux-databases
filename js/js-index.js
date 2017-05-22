@@ -43,7 +43,7 @@ fnDisplayEvents();
 
 
 function fnDisplayEvents(){
-  var sEventBluePrint = '<div id="{{id}}" class="card-event">\
+  var sEventBluePrint = '<div id="{{id}}" class="card-event" data-level="{{class-level}}" data-category="{{class-category}}">\
                           <div class="card-event-image">\
                             <div class="card-event-image-overlay">\
                               <h2 class="card-event-title">{{title}}</h2>\
@@ -56,12 +56,15 @@ function fnDisplayEvents(){
                               <span class="event-card-end-time">{{end-time}}</span>\
                               <span class="event-card-location">{{location}}</span>\
                               <div class="event-card-brief-description">{{brief-description}}</div>\
+                              <span class="event-card-level">{{level}}</span>\
+                              <span class="event-card-category">{{category}}</span>\
                             </div>\
                           </div>\
                         </div>'
   // AJAX with the server
-  var sUrl = './apis/api-get-events.php';
+  var sUrl = 'apis/api-get-events.php';
   $.getJSON(sUrl, function(jData){
+    //console.log(jData);
     var ajEvents = jData.data;
     for(i = 0; i < ajEvents.length; i++){
       var sEventId = ajEvents[i].id_event;
@@ -72,19 +75,74 @@ function fnDisplayEvents(){
       var sEventEnd = ajEvents[i].end;
       var sEventLocation = ajEvents[i].location;
       var sEventBriefDescription = ajEvents[i].brief_description;
+      var sEventLevel = ajEvents[i].level;
+      var sEventCategory = ajEvents[i].category;
+      // save event to session storage
+      var oEvent = (ajEvents[i]);
+      sessionStorage.setItem(sEventId, JSON.stringify(oEvent));
       // copy the blueprint
       var sTempEvent = sEventBluePrint;
       // replace placeholders
       sTempEvent = sTempEvent.replace('{{id}}', sEventId);
+      sTempEvent = sTempEvent.replace('{{class-level}}', sEventLevel);
+      sTempEvent = sTempEvent.replace('{{class-category}}', sEventCategory);
       sTempEvent = sTempEvent.replace('{{title}}', sEventTitle);
       sTempEvent = sTempEvent.replace("{{catch-phrase}}", sEventCatchPhrase);
       sTempEvent = sTempEvent.replace("{{start-time}}", sEventStart);
       sTempEvent = sTempEvent.replace("{{end-time}}", sEventEnd);
       sTempEvent = sTempEvent.replace("{{location}}", sEventLocation);
       sTempEvent = sTempEvent.replace("{{brief-description}}", sEventBriefDescription);
+      sTempEvent = sTempEvent.replace("{{level}}", sEventLevel);
+      sTempEvent = sTempEvent.replace("{{category}}", sEventCategory);
     // append blueprint to event list
     $('#event-container').append(sTempEvent);
     $('.card-event-image').css("background-image", 'url("./images/'+sEventImagePath+'")');
     }
+    fnLoadSpeakers();
   })
 }
+
+// load speakers
+function fnLoadSpeakers(){
+  // AJAX with the server
+  var sUrl = 'apis/api-get-speakers.php';
+  $.getJSON(sUrl, function(jData){
+    if(jData.status == 'ok'){
+      var ajSpeakers = jData.data;
+      for(i = 0; i < ajSpeakers.length; i++){
+        var jSpeaker = ajSpeakers[i];
+        sessionStorage.setItem('speaker-'+jSpeaker.id_speaker, JSON.stringify(jSpeaker));
+      }
+    }else{
+      console.log('Error - Speakers not found');
+    }
+  })
+}
+
+// FILTERS
+// display dropdowns
+$('.filter-button').click(function(){
+  var sFilterOption = $(this).attr('data-filter');
+  $('#filter-'+sFilterOption+'-dropdown').toggle('show');
+})
+
+$('.filter-level').click(function(){
+  $('.card-event').removeClass('filter-level-hide');
+  var sLevel = $(this).attr('data-level-selector');
+  $('.card-event[data-level!='+sLevel+']').addClass('filter-level-hide');
+})
+
+$('#filter-level-reset').click(function(){
+  $('.card-event').removeClass('filter-level-hide');
+})
+
+$('.filter-category').click(function(){
+  $('.card-event').removeClass('filter-category-hide');
+  var sCategory = $(this).attr('data-category-selector');
+  console.log(sCategory);
+  $('.card-event[data-category!='+sCategory+']').addClass('filter-category-hide');
+})
+
+$('#filter-category-reset').click(function(){
+  $('.card-event').removeClass('filter-category-hide');
+})
