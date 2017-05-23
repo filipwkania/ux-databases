@@ -568,7 +568,7 @@ input[type="text"] {
 #wdw-accounts {
 	#container-edit,
 	#container-users {
-		width: 50%;
+		width: 49%;
 	}
 }
 
@@ -578,7 +578,88 @@ input[type="text"] {
 // EVENTS
 #wdw-events {
 	@include flex-direction(column);
+	@include align-items(center);
 	h2 {
 		margin-top: 25px;
 	}
+	#txt-event-agenda, 
+	#txt-event-description {
+		height: 200px;
+	}
+	#txt-event-catch-phrase,
+	#txt-event-brief-description {
+		height: 50px;
+	}
+	#container-event-create,
+	#container-event-extras,
+	#container-event-list {
+		@include display-flex;
+		@include flex-direction(row);
+	}
+	#container-location-create,
+	#container-partner-create,
+	#container-speaker-create {
+		@include display-flex;
+		@include flex-direction(column);
+	}
+}
+
+// ACCOUNTS+EVENTS COMMON
+#wdw-accounts,
+#wdw-events {
+	select,
+	input:not([type="checkbox"]) {
+		width: 200px;
+		margin: 5px;
+	}
+	.input-row {
+		position: relative;
+	}
+}
+
+// FLOATING LABELS STUFF
+.floating-label {
+  position:absolute;
+  pointer-events:none;
+  top: 5px;
+  left: 10px;
+  font-size: 12px;
+  opacity:0;
+  background-color: white;
+  color: black;
+  padding: 0 2px;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+.field:focus.field:valid + .floating-label {
+	  opacity:1;
+	  top:-5px;
+	}
+.field:focus + .floating-label {
+  color: $secondary-color-dark;
+}
+
+/*********************************************************************************************/
+/*********************************************************************************************/
+/*********************************************************************************************/
+// SMARTPHONE
+
+
+@media screen and (max-width: 480px) {
+	#container-event-create,
+	#container-event-extras,
+	#container-event-list {
+		flex-direction: column !important;
+	}
+}
+
+ /*********************************************************************************************/
+/*********************************************************************************************/
+/*********************************************************************************************/
+// TABLET
+
+@media only screen 
+and (min-width: 481px)
+and (max-width: 960px) {
+
 }

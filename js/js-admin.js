@@ -378,7 +378,7 @@ function fnUpdateUserInTable() {
 }
 
 function fnClearSpeakerEdit() {
-	$('#container-speaker-create > input').val("");
+	$('#container-speaker-create input').val("");
 }
 
 function fnClearEdit(){
@@ -528,11 +528,11 @@ function fnPrepareToEditPartner(oSource) {
 }
 
 function fnClearLocationEdit() {
-	$('#container-location-create > input').val('');
+	$('#container-location-create input').val('');
 }
 
 function fnClearPartnerEdit() {
-	$('#container-partner-create > input').val('');
+	$('#container-partner-create input').val('');
 }
 
 function fnSavePartner() {
@@ -751,5 +751,5 @@ function fnLoadEventsToSelector(aEvents) {
 }
 
 function fnClearEventEdit() {
-	$('#container-event-create > input').val("");
+	$('#container-event-create input').val("");
 }
