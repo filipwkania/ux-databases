@@ -68,7 +68,7 @@
 			<select id="select-event">
 				<option>No events to edit</option>
 			</select>
-			<label> + add new</label>
+			<label><span class="fa fa-fw fa-plus"></span> add new</label>
 		</div>
 		<div id="container-event-create">
 			<div id="container-event-left">
@@ -78,16 +78,16 @@
 					<label class="floating-label">Event name:</label>
 				</div>
 				<div class="input-row">
-					<input id="txt-event-catch-phrase" class="field" placeholder="catch phrase" required></input>
+					<textarea id="txt-event-catch-phrase" class="field" placeholder="catch phrase" required></textarea>
 					<label class="floating-label">Catch phrase:</label>
 				</div>
 				<div class="input-row">
-					<input id="txt-event-brief-description" class="field" placeholder="brief description" required></input>
+					<textarea id="txt-event-brief-description" class="field" placeholder="brief description" required></textarea>
 					<label class="floating-label">Brief description:</label>						
 				</div>	
 				<div class="input-row">
-					<input id="txt-event-description" class="field" placeholder="description" required></input>
-					<label class="floating-label">Description:</label>
+					<textarea id="txt-event-description" class="field" placeholder="full description" required></textarea>
+					<label class="floating-label">Full description:</label>
 				</div>
 				<div class="input-row">
 					<input id="txt-event-price" class="field" placeholder="price" required></input>
@@ -95,13 +95,13 @@
 				</div>
 			</div>
 			<div id="container-event-right">
-				<div><label>Event level:</label></div>
+				<div class="label-row"><label>Event level </label></div>
 				<select id="select-event-level">
 					<option value="1">For all</option>
 					<option value="2">Intermediate</option>
 					<option value="3">Advanced</option>
 				</select>
-				<div><label>Event category:</label></div>
+				<div class="label-row"><label>Event category </label></div>
 				<select id="select-event-category">
 					<option value="1">Tech talk</option>
 					<option value="2">Business/Administration</option>
@@ -116,10 +116,12 @@
 					<label class="floating-label">End:</label>
 				</div>
 				<div class="input-row">
-					<input id="txt-event-agenda" class="field" placeholder="agenda" required></input>
+					<textarea id="txt-event-agenda" class="field" placeholder="agenda" required></textarea>
 					<label class="floating-label">Agenda:</label>
 				</div>
-				<input id="check-event-sustenance" type="checkbox">Sustenance</input>
+				<div class="input-row">
+					<input id="check-event-sustenance" type="checkbox">Sustenance</input>
+				</div>
 			</div>
 		</div>
 		<div id="container-edit-event-buttons">
@@ -171,8 +173,8 @@
 	</div>
 	<div id="container-event-speakers">
 		<h2>Event speakers</h2>
+		<input type="checkbox" checked> No speakers</input>	
 		<div id="container-speakers-list">
-			<input type="checkbox" checked> No speakers</input>	
 		</div>
 		<div id="container-speaker-create">
 			<input id="txt-speaker-id" type="hidden"></input>
