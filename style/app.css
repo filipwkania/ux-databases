@@ -8,7 +8,8 @@
 /*
     Display
  */
-.wdw, .modal-content, .modal-content form, .modal-content form #container-message-subject, .modal-buttons, .header, #menu, #wdw-index, #wdw-index #header-image-index, #wdw-index #header-image-index #header-image-index-text, #wdw-index #event-container, #wdw-index #event-container #event-filters-container, #wdw-index #event-container #event-filters-container .filter-button, #wdw-index #event-container #event-filters-container #dropdown-filter-level:hover .filter-dropdown-content, #wdw-index #event-container #event-filters-container #dropdown-category-level:hover .filter-dropdown-content, #wdw-index #event-container #event-filters-container .filter-dropdown-content, #wdw-index #event-container .card-event, #wdw-index #event-container .card-event .card-event-image-overlay, #wdw-index #event-container .card-event .event-card-details-container, #wdw-index #event-container .card-event .event-card-details-container .event-card-details, #wdw-index #event-container .card-event .event-card-details-container .event-card-details .event-card-details-filter-container, #wdw-index #event-container .card-event .event-card-details-container .event-card-details .event-card-details-filter-container .event-card-category, #wdw-index #event-container .card-event .event-card-details-container .event-card-details .event-card-details-filter-container .event-card-level, #wdw-about, #wdw-about #header-image-about, #wdw-about #header-image-about #txt-about, #wdw-about #header-image-about #txt-about .btn-contact, #wdw-about #speaker-container, #wdw-about #speaker-container .card-speaker, #wdw-about #speaker-container .card-speaker .back, #wdw-event, #wdw-event #header-image-event, #wdw-event #wdw-event-content-container, #wdw-event #wdw-event-content-container #event-details-container, #wdw-event #wdw-event-content-container #event-contributors-container, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header img, #wdw-event #wdw-event-content-container .separator, #wdw-events #container-event-create,
+.wdw, .modal-content, .modal-content form, .modal-content form #container-message-subject, .modal-buttons, .header, #menu, #wdw-index, #wdw-index #header-image-index, #wdw-index #header-image-index #header-image-index-text, #wdw-index #event-container, #wdw-index #event-container #event-filters-container, #wdw-index #event-container #event-filters-container .filter-button, #wdw-index #event-container #event-filters-container #dropdown-filter-level:hover .filter-dropdown-content, #wdw-index #event-container #event-filters-container #dropdown-category-level:hover .filter-dropdown-content, #wdw-index #event-container #event-filters-container .filter-dropdown-content, #wdw-index #event-container .card-event, #wdw-index #event-container .card-event .card-event-image-overlay, #wdw-index #event-container .card-event .event-card-details-container, #wdw-index #event-container .card-event .event-card-details-container .event-card-details, #wdw-index #event-container .card-event .event-card-details-container .event-card-details .event-card-details-filter-container, #wdw-index #event-container .card-event .event-card-details-container .event-card-details .event-card-details-filter-container .event-card-category, #wdw-index #event-container .card-event .event-card-details-container .event-card-details .event-card-details-filter-container .event-card-level, #wdw-about, #wdw-about #header-image-about, #wdw-about #header-image-about #txt-about, #wdw-about #header-image-about #txt-about .btn-contact, #wdw-about #speaker-container, #wdw-about #speaker-container .card-speaker, #wdw-about #speaker-container .card-speaker .back, #wdw-event, #wdw-event #header-image-event, #wdw-event #wdw-event-content-container, #wdw-event #wdw-event-content-container #event-details-container, #wdw-event #wdw-event-content-container #event-contributors-container, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header img, #wdw-event #wdw-event-content-container .separator, #wdw-accounts #accounts-wrapper, #wdw-accounts #container-user-edit,
+#wdw-accounts #container-users, #wdw-events #container-event-create,
 #wdw-events #container-event-extras,
 #wdw-events #container-event-list, #wdw-events #container-location-create,
 #wdw-events #container-partner-create,
@@ -23,7 +24,7 @@
 /*
     Flex direction
  */
-#wdw-events #container-event-create,
+#wdw-accounts #accounts-wrapper, #wdw-events #container-event-create,
 #wdw-events #container-event-extras,
 #wdw-events #container-event-list {
   -webkit-box-orient: horizontal;
@@ -33,7 +34,8 @@
   -ms-flex-direction: row;
   flex-direction: row; }
 
-.modal-content, .modal-content form, #menu, #wdw-index, #wdw-index #header-image-index #header-image-index-text, #wdw-index #event-container #event-filters-container .filter-dropdown-content, #wdw-index #event-container .card-event, #wdw-index #event-container .card-event .card-event-image-overlay, #wdw-index #event-container .card-event .event-card-details-container .event-card-details, #wdw-about, #wdw-about #header-image-about #txt-about, #wdw-about #speaker-container .card-speaker .back, #wdw-event, #wdw-event #wdw-event-content-container, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header, #wdw-events, #wdw-events #container-location-create,
+.modal-content, .modal-content form, #menu, #wdw-index, #wdw-index #header-image-index #header-image-index-text, #wdw-index #event-container #event-filters-container .filter-dropdown-content, #wdw-index #event-container .card-event, #wdw-index #event-container .card-event .card-event-image-overlay, #wdw-index #event-container .card-event .event-card-details-container .event-card-details, #wdw-about, #wdw-about #header-image-about #txt-about, #wdw-about #speaker-container .card-speaker .back, #wdw-event, #wdw-event #wdw-event-content-container, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header, #wdw-accounts #container-user-edit,
+#wdw-accounts #container-users, #wdw-events, #wdw-events #container-location-create,
 #wdw-events #container-partner-create,
 #wdw-events #container-speaker-create {
   -webkit-box-orient: vertical;
@@ -82,7 +84,7 @@
   -webkit-justify-content: flex-end;
   justify-content: flex-end; }
 
-.modal-content form, #wdw-index #header-image-index, #wdw-index #event-container .card-event .event-card-details-container, #wdw-about #header-image-about, #wdw-about #speaker-container .card-speaker .back, #wdw-event #header-image-event, #wdw-event #wdw-event-content-container .separator {
+.modal-content form, #wdw-index #header-image-index, #wdw-index #event-container .card-event .event-card-details-container, #wdw-about #header-image-about, #wdw-about #speaker-container .card-speaker .back, #wdw-event #header-image-event, #wdw-event #wdw-event-content-container .separator, #wdw-accounts, #wdw-accounts #accounts-wrapper {
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -webkit-flex-pack: center;
@@ -108,7 +110,8 @@
 /*
     Align items
  */
-.modal-content, .modal-content form, .header, #menu, #wdw-index, #wdw-index #header-image-index, #wdw-index #header-image-index #header-image-index-text, #wdw-index #event-container .card-event .card-event-image-overlay, #wdw-about #header-image-about, #wdw-about #header-image-about #txt-about, #wdw-about #speaker-container .card-speaker .back, #wdw-event, #wdw-event #header-image-event, #wdw-event #wdw-event-content-container, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header, #wdw-event #wdw-event-content-container .separator, #wdw-events {
+.modal-content, .modal-content form, .header, #menu, #wdw-index, #wdw-index #header-image-index, #wdw-index #header-image-index #header-image-index-text, #wdw-index #event-container .card-event .card-event-image-overlay, #wdw-about #header-image-about, #wdw-about #header-image-about #txt-about, #wdw-about #speaker-container .card-speaker .back, #wdw-event, #wdw-event #header-image-event, #wdw-event #wdw-event-content-container, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header, #wdw-event #wdw-event-content-container .separator, #wdw-accounts #container-user-edit,
+#wdw-accounts #container-users, #wdw-events {
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
@@ -571,45 +574,6 @@ input[type="text"] {
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
-#wdw-accounts #container-edit,
-#wdw-accounts #container-users {
-  width: 50%; }
-
-/********************************************************************************************************************************/
-/********************************************************************************************************************************/
-/********************************************************************************************************************************/
-#wdw-events h2 {
-  margin-top: 25px; }
-#wdw-events #txt-event-agenda,
-#wdw-events #txt-event-description {
-  height: 210px; }
-#wdw-events #txt-event-catch-phrase,
-#wdw-events #txt-event-brief-description {
-  height: 75px; }
-#wdw-events #container-event-create,
-#wdw-events #container-event-extras,
-#wdw-events #container-event-list {
-  margin: 0px 10px 0px 10px; }
-#wdw-events #container-event-left,
-#wdw-events #container-event-right {
-  margin: 0px 10px 0px 10px; }
-#wdw-events #container-event-list > * {
-  margin: 5px 15px 5px 15px; }
-#wdw-events #container-edit-event-buttons {
-  padding-right: 10px;
-  padding-left: 10px; }
-  #wdw-events #container-edit-event-buttons button {
-    margin-right: 15px;
-    margin-left: 15px; }
-#wdw-events #container-edit-location-buttons button,
-#wdw-events #container-edit-partner-buttons button,
-#wdw-events #container-edit-speaker-buttons button {
-  margin-right: 1px; }
-#wdw-events #container-edit-event-buttons button {
-  width: 198px; }
-#wdw-events #container-event-extras > * {
-  margin: 0px 10px 0px 10px; }
-
 #menu-admin {
   margin: 25px 0px 0px 25px; }
   #menu-admin button {
@@ -658,6 +622,69 @@ input[type="text"] {
   #wdw-events label:not([class="floating-label"]) {
     line-height: 35px; }
 
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+#wdw-accounts #accounts-wrapper {
+  width: 70%; }
+#wdw-accounts #container-user-edit input,
+#wdw-accounts #container-user-edit select,
+#wdw-accounts #container-users input,
+#wdw-accounts #container-users select {
+  margin-left: 0px;
+  width: 205px; }
+#wdw-accounts #table-users th {
+  text-align: left;
+  min-width: 50px; }
+#wdw-accounts #tbody-users td:nth-child(-n+5) {
+  width: 120px; }
+#wdw-accounts #tbody-users td:before {
+  display: none;
+  content: attr(data-th) ": "; }
+#wdw-accounts #container-user-edit {
+  margin-right: 50px;
+  margin-bottom: 25px; }
+#wdw-accounts #container-user-edit-buttons {
+  width: 220px; }
+#wdw-accounts .fa-edit:hover,
+#wdw-accounts .fa-remove:hover {
+  cursor: pointer; }
+
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+#wdw-events h2 {
+  margin-top: 25px; }
+#wdw-events #txt-event-agenda,
+#wdw-events #txt-event-description {
+  height: 210px; }
+#wdw-events #txt-event-catch-phrase,
+#wdw-events #txt-event-brief-description {
+  height: 75px; }
+#wdw-events #container-event-create,
+#wdw-events #container-event-extras,
+#wdw-events #container-event-list {
+  margin: 0px 10px 0px 10px; }
+#wdw-events #container-event-left,
+#wdw-events #container-event-right {
+  margin: 0px 10px 0px 10px; }
+#wdw-events #container-event-list > * {
+  margin: 5px 15px 5px 15px; }
+#wdw-events #container-edit-event-buttons {
+  padding-right: 10px;
+  padding-left: 10px; }
+  #wdw-events #container-edit-event-buttons button {
+    margin-right: 15px;
+    margin-left: 15px; }
+#wdw-events #container-edit-location-buttons button,
+#wdw-events #container-edit-partner-buttons button,
+#wdw-events #container-edit-speaker-buttons button {
+  margin-right: 1px; }
+#wdw-events #container-edit-event-buttons button {
+  width: 198px; }
+#wdw-events #container-event-extras > * {
+  margin: 0px 10px 0px 10px; }
+
 .floating-label {
   position: absolute;
   pointer-events: none;
@@ -685,9 +712,30 @@ input[type="text"] {
   #container-event-create,
   #container-event-extras,
   #container-event-list {
+    flex-direction: column !important; }
+
+  #tbody-users td:before {
+    display: inline-block !important;
+    width: 5em;
+    font-weight: bold; }
+  #tbody-users td {
+    display: block;
+    min-width: 250px; }
+
+  #table-users thead {
+    display: none; }
+
+  #table-users th,
+  #table-users td {
+    margin: 10px 10px; }
+
+  #accounts-wrapper {
     flex-direction: column !important; } }
 /*********************************************************************************************/
 /*********************************************************************************************/
 /*********************************************************************************************/
+@media only screen and (min-width: 481px) and (max-width: 960px) {
+  #accounts-wrapper {
+    flex-direction: column !important; } }
 
 /*# sourceMappingURL=app.css.map */

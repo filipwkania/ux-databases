@@ -26,36 +26,43 @@
 <!-- **************************************************************************************************** -->
 <!-- ************************************************** -->
 <div id="wdw-accounts" class="wdw">
-	<div id="container-edit">
-		<input type="hidden" id="txt-edit-id"></input>
-		<input id="txt-edit-username" placeholder="username"></input>
-		<input id="txt-edit-password" placeholder="password"></input>
-		<input id="txt-edit-name" placeholder="name"></input>
-		<input id="txt-edit-email" placeholder="email"></input>
-		<select id="select-edit-role">
-<!-- 			<option value="1">Admin</option>
-			<option value="3">Member</option> -->
-		</select>
-		<button id="btn-edit-save">Save</button>
-	</div>
-	<div id="container-users">
-		<table id="table-users">
-			<thead>
-				<tr>
-					<th class="text-left">Name</th>
-					<th class="text-left">Username</th>
-					<th class="text-left">Email</th>
-					<th class="text-left">Password</th>
-					<th class="text-left">Role</th>
-					<th class="text-center">Edit</th>
-					<th class="text-center">Delete</th>
-				</tr>
-			</thead>
-			<tbody id="tbody-users">
-				<!-- placeholder for users -->
+	<div id="accounts-wrapper">
+		<div id="container-user-edit">
+			<h2>User details:</h2>
+			<input type="hidden" id="txt-edit-id"></input>
+			<input id="txt-edit-username" placeholder="username"></input>
+			<input id="txt-edit-password" placeholder="password"></input>
+			<input id="txt-edit-name" placeholder="name"></input>
+			<input id="txt-edit-email" placeholder="email"></input>
+			<select id="select-edit-role">
+	<!-- 			<option value="1">Admin</option>
+				<option value="3">Member</option> -->
+			</select>
+			<div id="container-user-edit-buttons">
+				<button id="btn-edit-save">Save</button>
+				<button id="btn-edit-clear">Clear</button>
+			</div>
+		</div>
+		<div id="container-users">
+			<h2>Users list:</h2>
+			<table id="table-users">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Username</th>
+						<th>Email</th>
+						<th>Password</th>
+						<th>Role</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody id="tbody-users">
+					<!-- placeholder for users -->
 
-			</tbody>
-		</table>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 <!-- ************************************************** -->
@@ -194,7 +201,7 @@
 <script src="../dist/jquery.datetimepicker.full.min.js"></script>
 <script src="../js/js-admin.js"></script>
 <script>
-	fnOpenWindow('wdw-events');
+	fnOpenWindow('wdw-accounts');
 	let currentDate = new Date();
 	$('#txt-event-start').datetimepicker({startDate: 'currentDate'});
 	$('#txt-event-end').datetimepicker({startDate: 'currentDate'});

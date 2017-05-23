@@ -18,6 +18,10 @@ $(document).on("click", "#btn-edit-save", function() {
 	fnSaveUser();
 });
 
+$(document).on("click", "btn-edit-clear", function() {
+	fnClearEdit();
+})
+
 $(document).on("click", ".user-delete", function(source) {
 	fnDeleteUser($(source.target).parent());
 });
@@ -177,13 +181,13 @@ function fnPopulateUserTable(aUsers) {
 	let blueprint =
 	'<tr class="user-row">\
 		<input type="hidden" class="user-id" value="{{id}}"></input>\
-		<td class="text-left user-fullName">{{fullName}}</td>\
-		<td class="text-left user-username">{{username}}</td>\
-		<td class="text-left user-email">{{email}}</td>\
-		<td class="text-left user-password">{{password}}</td>\
-		<td class="text-left user-userRole">{{userRole}}</td>\
-		<td class="text-center user-edit"><span class="fa fa-fw fa-edit"></span></td>\
-		<td class="text-center user-delete"><span class="fa fa-fw fa-remove"></span></td>\
+		<td class="text-left user-fullName" data-th="Full name">{{fullName}}</td>\
+		<td class="text-left user-username" data-th="Username">{{username}}</td>\
+		<td class="text-left user-email" data-th="Email">{{email}}</td>\
+		<td class="text-left user-password" data-th="Password">{{password}}</td>\
+		<td class="text-left user-userRole" data-th="Role id">{{userRole}}</td>\
+		<td class="text-center user-edit" data-th="Edit"><span class="fa fa-fw fa-edit"></span></td>\
+		<td class="text-center user-delete" data-th="Delete"><span class="fa fa-fw fa-remove"></span></td>\
 	</tr>';
 
 	//replace place holders with actual data
@@ -236,26 +240,31 @@ function fnPrepareToEditEvent(oSource) {
 			+oEvent.location+'"]').attr("selected", "selected")
 		: $('#select-location').val("");
 	}
-
-	function fnPrepareToEditUser(oSource) {
-		//get values from clicked user
-		let sId = $(oSource).siblings('.user-id').val();
-		let sFullName = $(oSource).siblings('.user-fullName').text();
-		let sUsername = $(oSource).siblings('.user-username').text();
-		let sEmail = $(oSource).siblings('.user-email').text();
-		let sPassword = $(oSource).siblings('.user-password').text();
-		let sUserRole = $(oSource).siblings('.user-userRole').text();
-
-		//put values into edit input elements
-		$('#txt-edit-id').val(sId);
-		$('#txt-edit-name').val(sFullName);
-		$('#txt-edit-username').val(sUsername);
-		$('#txt-edit-email').val(sEmail);
-		$('#txt-edit-password').val(sPassword);
-		$('#select-edit-role').val(sUserRole);		
-	}
 }
 
+function fnPrepareToEditUser(oSource) {
+	//get values from clicked user
+	let sId = $(oSource).siblings('.user-id').val();
+	let sFullName = $(oSource).siblings('.user-fullName').text();
+	let sUsername = $(oSource).siblings('.user-username').text();
+	let sEmail = $(oSource).siblings('.user-email').text();
+	let sPassword = $(oSource).siblings('.user-password').text();
+	let sUserRole = $(oSource).siblings('.user-userRole').text();
+
+	//put values into edit input elements
+	$('#txt-edit-id').val(sId);
+	$('#txt-edit-name').val(sFullName);
+	$('#txt-edit-username').val(sUsername);
+	$('#txt-edit-email').val(sEmail);
+	$('#txt-edit-password').val(sPassword);
+	$('#select-edit-role').val(sUserRole);
+
+	//scroll page to edit fields
+	$('html, body').animate(
+			{
+        scrollTop: 0
+      }, 750); 
+}
 function fnSaveSpeaker() {
 	let sUrl = "../apis/api-create-speaker.php";
 	let formData = {};
@@ -381,13 +390,8 @@ function fnClearSpeakerEdit() {
 }
 
 function fnClearEdit(){
-	//clear edit input fields
-	$('#txt-edit-id').val("");
-	$('#txt-edit-name').val("");
-	$('#txt-edit-username').val("");
-	$('#txt-edit-email').val("");
-	$('#txt-edit-password').val("");
-	$('#select-edit-role').val("");	
+	//clear use edit input fields
+	$('#container-user-edit input').val('');
 }
 
 function fnDeleteUser(oSource) {
