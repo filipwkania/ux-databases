@@ -848,5 +848,6 @@ and (min-width: 481px)
 and (max-width: 960px) {
 	#accounts-wrapper {
 		flex-direction: column !important;
+		justify-content: flex-start !important;
 	}
 }
