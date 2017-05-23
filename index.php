@@ -72,10 +72,8 @@
 				<h2 id="wdw-event-title"></h2>
 	            <span id="wdw-event-catch-phrase"></span>
 	            <div id="container-event-header-info">
-	            	<div id="wdw-event-time">
-	            		<span id="wdw-event-time-start"></span>
-	            		<span id="wdw-event-time-end"></span>
-	            	</div>
+            		<span id="wdw-event-time-start"></span>
+            		<span id="wdw-event-time-end"></span>
 	            	<span id="wdw-event-location"></span>
 	            	<span id="wdw-event-category"></span>
 	            	<span id="wdw-event-level"></span>
@@ -87,11 +85,11 @@
 			<div id="event-details-container">
 				<div id="event-description">
 					<div id="event-description-text"></div>
-					<button id="btn-reserve-seat" class="button">Reserve</button>
 				</div>
 				<div id="event-location">
-					<div id="map"></div>
-					<span id="map-caption"></span>
+					<span id="location-name"></span>
+					<span id="location-address"></span>
+					<button id="btn-reserve-seat" class="button">Reserve</button>
 				</div>
 			</div>
 			<div id="separator-contributors" class="separator">Contributors</div>

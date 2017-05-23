@@ -19,14 +19,13 @@ $(document).on('click', '.card-event-image', function(){
   $('#wdw-event-catch-phrase').text(oEvent.catch_phrase);
   $('#wdw-event-time-start').text(oEvent.start);
   $('#wdw-event-time-end').text(oEvent.end);
-  $('#wdw-event-location').text(oEvent.location);
+  $('#wdw-event-location').text(oEvent.location_name);
   $('#wdw-event-category').text(oEvent.category);
   $('#wdw-event-level').text(oEvent.level);
-
   $('#event-description-text').text(oEvent.description);
-  // ADD MISSING MAP !!!
 
-  //$('#map-caption').text(oEvent.location);
+  $('#location-name').text(oEvent.location_name);
+  $('#location-address').text(oEvent.location_address);
 
   var ajSpeakers = [];
   var sSpeakerBluePrint = '<div class="card-speaker">\
@@ -35,7 +34,7 @@ $(document).on('click', '.card-event-image', function(){
                             <img src="./images/{{image-path}}">\
                           </div>\
                           <div class="speaker-card-details">\
-                            <h2 id="speaker-card-name">{{name}}</div>\
+                            <h2 id="speaker-card-name">{{name}}</h2>\
                             <span id="speaker-card-occupation">{{occupation}}</span>\
                             <div id="speaker-card-description">{{description}}</div>\
                           </div>\
@@ -92,25 +91,27 @@ $('#btn-confirm-reservation').click(function(){
       }
     ).done(function(jData){
       console.log(jData);
-      /*
       if(jData.status == "ok"){
         $('#mdl-reservation').css("display", "none");
         $('#frm-reservation').trigger('reset');
+        $('body').removeClass('stop-scrolling');
         alert("Thanks, your reservation has been successfully submitted!");
       }else{
         $('#mdl-reservation').css("display", "none");
         $('#frm-reservation').trigger('reset');
+        $('body').removeClass('stop-scrolling');
         alert("Sorry, there has been a problem with your reservation. Please try again!");
       }
-      */
   })
 })
 
 
 function fnDisplayReservationModal(){
   $('#mdl-reservation').css("display", "flex");
+  $('body').addClass('stop-scrolling');
 }
 function fnHideReservationModal(){
   $('#mdl-reservation').css("display", "none");
   $('#frm-reservation').trigger('reset');
+  $('body').removeClass('stop-scrolling');
 }

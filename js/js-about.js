@@ -42,12 +42,14 @@ function fnDisplaySpeakers(){
 }
 // DISPLAY CONTACT MODAL
 $('#btn-contact').click(function(){
-	$('#mdl-contact').css("display", "flex");	
+	$('#mdl-contact').css("display", "flex");
+	$('body').addClass('stop-scrolling');	
 })
 
 // HIDE CONTACT MODAL / CANCEL
 $('#btn-cancel-message').click(function(){
 	$('#mdl-contact').css("display", "none");
+	$('body').removeClass('stop-scrolling');
 })
 
 // SEND MESSAGE
@@ -65,7 +67,6 @@ $('#btn-send-message').click(function(){
 	}
 	// add message type to form data
 	formData = formData + '&type=' + sMessageType;
-	console.log(formData);
 	// post data to api
     $.ajax(
       {
@@ -79,10 +80,12 @@ $('#btn-send-message').click(function(){
     		$('#mdl-contact').css("display", "none");
     		$('#frm-contact').trigger('reset');
     		alert("Thanks, your message has been successfully submitted!");
+    		$('body').removeClass('stop-scrolling');
 	  	}else{
 	  		$('#mdl-contact').css("display", "none");
     		$('#frm-contact').trigger('reset');
     		alert("Sorry, there has been a problem with your message. Please try again!");
+    		$('body').removeClass('stop-scrolling');
 	  	}
 	})
 })
