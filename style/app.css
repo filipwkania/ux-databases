@@ -635,12 +635,16 @@ input[type="text"] {
   width: 205px; }
 #wdw-accounts #table-users th {
   text-align: left;
-  min-width: 50px; }
-#wdw-accounts #tbody-users td:nth-child(-n+5) {
+  min-width: 50px;
+  font-size: 1.1em;
+  height: 50px; }
+#wdw-accounts #tbody-users td:nth-child(-n+6) {
   width: 120px; }
 #wdw-accounts #tbody-users td:before {
   display: none;
   content: attr(data-th) ": "; }
+#wdw-accounts #tbody-users td {
+  height: 25px; }
 #wdw-accounts #container-user-edit {
   margin-right: 50px;
   margin-bottom: 25px; }

@@ -18,7 +18,7 @@ $(document).on("click", "#btn-edit-save", function() {
 	fnSaveUser();
 });
 
-$(document).on("click", "btn-edit-clear", function() {
+$(document).on("click", "#btn-edit-clear", function() {
 	fnClearEdit();
 })
 
@@ -185,7 +185,7 @@ function fnPopulateUserTable(aUsers) {
 		<td class="text-left user-username" data-th="Username">{{username}}</td>\
 		<td class="text-left user-email" data-th="Email">{{email}}</td>\
 		<td class="text-left user-password" data-th="Password">{{password}}</td>\
-		<td class="text-left user-userRole" data-th="Role id">{{userRole}}</td>\
+		<td class="text-left user-userRole" data-th="Role" data-role-id={{roleId}}>{{userRole}}</td>\
 		<td class="text-center user-edit" data-th="Edit"><span class="fa fa-fw fa-edit"></span></td>\
 		<td class="text-center user-delete" data-th="Delete"><span class="fa fa-fw fa-remove"></span></td>\
 	</tr>';
@@ -198,7 +198,8 @@ function fnPopulateUserTable(aUsers) {
 		sHtmlToAppend = sHtmlToAppend.replace("{{username}}", aUsers[i]['username']);
 		sHtmlToAppend = sHtmlToAppend.replace("{{email}}", aUsers[i]['email']);
 		sHtmlToAppend = sHtmlToAppend.replace("{{password}}", aUsers[i]['password']);
-		sHtmlToAppend = sHtmlToAppend.replace("{{userRole}}", aUsers[i]['role']);
+		sHtmlToAppend = sHtmlToAppend.replace("{{userRole}}", aUsers[i]['role_name']);
+		sHtmlToAppend = sHtmlToAppend.replace("{{roleId}}", aUsers[i]['role']);
 		// append user row to table
 		$('#tbody-users').append(sHtmlToAppend);
 	}
@@ -249,7 +250,7 @@ function fnPrepareToEditUser(oSource) {
 	let sUsername = $(oSource).siblings('.user-username').text();
 	let sEmail = $(oSource).siblings('.user-email').text();
 	let sPassword = $(oSource).siblings('.user-password').text();
-	let sUserRole = $(oSource).siblings('.user-userRole').text();
+	let sUserRole = $(oSource).siblings('.user-userRole').attr('data-role-id');
 
 	//put values into edit input elements
 	$('#txt-edit-id').val(sId);
@@ -391,7 +392,7 @@ function fnClearSpeakerEdit() {
 
 function fnClearEdit(){
 	//clear use edit input fields
-	$('#container-user-edit input').val('');
+	$('#container-user-edit input').val("");
 }
 
 function fnDeleteUser(oSource) {

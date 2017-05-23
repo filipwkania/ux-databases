@@ -689,14 +689,19 @@ input[type="text"] {
 	#table-users th {
 		text-align: left;
 		min-width: 50px;
+		font-size: 1.1em;
+		height: 50px;
 	}
 	#tbody-users {
-		td:nth-child(-n+5) {
+		td:nth-child(-n+6) {
 			width: 120px;
 		}
 		td:before {
 			display: none;
 	    content: attr(data-th)": ";
+	  }
+	  td {
+	  	height: 25px;
 	  }
 	}
 	#container-user-edit {
