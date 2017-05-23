@@ -651,15 +651,107 @@ input[type="text"] {
 
 	}
 }
-
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+/********************************************************************************************************************************/
+// ACCOUNTS+EVENTS COMMON
+#menu-admin {
+	margin: 25px 0px 0px 25px;
+	button {
+		width: 100px;
+		margin-right: 15px;
+	}
+}
+#wdw-accounts,
+#wdw-events {
+	width: 100%;
+	h2 {
+		text-align: center;
+		margin-bottom: 15px;
+	}
+	select,
+	label:not([class="floating-label"]),
+	textarea,
+	input:not([type="checkbox"]){
+		height: 35px;
+		width: 200px;
+		margin: 5px;
+		padding-left: 5px;
+		word-wrap: normal;
+		text-overflow: ellipsis;
+	}
+	input[type="checkbox"]{
+		margin: 5px 5px 5px 10px;
+	}
+	textarea {
+		padding-top: 5px;
+	}
+	button {
+		width: 95px;
+		margin: 5px;
+		height: 35px;
+	}
+	.input-row {
+		position: relative;
+	}
+	.label-row {
+		margin: 5px;
+	}
+	label:not([class="floating-label"]) {
+		line-height: 35px;
+	}
+}
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
 // ACCOUNTS
 #wdw-accounts {
-	#container-edit,
+	@include justify-content(center);
+	#accounts-wrapper {
+		@include display-flex();
+		@include flex-direction(row);
+		@include justify-content(center);
+		width: 70%;	
+	}
+	#container-user-edit,
 	#container-users {
-		width: 50%;
+		@include display-flex();
+		@include flex-direction(column);
+		@include align-items(center);
+		input,
+		select {
+			margin-left: 0px;
+			width: 205px;
+		}
+	}
+	#table-users th {
+		text-align: left;
+		min-width: 50px;
+		font-size: 1.1em;
+		height: 50px;
+	}
+	#tbody-users {
+		td:nth-child(-n+6) {
+			width: 120px;
+		}
+		td:before {
+			display: none;
+	    content: attr(data-th)": ";
+	  }
+	  td {
+	  	height: 25px;
+	  }
+	}
+	#container-user-edit {
+		margin-right: 50px;
+		margin-bottom: 25px;
+	}
+	#container-user-edit-buttons {
+		width: 220px;
+	}
+	.fa-edit:hover,
+	.fa-remove:hover {
+		cursor: pointer;
 	}
 }
 
@@ -726,53 +818,6 @@ $admin-components-margin: 0px 10px 0px 10px;
 	}
 }
 
-// ACCOUNTS+EVENTS COMMON
-#menu-admin {
-	margin: 25px 0px 0px 25px;
-	button {
-		width: 100px;
-		margin-right: 15px;
-	}
-}
-#wdw-accounts,
-#wdw-events {
-	width: 100%;
-	h2 {
-		text-align: center;
-		margin-bottom: 15px;
-	}
-	select,
-	label:not([class="floating-label"]),
-	textarea,
-	input:not([type="checkbox"]){
-		height: 35px;
-		width: 200px;
-		margin: 5px;
-		padding-left: 5px;
-		word-wrap: normal;
-		text-overflow: ellipsis;
-	}
-	input[type="checkbox"]{
-		margin: 5px 5px 5px 10px;
-	}
-	textarea {
-		padding-top: 5px;
-	}
-	button {
-		width: 95px;
-		margin: 5px;
-		height: 35px;
-	}
-	.input-row {
-		position: relative;
-	}
-	.label-row {
-		margin: 5px;
-	}
-	label:not([class="floating-label"]) {
-		line-height: 35px;
-	}
-}
 
 // FLOATING LABELS STUFF
 .floating-label {
@@ -808,6 +853,27 @@ $admin-components-margin: 0px 10px 0px 10px;
 	#container-event-list {
 		flex-direction: column !important;
 	}
+	#tbody-users {
+		td:before {
+			display: inline-block !important;
+			width: 5em;
+			font-weight: bold;
+	  }
+	  td {
+			display: block;
+			min-width: 250px;
+		}
+	}
+	#table-users thead {
+		display: none;
+	}
+	#table-users th,
+	#table-users td {
+		margin: 10px 10px;
+	}
+	#accounts-wrapper {
+		flex-direction: column !important;
+	}
 }
 
  /*********************************************************************************************/
@@ -818,5 +884,8 @@ $admin-components-margin: 0px 10px 0px 10px;
 @media only screen 
 and (min-width: 481px)
 and (max-width: 960px) {
-
+	#accounts-wrapper {
+		flex-direction: column !important;
+		justify-content: flex-start !important;
+	}
 }
