@@ -136,7 +136,6 @@ function fnFetchSpeakers() {
 
 function fnLoadSpeakers(aSpeakers) {
 	$('#container-speakers-list').empty();
-	$('#container-speakers-list').append('<input type="checkbox" checked> No speakers</input>');
 
 	let blueprint = "<input type='checkbox' id='speaker-{{speakerId}}' \
 	value = '{{speakerValue}}'>{{speakerName}}</input>";
@@ -752,4 +751,5 @@ function fnLoadEventsToSelector(aEvents) {
 
 function fnClearEventEdit() {
 	$('#container-event-create input').val("");
+	$('#container-event-create textarea').val("");
 }

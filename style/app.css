@@ -573,7 +573,7 @@ input[type="text"] {
 /********************************************************************************************************************************/
 #wdw-accounts #container-edit,
 #wdw-accounts #container-users {
-  width: 49%; }
+  width: 50%; }
 
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
@@ -582,20 +582,81 @@ input[type="text"] {
   margin-top: 25px; }
 #wdw-events #txt-event-agenda,
 #wdw-events #txt-event-description {
-  height: 200px; }
+  height: 210px; }
 #wdw-events #txt-event-catch-phrase,
 #wdw-events #txt-event-brief-description {
-  height: 50px; }
+  height: 75px; }
+#wdw-events #container-event-create,
+#wdw-events #container-event-extras,
+#wdw-events #container-event-list {
+  margin: 0px 10px 0px 10px; }
+#wdw-events #container-event-left,
+#wdw-events #container-event-right {
+  margin: 0px 10px 0px 10px; }
+#wdw-events #container-event-list > * {
+  margin: 5px 15px 5px 15px; }
+#wdw-events #container-edit-event-buttons {
+  padding-right: 10px;
+  padding-left: 10px; }
+  #wdw-events #container-edit-event-buttons button {
+    margin-right: 15px;
+    margin-left: 15px; }
+#wdw-events #container-edit-location-buttons button,
+#wdw-events #container-edit-partner-buttons button,
+#wdw-events #container-edit-speaker-buttons button {
+  margin-right: 1px; }
+#wdw-events #container-edit-event-buttons button {
+  width: 198px; }
+#wdw-events #container-event-extras > * {
+  margin: 0px 10px 0px 10px; }
 
-#wdw-accounts select,
-#wdw-accounts input:not([type="checkbox"]),
-#wdw-events select,
-#wdw-events input:not([type="checkbox"]) {
-  width: 200px;
-  margin: 5px; }
-#wdw-accounts .input-row,
-#wdw-events .input-row {
-  position: relative; }
+#menu-admin {
+  margin: 25px 0px 0px 25px; }
+  #menu-admin button {
+    width: 100px;
+    margin-right: 15px; }
+
+#wdw-accounts,
+#wdw-events {
+  width: 100%; }
+  #wdw-accounts h2,
+  #wdw-events h2 {
+    text-align: center;
+    margin-bottom: 15px; }
+  #wdw-accounts select,
+  #wdw-accounts label:not([class="floating-label"]),
+  #wdw-accounts textarea,
+  #wdw-accounts input:not([type="checkbox"]),
+  #wdw-events select,
+  #wdw-events label:not([class="floating-label"]),
+  #wdw-events textarea,
+  #wdw-events input:not([type="checkbox"]) {
+    height: 35px;
+    width: 200px;
+    margin: 5px;
+    padding-left: 5px;
+    word-wrap: normal;
+    text-overflow: ellipsis; }
+  #wdw-accounts input[type="checkbox"],
+  #wdw-events input[type="checkbox"] {
+    margin: 5px 5px 5px 10px; }
+  #wdw-accounts textarea,
+  #wdw-events textarea {
+    padding-top: 5px; }
+  #wdw-accounts button,
+  #wdw-events button {
+    width: 95px;
+    margin: 5px;
+    height: 35px; }
+  #wdw-accounts .input-row,
+  #wdw-events .input-row {
+    position: relative; }
+  #wdw-accounts .label-row,
+  #wdw-events .label-row {
+    margin: 5px; }
+  #wdw-accounts label:not([class="floating-label"]),
+  #wdw-events label:not([class="floating-label"]) {
+    line-height: 35px; }
 
 .floating-label {
   position: absolute;
