@@ -50,14 +50,15 @@ function fnDisplayEvents(){
                               <span class="card-event-catch-phrase">{{catch-phrase}}</span>\
                             </div>\
                           </div>\
-                          <div class="event-card-details">\
-                            <div class="event-card-time">\
+                          <div class="event-card-details-container">\
+                            <div class="event-card-details">\
                               <span class="event-card-start-time">{{start-time}}</span>\
-                              <span class="event-card-end-time">{{end-time}}</span>\
                               <span class="event-card-location">{{location}}</span>\
                               <div class="event-card-brief-description">{{brief-description}}</div>\
-                              <span class="event-card-level">{{level}}</span>\
-                              <span class="event-card-category">{{category}}</span>\
+                              <div class="event-card-details-filter-container">\
+                                <span class="event-card-level">{{level}}</span>\
+                                <span class="event-card-category">{{category}}</span>\
+                              </div>\
                             </div>\
                           </div>\
                         </div>'
@@ -71,7 +72,7 @@ function fnDisplayEvents(){
       var sEventCatchPhrase = ajEvents[i].catch_phrase;
       var sEventImagePath = ajEvents[i].picture;
       var sEventStart = ajEvents[i].start;
-      var sEventEnd = ajEvents[i].end;
+      //var sEventEnd = ajEvents[i].end;
       var sEventLocation = ajEvents[i].location_name;
       var sEventBriefDescription = ajEvents[i].brief_description;
       var sEventLevel = ajEvents[i].level;
@@ -90,7 +91,7 @@ function fnDisplayEvents(){
       sTempEvent = sTempEvent.replace('{{title}}', sEventTitle);
       sTempEvent = sTempEvent.replace("{{catch-phrase}}", sEventCatchPhrase);
       sTempEvent = sTempEvent.replace("{{start-time}}", sEventStart);
-      sTempEvent = sTempEvent.replace("{{end-time}}", sEventEnd);
+      //sTempEvent = sTempEvent.replace("{{end-time}}", sEventEnd);
       sTempEvent = sTempEvent.replace("{{location}}", sEventLocation);
       sTempEvent = sTempEvent.replace("{{brief-description}}", sEventBriefDescription);
       sTempEvent = sTempEvent.replace("{{level}}", sEventLevel);

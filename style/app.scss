@@ -3,10 +3,46 @@ $primary-color: #ffd92d;
 $primary-hover-color: #ffe77d;
 $secondary-color-light: #eaeaea;
 $secondary-color-dark : #393939; 
-$overlay-grey-background: rgba(57, 57, 57, 0.9);
+$overlay-grey-background: rgba(0,0,0,0.4);;//rgba(57, 57, 57, 0.5);
 
 $font-regular: 'Open Sans', sans-serif;
 $font-header: 'Open Sans Condensed', sans-serif;
+
+@mixin font-header($size: '18px'){
+	font-family: $font-header;
+	font-size: $size;
+	font-weight: bold;
+}
+
+@mixin font-copy-text($size: '16px', $color: 'black'){
+	font-family: $font-regular;
+	font-size: $size;
+	font-weight: lighter;
+	color: $color;
+}
+
+@mixin header-image($url){
+	@include display-flex();
+	@include justify-content(center);
+	@include align-items(center);
+	width: 100vw;
+	height: 400px !important;
+	padding: 150px 0px;
+	margin-left: 0px;
+	background-image: url($url);
+}
+
+@mixin header-image-text(){
+	@include display-flex();
+	@include flex-direction(column);
+	@include align-items(center);
+	width: 45vw;
+	max-width: 600px;
+	padding: 0px 30px 20px 20px;
+	background-color: $overlay-grey-background;
+	color: #ffffff;
+}
+
 @mixin transition($time){
   transition: $time;
   -webkit-transition: $time;
@@ -41,16 +77,25 @@ $font-header: 'Open Sans Condensed', sans-serif;
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; 
+  box-sizing: border-box;
+  cursor: default;
+}
+
+body {
+	background-color: #f1f1f1;
+}
+
+p, span {
+	@include font-copy-text();
 }
 
 // WINDOWS
 
 .wdw {
-	display: flex;
+	@include display-flex();
 	width: 100vw;
 	height: 100vh;
-	margin-top: 75px;
+	margin-top: 55px;
 }
 
 // MODALS
@@ -64,14 +109,14 @@ $font-header: 'Open Sans Condensed', sans-serif;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: rgba(0,0,0,0.4);
+    background-color: $overlay-grey-background;
     z-index: 99;
 }
 .modal-content {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	@include display-flex();
+	@include flex-direction(column);
+	@include justify-content(center);
+	@include align-items(center);
 	background-color: #F1F1F1;
 	color: #4E4E4E;
     margin: 15% auto;
@@ -84,10 +129,10 @@ $font-header: 'Open Sans Condensed', sans-serif;
 .header {
 	@include display-flex();
 	@include justify-content(space-between);
-	align-items: center;
+	@include align-items(center);
 	position: absolute;
 	width: 100vw;
-	height: 75px;
+	height: 55px;
 	top: 0px;
 	left: 0px;
 	z-index: 98px;
@@ -102,11 +147,9 @@ $font-header: 'Open Sans Condensed', sans-serif;
 	}
 }
 #menu {
-	//@include display-flex();
-	//@include flex-direction(column);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	@include display-flex();
+	@include flex-direction(column);
+	@include align-items(center);
 	position: absolute;
 	width: 250px;
 	height: 100vh;
@@ -130,7 +173,7 @@ $font-header: 'Open Sans Condensed', sans-serif;
 	left: 0px;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: $overlay-grey-background;
 	z-index: 98;
 }
 .button {
@@ -186,39 +229,31 @@ input[type="text"] {
 // INDEX
 
 #wdw-index {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	@include display-flex();
+	@include flex-direction(column);
+	@include align-items(center);
 	#header-image-index {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100vw;
-		height: 375px;
-		margin-left: 0px;
-		background-image: url("../images/header-image-index.jpg");
+		@include header-image("../images/header-image-index.jpg");
+		//background-image: url("../images/header-image-index.jpg");
 		#header-image-index-text {
-			display: flex;
-			flex-direction: column;
-			align-items:center;
-			width: 45vw;
-			max-width: 600px;
-			padding: 0px 30px 20px 20px;
-			background-color: rgba(57,57,57, 0.9);
-			color: #ffffff;
+			@include header-image-text();
 			h1 {
 				margin-top: 20px;
+				@include font-header(42px);
 			}
 			h3 {
 				margin: 20px 0px;
+				font-family: $font-regular;
+				font-size: 18px;
+				font-weight: lighter;
 			}
 		}
 	}
 	#event-container {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		max-width: 90vw;
+		@include display-flex();
+		@include flex-wrap(wrap);
+		@include justify-content(space-around);
+		max-width: 80vw;
 		margin-top: 40px;
 		#event-filters-container {
 			@include display-flex();
@@ -226,7 +261,8 @@ input[type="text"] {
 			width: 100%;
 			span {
 				margin: 0px 40px 20px 0px;
-				font-size: 18px;
+				cursor: default;
+				@include font-header();
 			}
 			.filter-button {
 				@include display-flex();
@@ -253,58 +289,101 @@ input[type="text"] {
 			    @include justify-content(space-around);
 			    position: absolute;
 			    margin-top: -1px;
-			    background-color: #ffd92d;
-			    color: #393939;
 			    border-top-right-radius: 4px;
 			    border-bottom-right-radius: 4px;
 			    border-bottom-left-radius: 4px;
 			    z-index: 1;
-			    font-family: 'Open Sans', sans-serif;
 			    font-size: 14px;
 			    .filter-level {
 			    	float: none;
+			    	background-color: #f2f2f2;
 				    padding: 10px 15px 10px 15px;
 				    margin: 0px;
-				    text-decoration: none;
-				    text-align: left;
-				    cursor: pointer;
-			    }
-			    .filter-category {
-			    	float: none;
-				    padding: 10px 15px 10px 15px;
-				    margin: 0px;
+				    border-right: 4px solid $secondary-color-dark;
+				    border-top: 1px solid $secondary-color-light;
+				    border-bottom: 1px solid $secondary-color-light;
+				    font-family: $font-regular;
+				    font-size: 14px;
+				    font-weight: lighter;
 				    text-decoration: none;
 				    text-align: left;
 				    cursor: pointer;
 				    &:hover {
-				    	color: white;
+				    	border-right: 4px solid $primary-color;
+				    }
+			    }
+			    .filter-category {
+			    	float: none;
+			    	background-color: #f2f2f2;
+				    padding: 10px 15px 10px 15px;
+				    margin: 0px;
+				    border-right: 4px solid $secondary-color-dark;
+				    border-top: 1px solid $secondary-color-light;
+				    border-bottom: 1px solid $secondary-color-light;
+				    font-family: $font-regular;
+				    font-size: 14px;
+				    font-weight: lighter;
+				    text-decoration: none;
+				    text-align: left;
+				    cursor: pointer;
+				    &:hover {
+				    	border-right: 4px solid $primary-color;
 				    }
 			    }
 			}
 		}
 		.card-event {
+			@include display-flex();
+			@include flex-direction(column);
 			width: 25vw;
-			display: flex;
-			flex-direction: column;
+			background-color: white;
+			margin: 0px 0px 20px 0px;
 		.card-event-image {
 			width: 100%;
 			heigth: auto;
 			cursor: pointer;
 		}
 		.card-event-image-overlay {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
+			@include display-flex();
+			@include flex-direction(column);
+			@include align-items(center);
 			padding: 30px 10px;
-			background-color: rgba(0, 0, 0, 0.4);
+			background-color: $overlay-grey-background;
 			color: white;
+			cursor: pointer;
 			&:hover {
 				background-color: rgba(0, 0, 0, 0.2);
 			}
+			h2, span {
+				cursor: pointer;	
+			}
 		}
-		.event-card-details {
-			display: flex;
-			flex-direction: column;
+		.event-card-details-container {
+			@include display-flex();
+			@include justify-content(center);
+			.event-card-details {
+				@include display-flex();
+				@include flex-direction(column);
+				@include justify-content(space-around);
+				width: 90%;
+				padding: 20px 5px 20px 5px;
+				span {
+					@include font-copy-text(16px, #393939);
+				}
+				div {
+					@include font-copy-text(16px, black);
+					margin: 10px 0px;
+				}
+				.event-card-details-filter-container {
+					@include display-flex();
+					.event-card-category, .event-card-level {
+						@include display-flex();
+						@include align-self(flex-end);
+						margin-right: 10px;
+						@include font-copy-text(14px, $primary-color);
+					}
+				}
+			}
 		}
 	}
 	}
@@ -322,13 +401,13 @@ input[type="text"] {
 /********************************************************************************************************************************/
 // ABOUT US
 #wdw-about {
-	display: flex;
+	@include display-flex();
 	display: none;
-	flex-direction: column;
+	@include flex-direction(column);
 	#header-image-about {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include display-flex();
+		@include justify-content(center);
+		@include align-items(center);
 		width: 100vw;
 		height: 375px;
 		margin-left: 0px;
@@ -348,12 +427,12 @@ input[type="text"] {
 		}
 	}
 	#speaker-container {
-		display: flex;
+		@include display-flex();
 		width: 100vw;
 		margin-left: 0px;
-		flex-wrap: wrap;
+		@include flex-wrap(wrap);
 		.card-speaker {
-		display: flex;
+		@include display-flex();
 		height: 20vw;
 		width: 20vw;
 		margin: 0px;
@@ -396,14 +475,14 @@ input[type="text"] {
 // EVENT DETAILS
 
 #wdw-event {
-	display: flex;
+	@include display-flex();
 	display: none;
-	flex-direction: column;
-	align-items: center;
+	@include flex-direction(column);
+	@include align-items(center);
 	#header-image-event {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include display-flex();
+		@include justify-content(center);
+		@include align-items(center);
 		width: 100vw;
 		height: 375px;
 		margin-left: 0px;
@@ -423,32 +502,32 @@ input[type="text"] {
 	}
 	#wdw-event-content-container {
 		width: 100vw;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+		@include display-flex();
+		@include flex-direction(column);
+		@include align-items(center);
 		#event-details-container {
-			width: 90vw;
-			display: flex;
+			width: 80vw;
+			@include display-flex();
 			justify-content: flex-start;
 		}
 		#event-contributors-container {
-			width: 90vw;
-			display: flex;
+			width: 80vw;
+			@include display-flex();
 			justify-content: flex-start;
 			.card-speaker {
-				display: flex;
-				flex-direction: column;
+				@include display-flex();
+				@include flex-direction(column);
 				width: 30vw;
 				height: auto;
 				margin: 0px 10px 0px 10px;
 				.card-speaker-header {
 					width: 100%;
 					height: 19vw;
-					display: flex;
-					flex-direction: column;	
-					align-items: center;
+					@include display-flex();
+					@include flex-direction(column);	
+					@include align-items(center);
 					img {
-						display: flex;
+						@include display-flex();
 						width: 15vw;
 						height: auto;
 						border-radius: 50%;
@@ -468,9 +547,9 @@ input[type="text"] {
 			}
 		}
 		.separator {
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			@include display-flex();
+			@include justify-content(center);
+			@include align-items(center);
 			width: 100vw;
 			height: 60px;
 			margin: 20px auto 20px 0px;
@@ -498,7 +577,7 @@ input[type="text"] {
 /********************************************************************************************************************************/
 // EVENTS
 #wdw-events {
-	flex-direction: column;
+	@include flex-direction(column);
 	h2 {
 		margin-top: 25px;
 	}
