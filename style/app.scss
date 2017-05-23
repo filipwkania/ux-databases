@@ -14,6 +14,12 @@ $font-header: 'Open Sans Condensed', sans-serif;
 	font-weight: bold;
 }
 
+@mixin font-subheader($size: '16px'){
+	font-family: $font-regular;
+	font-size: $size;
+	font-weight: bold;
+}
+
 @mixin font-copy-text($size: '16px', $color: 'black'){
 	font-family: $font-regular;
 	font-size: $size;
@@ -26,8 +32,7 @@ $font-header: 'Open Sans Condensed', sans-serif;
 	@include justify-content(center);
 	@include align-items(center);
 	width: 100vw;
-	height: 400px !important;
-	padding: 150px 0px;
+	min-height: 375px !important;
 	margin-left: 0px;
 	background-image: url($url);
 }
@@ -38,7 +43,7 @@ $font-header: 'Open Sans Condensed', sans-serif;
 	@include align-items(center);
 	width: 45vw;
 	max-width: 600px;
-	padding: 0px 30px 20px 20px;
+	padding: 20px 30px 20px 20px;
 	background-color: $overlay-grey-background;
 	color: #ffffff;
 }
@@ -94,7 +99,7 @@ p, span {
 .wdw {
 	@include display-flex();
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 	margin-top: 55px;
 }
 
@@ -405,32 +410,16 @@ input[type="text"] {
 	display: none;
 	@include flex-direction(column);
 	#header-image-about {
-		@include display-flex();
-		@include justify-content(center);
-		@include align-items(center);
-		width: 100vw;
-		height: 375px;
-		margin-left: 0px;
-		background-image: url("../images/header-image-about.jpg");
+		@include header-image("../images/header-image-about.jpg");
 		#txt-about {
-			width: 45vw;
-			max-width: 600px;
-			padding: 0px 30px 20px 20px;
-			background-color: rgba(57,57,57, 0.9);
-			color: #ffffff;
-			h2 {
-				margin-top: 20px;
-			}
-			p {
-				margin: 20px 0px;
-			}
+			@include header-image-text();
 		}
 	}
 	#speaker-container {
 		@include display-flex();
+		@include flex-wrap(wrap);
 		width: 100vw;
 		margin-left: 0px;
-		@include flex-wrap(wrap);
 		.card-speaker {
 		@include display-flex();
 		height: 20vw;
@@ -459,11 +448,34 @@ input[type="text"] {
 	}
 	.back {
 	  	z-index: 1;
-	  	background-color: #393939;
-	  	color: #ffffff;
+	  	overflow: auto;
+	  	background-color: $secondary-color-dark;
 	  	word-wrap: break-word;
-	  	line-height: 1.6;
+	  	//line-height: 1.6;
+	  	//font-weight: lighter;
+	  	//font-family: $font-regular;
+	  	//color: white;
 	 	@include transform(rotatey(-180deg));
+	 	@include display-flex();
+	 	@include flex-direction(column);
+	 	@include align-items(center);
+	 	@include justify-content(center);
+	 	div {
+	 		width: 90%;
+	 		margin: 5px 0px;
+	 		font-size: 12px;
+	 		@include align-self(center);
+	 		@include font-copy-text(12px);
+	 		color: white;
+	 	}
+	 	.txt-speaker-name {
+ 			@include font-header(18px);
+ 			color: white;
+	 	}
+	 	.txt-speaker-occupation {
+	 		@include font-subheader(16px);
+	 		color: white;
+	 	}
 	}
 	}
 	}
