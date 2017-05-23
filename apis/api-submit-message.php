@@ -13,18 +13,17 @@
 	}elseif($sSubject == 'question'){
 		$sSubject = 3;
 	}
-
 	//create message in db
 	$query = $pdo->prepare("INSERT INTO `ux_databases`.`message`
 													(`id_message`,`text`,`name`,`phone`,`email`,
 													`subject`,`is_answered`)
 													VALUES
-													(:id,:text,:fullname,:phone,:email,
+													(:id,:message,:fullname,:phone,:email,
 													:subject,:is_answered);");
 	//execute query
-	$query->execute(['id'=>null,'text'=>$sMessage, 'fullname'=>$sFullname, 'phone'=>$sPhone,
-									 'email'=>$sEmail,'subject'=>$sSubject, 'is_answered'=>false]);
-
+	$query->execute(['id'=>null,'message'=>$sMessage, 'fullname'=>$sFullname, 'phone'=>$sPhone,
+									'email'=>$sEmail,'subject'=>$sSubject, 'is_answered'=>0]);
+	
 	//check how many rows were created
 	$created = $query->rowCount();
 

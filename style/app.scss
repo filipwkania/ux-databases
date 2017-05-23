@@ -120,15 +120,56 @@ p, span {
 .modal-content {
 	@include display-flex();
 	@include flex-direction(column);
-	@include justify-content(center);
 	@include align-items(center);
 	background-color: #F1F1F1;
 	color: #4E4E4E;
-    margin: 15% auto;
-    padding: 20px;
+    margin: 5% auto;
+    padding: 20px 20px 40px 20px;
     width: 45vw;
-    height: 50vh;
+    height: 75vh;
     border-radius: 4px;
+    h2 {
+    	@include font-header();
+    }
+    form {
+    	@include display-flex();
+    	@include flex-direction(column);
+    	@include justify-content(center);
+    	@include align-items(center);
+    	width: 90%;
+    	#container-message-subject {
+    		@include display-flex();
+    		@include align-self(flex-start);
+    		margin-top: 10px;
+    		#message-subject {
+    			margin-right: 20px;
+    		}
+    		.radio-button {
+    			margin-right: 20px;
+    		}
+    	}
+    	input[type="text"] {
+			height: 40px;
+			width: 100%;
+			margin: 10px 0px 10px 0px;
+			padding-left: 10px;
+			border: none;
+			font-size: 16px;
+    	}
+    	#message-text {
+    		height: 115px !important;
+    	}
+    }
+}
+
+.modal-buttons {
+	@include display-flex();
+	@include align-self(flex-end);
+	margin-top: 10px;
+	.button, .cancel-button {
+		width: 150px;
+		margin-left: 20px;
+	}
 }
 
 .header {
@@ -201,7 +242,6 @@ p, span {
 	width: 250px;
 	height: 40px;
 	padding-left: 10px;
-	margin-top: 10px;
 	background-color: #C1C1C1;
 	color: #ffffff;
 	font-size: 16px;
@@ -219,7 +259,7 @@ p, span {
 .stop-scrolling {
 	overflow: hidden;
 }
-
+/*
 input[type="text"] {
 	height: 40px;
 	width: 350px;
@@ -228,6 +268,7 @@ input[type="text"] {
 	border: none;
 	font-size: 16px;
 }
+*/
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
@@ -413,6 +454,10 @@ input[type="text"] {
 		@include header-image("../images/header-image-about.jpg");
 		#txt-about {
 			@include header-image-text();
+			.btn-contact {
+				@include display-flex();
+				@include align-self(flex-start);
+			}
 		}
 	}
 	#speaker-container {
@@ -451,10 +496,6 @@ input[type="text"] {
 	  	overflow: auto;
 	  	background-color: $secondary-color-dark;
 	  	word-wrap: break-word;
-	  	//line-height: 1.6;
-	  	//font-weight: lighter;
-	  	//font-family: $font-regular;
-	  	//color: white;
 	 	@include transform(rotatey(-180deg));
 	 	@include display-flex();
 	 	@include flex-direction(column);

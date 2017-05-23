@@ -111,8 +111,10 @@
 				<h2>Reserve a seat</h2>
 				<input id="reservation-fullname" type="text" name="fullname"></input>
 				<input id="reservation-email" type="text" name="email"></input>
-				<button id="btn-cancel-reservation" class="cancel-button" type="button">Cancel</button>
-				<button id="btn-confirm-reservation" class="button" type="button">Send</button>
+				<div class="modal-buttons">
+					<button id="btn-cancel-reservation" class="cancel-button" type="button">Cancel</button>
+					<button id="btn-confirm-reservation" class="button" type="button">Send</button>
+				</div>
 			</form>
 		</div>
 	</div>
@@ -150,10 +152,11 @@
 
 	<div id="mdl-contact" class="modal">
 		<div class="modal-content">
-			<p id="success-message-contact">Your message has been successfully submitted!</p>
 			<form id="frm-contact">
+				<h2>Let us know what you think!</h2>
+				<p>Send us you application, feedback or questions and we'll get back to you as soon as possible.</p>
 				<div id="container-message-subject">
-					<span id="message-subject">Subject</span>
+					<span id="message-subject">Subject:</span>
 					<div class="radio-button">
 						<input id="message-subject-application" type="radio" name="application">
 						<span id="lbl-message-subject-application">Partner Application</span>
@@ -171,8 +174,10 @@
 				<input id="message-email" class="validate" type="text" name="email" placeholder="Email">
 				<input id="message-phone" type="text" name="phone" placeholder="Phone">
 				<input id="message-text" type="text" name="message" placeholder="Message">
-				<button id="btn-cancel-message" class="cancel-button" type="button">Cancel</button>
-				<button id="btn-send-message" class="button" type="button">Send</button>
+				<div class="modal-buttons">
+					<button id="btn-cancel-message" class="cancel-button" type="button">Cancel</button>
+					<button id="btn-send-message" class="button" type="button">Send</button>
+				</div>
 			</form>
 		</div>
 	</div>
