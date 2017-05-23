@@ -65,7 +65,6 @@ $('#btn-send-message').click(function(){
 	}
 	// add message type to form data
 	formData = formData + '&type=' + sMessageType;
-	console.log(formData);
 	// post data to api
     $.ajax(
       {

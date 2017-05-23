@@ -158,15 +158,15 @@
 				<div id="container-message-subject">
 					<span id="message-subject">Subject:</span>
 					<div class="radio-button">
-						<input id="message-subject-application" type="radio" name="application">
+						<input id="message-subject-application" type="radio" name="message-subject">
 						<span id="lbl-message-subject-application">Partner Application</span>
 					</div>
 					<div class="radio-button">
-						<input id="message-subject-feedback" type="radio" name="feedback">
+						<input id="message-subject-feedback" type="radio" name="message-subject">
 						<span id="lbl-message-subject-feedback">Feedback</span>
 					</div>
 					<div class="radio-button">
-						<input id="message-subject-question" type="radio" name="question">
+						<input id="message-subject-question" type="radio" name="message-subject">
 						<span id="lbl-message-subject-question">Question</span>
 					</div>
 				</div>
