@@ -774,9 +774,9 @@ function fnSaveEvent() {
 			}
 		});
 	// DEBUGGING CODE FOR AJAX REQUEST
-	ajaxRequest.error(function(xhr, status, error) {
-		console.log(xhr.responseText);	
-	});
+	// ajaxRequest.error(function(xhr, status, error) {
+	// 	console.log(xhr.responseText);	
+	// });
 	// END OF DEBUGGING
 	}
 }
