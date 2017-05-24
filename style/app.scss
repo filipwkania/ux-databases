@@ -626,10 +626,13 @@ input[type="text"] {
 }
 #wdw-accounts,
 #wdw-events {
+	margin-top: 0px;
 	width: 100%;
-	h2 {
-		text-align: center;
+	h2, h4 {
+		// text-align: center;
 		margin-bottom: 15px;
+		height: 28px;
+		line-height: 28px;
 	}
 	select,
 	label:not([class="floating-label"]),
@@ -637,7 +640,7 @@ input[type="text"] {
 	input:not([type="checkbox"]){
 		height: 35px;
 		width: 200px;
-		margin: 5px;
+		margin-bottom: 10px;
 		padding-left: 5px;
 		word-wrap: normal;
 		text-overflow: ellipsis;
@@ -650,7 +653,7 @@ input[type="text"] {
 	}
 	button {
 		width: 95px;
-		margin: 5px;
+		margin-right: 5px;
 		height: 35px;
 	}
 	.input-row {
@@ -663,6 +666,29 @@ input[type="text"] {
 		line-height: 35px;
 	}
 }
+#modals-admin {
+	.modal-content {
+		width: 75%;
+		.modal-buttons {
+			@include justify-content(center);
+			width: 100%;
+		}
+	}
+	.modal-content > div:first-of-type {
+		@include display-flex();
+		@include flex-direction (column);
+		@include align-items(center);
+		@include justify-content(center);
+		height: 85%;
+		input {
+			height: 35px;
+			width: 200px;
+			margin-bottom: 10px;
+			padding-left: 5px;
+		}
+	}
+}
+
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
@@ -722,12 +748,22 @@ input[type="text"] {
 /********************************************************************************************************************************/
 // EVENTS
 
-$admin-components-margin: 0px 10px 0px 10px;
+$admin-components-margin: 0px 10px 0px 0px;
 #wdw-events {
 	@include flex-direction(column);
 	@include align-items(center);
-	h2 {
-		margin-top: 25px;
+		margin-bottom: 25px;
+		h2 {
+			text-align: center;
+		}
+	#events-header {
+	}
+	#events-content {
+		@include justify-content(center);
+		width: 100%;
+		h2, h4 {
+			margin-top: 25px;
+		}
 	}
 	#txt-event-agenda, 
 	#txt-event-description {
@@ -738,15 +774,16 @@ $admin-components-margin: 0px 10px 0px 10px;
 		height: 75px;
 	}
 	#container-event-create,
-	#container-event-extras,
-	#container-event-list {
+	#container-event-list,
+	#events-content {
 		@include display-flex;
 		@include flex-direction(row);
 		margin: $admin-components-margin;
 	}
 	#container-location-create,
 	#container-partner-create,
-	#container-speaker-create {
+	#container-speaker-create,
+	#container-event-extras > div {
 		@include display-flex;
 		@include flex-direction(column);
 	}
@@ -755,21 +792,18 @@ $admin-components-margin: 0px 10px 0px 10px;
 		margin: $admin-components-margin;
 	}
 	#container-event-list > * {
-		margin: 5px 15px 5px 15px;
+		margin: $admin-components-margin;
 	}
 	#container-edit-event-buttons {
 		padding-right: 10px;
 		padding-left: 10px;
 		button {
-			margin-right: 15px;
-			margin-left: 15px;			
+			margin: 10px 10px 10px 0px;
 		}
 	}
-	#container-edit-location-buttons,
-	#container-edit-partner-buttons,
-	#container-edit-speaker-buttons {
+	#container-button-box {
 		button {
-			margin-right: 1px;
+			margin-left: 0px;
 		}
 	}
 	#container-edit-event-buttons button {
@@ -777,6 +811,34 @@ $admin-components-margin: 0px 10px 0px 10px;
 	}
 	#container-event-extras > * {
 		margin: $admin-components-margin;
+	}
+	.tab-admin-event {
+		min-width: 250px;
+	}
+	#container-speaker-list {
+		margin-bottom: 10px;
+	}
+	#container-extra-partners,
+	#container-extra-speakers {
+		@include flex-wrap(wrap);
+		max-width: 250px;
+		margin-top: 5px;
+	}
+	.extra-speaker,
+	.extra-partner {
+		@include display-inline-flex();
+		@include align-items(center);
+		background-color: $primary-hover-color;
+		border-radius: 15px;
+		height: 35px;
+		margin: 0px 5px 5px 0px;
+		span {
+			margin: 0px 10px 0px 10px;
+		}
+	}
+	.fa-edit:hover,
+	.fa-remove:hover {
+		cursor: pointer;
 	}
 }
 
@@ -810,31 +872,58 @@ $admin-components-margin: 0px 10px 0px 10px;
 
 
 @media screen and (max-width: 480px) {
-	#container-event-create,
-	#container-event-extras,
-	#container-event-list {
-		flex-direction: column !important;
-	}
-	#tbody-users {
-		td:before {
-			display: inline-block !important;
-			width: 5em;
-			font-weight: bold;
-	  }
-	  td {
-			display: block;
-			min-width: 250px;
+	
+	#wdw-events {
+		button {
+			margin-bottom: 10px;
+		}
+		#container-event-create,
+		#events-content,
+		#container-event-list,
+		#container-edit-event-buttons,
+		#container-event-partners,
+		#container-event-extras div {
+			display: flex;
+			flex-direction: column !important;
+			align-items: center !important;
+		}
+		.btn-edit {
+			width: 200px !important;
 		}
 	}
-	#table-users thead {
-		display: none;
+	#modals-admin {
+		.modal-content {
+			width: 75vw !important;
+		}
+		.modal-buttons {
+			flex-direction: column-reverse !important;
+			button {
+				margin-bottom: 10px;
+			}
+		}
 	}
-	#table-users th,
-	#table-users td {
-		margin: 10px 10px;
-	}
-	#accounts-wrapper {
-		flex-direction: column !important;
+	#wdw-accounts {
+		#tbody-users {
+			td:before {
+				display: inline-block !important;
+				width: 5em;
+				font-weight: bold;
+		  }
+		  td {
+				display: block;
+				min-width: 250px;
+			}
+		}
+		#table-users thead {
+			display: none;
+		}
+		#table-users th,
+		#table-users td {
+			margin: 10px 10px;
+		}
+		#accounts-wrapper {
+			flex-direction: column !important;
+		}
 	}
 }
 
@@ -846,6 +935,12 @@ $admin-components-margin: 0px 10px 0px 10px;
 @media only screen 
 and (min-width: 481px)
 and (max-width: 960px) {
+	#modals-admin {
+
+	}
+	#events-content {
+		flex-wrap: wrap;
+	}
 	#accounts-wrapper {
 		flex-direction: column !important;
 		justify-content: flex-start !important;
