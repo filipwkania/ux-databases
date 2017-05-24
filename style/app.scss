@@ -981,12 +981,13 @@ $admin-components-margin: 0px 10px 0px 0px;
 		#tbody-users {
 			td:before {
 				display: inline-block !important;
-				width: 5em;
+				width: 85px;
 				font-weight: bold;
+				margin-right: 5px;
 		  }
 		  td {
 				display: block;
-				min-width: 250px;
+				width: 250px !important;
 			}
 		}
 		#table-users thead {
