@@ -923,5 +923,59 @@ input[type="text"] {
 /*********************************************************************************************/
 /*********************************************************************************************/
 /*********************************************************************************************/
+@media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
+  #wdw-index #header-image-index {
+    min-height: 225px !important; }
+    #wdw-index #header-image-index #header-image-index-text {
+      width: 85vw !important; }
+  #wdw-index #event-container {
+    max-width: 90vw;
+    margin-top: 40px; }
+    #wdw-index #event-container #event-filters-container {
+      justify-content: flex-start; }
+    #wdw-index #event-container .card-event {
+      width: 90vw !important;
+      min-height: 400px; }
+      #wdw-index #event-container .card-event .event-card-details-container {
+        margin-top: 20px; }
+        #wdw-index #event-container .card-event .event-card-details-container .btn-display-event-details {
+          display: block !important; }
+
+  #wdw-event #header-image-event {
+    min-height: 225px !important; }
+    #wdw-event #header-image-event #txt-event {
+      width: 85vw !important; }
+  #wdw-event #event-details-container {
+    width: 90vw;
+    flex-direction: column;
+    align-items: center; }
+    #wdw-event #event-details-container #event-description {
+      width: 100% !important; }
+    #wdw-event #event-details-container #event-location {
+      width: 40% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-self: flex-start;
+      margin-top: 20px !important; }
+  #wdw-event #event-contributors-container {
+    width: 90vw; }
+    #wdw-event #event-contributors-container .card-speaker {
+      width: 90vw !important; }
+      #wdw-event #event-contributors-container .card-speaker .card-speaker-header {
+        height: auto !important; }
+        #wdw-event #event-contributors-container .card-speaker .card-speaker-header img {
+          width: 25vw !important; }
+
+  #mdl-reservation .modal-content {
+    width: 90vw;
+    height: 45vh; }
+    #mdl-reservation .modal-content form {
+      width: 97%; }
+      #mdl-reservation .modal-content form .modal-buttons {
+        width: 100%;
+        justify-content: space-between; }
+        #mdl-reservation .modal-content form .modal-buttons .button, #mdl-reservation .modal-content form .modal-buttons .cancel-button {
+          width: 45%;
+          margin-left: 0px; } }
 
 /*# sourceMappingURL=app.css.map */

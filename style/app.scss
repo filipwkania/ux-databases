@@ -989,8 +989,7 @@ and (max-width: 765px) {
 
 @media only screen 
   and (min-device-width: 765px) 
-  and (max-device-width: 1024px) 
-  {
+  and (max-device-width: 1024px) {
   	// INDEX
   	#wdw-index {
   		#header-image-index-text {
@@ -999,7 +998,7 @@ and (max-width: 765px) {
 		#event-container {
 			max-width: 95vw;
 			margin-top: 40px;
-			}
+		}
 		.card-event {
 			width: 30vw !important;
 			.event-card-details-container {
@@ -1087,3 +1086,89 @@ and (max-width: 765px) {
 /*********************************************************************************************/
 /*********************************************************************************************/
 // MOBILE - PORTRAIT
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 667px) {
+	// INDEX
+  	#wdw-index {
+  		#header-image-index{
+  			min-height: 225px !important;
+	  		#header-image-index-text {
+	  			width: 85vw !important;
+	  		}
+	  	}
+		#event-container {
+			max-width: 90vw;
+			margin-top: 40px;
+			#event-filters-container {
+				justify-content: flex-start;
+			}
+			.card-event {
+				width: 90vw !important;
+				min-height: 400px;
+			.event-card-details-container {
+				margin-top: 20px;
+				.btn-display-event-details {
+					display: block !important;
+				}
+			}
+		}
+		}
+	}
+	// EVENT DETAILS
+	#wdw-event {
+		#header-image-event {
+			min-height: 225px !important;
+			#txt-event {
+				width: 85vw !important;
+			}
+		}
+		#event-details-container {
+			width: 90vw;
+			flex-direction: column;
+			align-items: center;
+			#event-description {
+				width: 100% !important;
+			}
+			#event-location {
+				width: 40% !important;
+				display: flex !important;
+				flex-direction: column !important;
+				align-self: flex-start;
+				margin-top: 20px !important;
+			}
+		}
+		#event-contributors-container {
+			width: 90vw;
+			.card-speaker {
+				width: 90vw !important;
+				.card-speaker-header {
+					height: auto !important;
+					img {
+						width: 25vw !important;
+					}
+				}
+			}
+		}
+	}
+	#mdl-reservation {
+		.modal-content {
+			width: 90vw;
+			height: 45vh;
+			form {
+				width: 97%;
+				.modal-buttons {
+					width: 100%;
+					justify-content: space-between;
+					.button, .cancel-button {
+						width: 45%;
+						margin-left: 0px;
+					}
+				}
+			}
+		}
+	}
+}
+
+
