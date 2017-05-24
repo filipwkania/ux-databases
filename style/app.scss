@@ -804,6 +804,7 @@ $admin-components-margin: 0px 10px 0px 0px;
 	#events-header {
 	}
 	#events-content {
+		@include flex-wrap(wrap);
 		@include justify-content(center);
 		width: 100%;
 		h2, h4 {

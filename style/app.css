@@ -55,7 +55,7 @@
 /*
     Flex wrap
  */
-#wdw-index #event-container, #wdw-about #speaker-container, #wdw-event #wdw-event-content-container #event-contributors-container, #wdw-events #container-extra-partners,
+#wdw-index #event-container, #wdw-about #speaker-container, #wdw-event #wdw-event-content-container #event-contributors-container, #wdw-events #events-content, #wdw-events #container-extra-partners,
 #wdw-events #container-extra-speakers {
   -webkit-flex-wrap: wrap;
   -moz-flex-wrap: wrap;
