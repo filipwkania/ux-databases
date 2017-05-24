@@ -917,6 +917,32 @@ $admin-components-margin: 0px 10px 0px 10px;
 		}
 	}
 
+	// ABOUT
+	#wdw-about {
+		#txt-about {
+			width: 85vw !important;
+		}
+	}
+	#mdl-contact {
+		.modal-content {
+				margin: 25% auto;
+				width: 75vw;
+				height: 55vh;
+				h2 {
+					margin-bottom: 20px;
+				}
+				p {
+					margin-bottom: 20px;
+				}
+				#container-message-subject {
+					margin-bottom: 20px;
+				}
+				.modal-buttons {
+					margin-top: 20px;
+				}
+		}
+	}
+
 
 
 

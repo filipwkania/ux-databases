@@ -813,6 +813,22 @@ input[type="text"] {
       display: block !important;
       width: 100%; }
 
+  #wdw-about #txt-about {
+    width: 85vw !important; }
+
+  #mdl-contact .modal-content {
+    margin: 25% auto;
+    width: 75vw;
+    height: 55vh; }
+    #mdl-contact .modal-content h2 {
+      margin-bottom: 20px; }
+    #mdl-contact .modal-content p {
+      margin-bottom: 20px; }
+    #mdl-contact .modal-content #container-message-subject {
+      margin-bottom: 20px; }
+    #mdl-contact .modal-content .modal-buttons {
+      margin-top: 20px; }
+
   #accounts-wrapper {
     flex-direction: column !important;
     justify-content: flex-start !important; } }
