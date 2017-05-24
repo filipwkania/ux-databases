@@ -54,8 +54,8 @@
 				<option value="3">Member</option> -->
 			</select>
 			<div id="container-user-edit-buttons">
-				<button id="btn-edit-save">Save</button>
-				<button id="btn-edit-clear">Clear</button>
+				<button id="btn-edit-clear" class="cancel-button">Clear</button>
+				<button id="btn-edit-save" class="button">Save</button>
 			</div>
 		</div>
 		<div id="container-users">

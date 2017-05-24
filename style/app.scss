@@ -89,11 +89,15 @@ $font-header: 'Open Sans Condensed', sans-serif;
 body {
 	background-color: #f1f1f1;
 }
-
-p, span {
+h2 {
+	@include font-header();
+}
+p, span, td {
 	@include font-copy-text();
 }
-
+th {
+	font-family: $font-header;
+}
 // WINDOWS
 
 .wdw {
@@ -262,6 +266,10 @@ p, span {
 }
 .stop-scrolling {
 	overflow: hidden;
+}
+input {
+	border: none;
+	box-shadow: none;
 }
 /*
 input[type="text"] {
@@ -752,6 +760,7 @@ input[type="text"] {
 		@include display-flex();
 		@include flex-direction(row);
 		@include justify-content(center);
+		margin-top: 100px;
 		width: 70%;	
 	}
 	#container-user-edit,
@@ -788,7 +797,10 @@ input[type="text"] {
 		margin-bottom: 25px;
 	}
 	#container-user-edit-buttons {
-		width: 220px;
+		@include display-flex();
+		@include justify-content(space-between);
+		margin-left: 5px;
+		width: 210px;
 	}
 	.fa-edit:hover,
 	.fa-remove:hover {
