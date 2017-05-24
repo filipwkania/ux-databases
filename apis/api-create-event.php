@@ -6,14 +6,16 @@
 	$sAgenda = $_POST['agenda'];
 	$sStart = $_POST['start'];
 	$sEnd = $_POST['end'];
-	$sSustenance = $_POST['sustenance'];
+	// $sSustenance = $_POST['sustenance'];
+	$sSustenance = '0';
 	$sLevel = $_POST['level'];
 	$sCatchPhrase = $_POST['catchPhrase'];
 	$sBriefDescription = $_POST['briefDescription'];
 	$sCategory = $_POST['category'];
 	$sLocation = $_POST['location'];
 	$sMainPartner = $_POST['mainPartner'];
-	$sPrice = $_POST['price'];
+	// $sPrice = $_POST['price'];
+	$sPrice = '0';
 
 	$sPicture = 'defaultEvent.jpg';
 

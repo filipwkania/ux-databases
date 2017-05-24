@@ -15,6 +15,10 @@ $(document).on("click", ".cancel-button", function(source) {
 	fnCloseModal(sModal);
 });
 
+$(document).on("click", "#btn-cancel-edit", function () {
+	fnClearEdit();
+})
+
 $(document).on("click", ".btn-add-new", function(source) {
 	let sItem = $(source.target).attr("data-item");
 	fnClearForm(sItem);
@@ -52,10 +56,6 @@ $(document).on("click", ".user-edit", function(source) {
 $(document).on("click", "#btn-edit-save", function() {
 	fnSaveUser();
 });
-
-$(document).on("click", "#btn-edit-clear", function() {
-	fnClearEdit();
-})
 
 $(document).on("click", ".user-delete", function(source) {
 	fnDeleteUser($(source.target).parent());
@@ -316,11 +316,7 @@ function fnPrepareToEditUser(oSource) {
 	$('#txt-edit-password').val(sPassword);
 	$('#select-edit-role').val(sUserRole);
 
-	//scroll page to edit fields
-	$('html, body').animate(
-			{
-        scrollTop: 0
-      }, 750); 
+	fnShowModal('user');
 }
 function fnSaveSpeaker() {
 	let sUrl = "../apis/api-create-speaker.php";
@@ -385,6 +381,7 @@ function fnSaveUser() {
 		ajaxRequest.done(function(jData) {
 			if(jData.status === "ok") {
 				fnUpdateUserInTable();
+				fnCloseModal('user');
 				fnClearEdit();
 				alert("User updated in database!");
 			} else {
@@ -413,6 +410,7 @@ function fnSaveUser() {
 			if(jData.status === "ok") {
 				//if status is ok, reload users and clear edit fields
 				fnLoadUsers();
+				fnCloseModal('user');
 				fnClearEdit();
 				alert("User added to database!");
 			} else {

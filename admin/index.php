@@ -42,22 +42,6 @@
 <!-- ************************************************** -->
 <div id="wdw-accounts" class="wdw">
 	<div id="accounts-wrapper">
-		<div id="container-user-edit">
-			<h2>User details:</h2>
-			<input type="hidden" id="txt-edit-id"></input>
-			<input id="txt-edit-username" placeholder="username"></input>
-			<input id="txt-edit-password" placeholder="password"></input>
-			<input id="txt-edit-name" placeholder="name"></input>
-			<input id="txt-edit-email" placeholder="email"></input>
-			<select id="select-edit-role">
-	<!-- 			<option value="1">Admin</option>
-				<option value="3">Member</option> -->
-			</select>
-			<div id="container-user-edit-buttons">
-				<button id="btn-edit-clear" class="cancel-button">Clear</button>
-				<button id="btn-edit-save" class="button">Save</button>
-			</div>
-		</div>
 		<div id="container-users">
 			<h2>Users list:</h2>
 			<table id="table-users">
@@ -115,13 +99,13 @@
 						<textarea id="txt-event-description" class="field" placeholder="full description" required></textarea>
 						<label class="floating-label">Full description:</label>
 					</div>
-					<div class="input-row">
+<!-- 					<div class="input-row">
 						<input id="txt-event-price" class="field" placeholder="price" required></input>
 						<label class="floating-label">Price:</label>
-					</div>
-					<div class="input-row">
+					</div> -->
+<!-- 					<div class="input-row">
 						<input id="check-event-sustenance" type="checkbox">Sustenance</input>
-					</div>
+					</div> -->
 				</div>
 				<div id="container-event-right">
 					<div class="label-row"><label>Event level </label></div>
@@ -260,6 +244,27 @@
 			<div class="modal-buttons">
 				<button id="btn-cancel-location" class="cancel-button" data-mdl="location" type="button">Cancel</button>
 				<button id="btn-save-location" class="button" type="button">Save</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="mdl-user" class="modal">
+		<div class="modal-content">
+			<h2>User details</h2>
+			<div id="container-user-edit">
+				<input type="hidden" id="txt-edit-id"></input>
+				<input id="txt-edit-username" placeholder="username"></input>
+				<input id="txt-edit-password" placeholder="password"></input>
+				<input id="txt-edit-name" placeholder="name"></input>
+				<input id="txt-edit-email" placeholder="email"></input>
+				<select id="select-edit-role">
+		<!-- 			<option value="1">Admin</option>
+					<option value="3">Member</option> -->
+				</select>
+			</div>
+			<div class="modal-buttons">
+				<button id="btn-cancel-user" class="cancel-button" data-mdl="user" type="button">Cancel</button>
+				<button id="btn-edit-save" class="button" type="button">Save</button>
 			</div>
 		</div>
 	</div>
