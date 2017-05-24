@@ -95,7 +95,7 @@ h2 {
 p, span, td {
 	@include font-copy-text();
 }
-th {
+h4, th, label {
 	font-family: $font-header;
 }
 // WINDOWS
@@ -246,7 +246,7 @@ th {
 		background-color: #ffe77d;
 	}
 }
-.cancel-button {
+.cancel-button, .edit-button {
 	width: 250px;
 	height: 40px;
 	padding-left: 10px;
@@ -267,7 +267,7 @@ th {
 .stop-scrolling {
 	overflow: hidden;
 }
-input {
+input, textarea {
 	border: none;
 	box-shadow: none;
 }
@@ -822,6 +822,12 @@ $admin-components-margin: 0px 10px 0px 0px;
 			text-align: center;
 		}
 	#events-header {
+		@include display-flex();
+		@include justify-content(flex-start);
+		//@include flex-direction(column);
+		//@include align-items(flex-start);
+		width: 70vw;
+		margin-top: 70px;
 	}
 	#events-content {
 		@include flex-wrap(wrap);

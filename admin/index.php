@@ -160,8 +160,8 @@
 							<option>No main partner</option>
 						</select>
 						<div id="container-buttons-box">
-							<button id="btn-edit-partner" class="btn-edit">Edit</button>
-							<button data-item="partner" class="btn-edit btn-add-new">Add new</button>
+							<button id="btn-edit-partner" class="btn-edit edit-button">Edit</button>
+							<button data-item="partner" class="btn-edit btn-add-new button">Add new</button>
 						</div>
 					</div>
 				</div>
@@ -172,8 +172,8 @@
 							<option>No locations yet</option>
 						</select>
 						<div id="container-buttons-box">
-							<button id="btn-edit-location" class="btn-edit">Edit</button>
-							<button data-item="location" class="btn-edit btn-add-new">Add new</button>
+							<button id="btn-edit-location" class="btn-edit edit-button">Edit</button>
+							<button data-item="location" class="btn-edit btn-add-new button">Add new</button>
 						</div>
 					</div>
 				</div>
@@ -184,8 +184,8 @@
 							<option>No event speakers</option>
 						</select>
 						<div id="container-buttons-box">
-							<button id="btn-edit-speaker" class="btn-edit">Edit</button>
-							<button data-item="speaker" class="btn-edit btn-add-new">Add new</button>
+							<button id="btn-edit-speaker" class="btn-edit edit-button">Edit</button>
+							<button data-item="speaker" class="btn-edit btn-add-new button">Add new</button>
 						</div>
 					</div>
 					<div id="container-extra-speakers">
@@ -207,8 +207,8 @@
 		</div>
 	</div>
 	<div id="container-edit-event-buttons">
-		<button id="btn-save-event">Save event</button>
-		<button id="btn-clear-edit-event">Clear </button>
+		<button id="btn-clear-edit-event" class="edit-button">Clear </button>
+		<button id="btn-save-event" class="button">Save event</button>
 	</div>
 </div>
 <!-- ************************************************** -->
