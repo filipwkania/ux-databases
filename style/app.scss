@@ -430,6 +430,9 @@ input[type="text"] {
 					}
 				}
 			}
+			.btn-display-event-details {
+				display: none;
+			}
 		}
 	}
 	}
@@ -499,10 +502,11 @@ input[type="text"] {
 	 	@include transform(rotatey(-180deg));
 	 	@include display-flex();
 	 	@include flex-direction(column);
-	 	@include align-items(center);
-	 	@include justify-content(center);
+	 	@include align-items(flex-start);
+	 	@include justify-content(flex-start);
 	 	div {
 	 		width: 90%;
+	 		height: 90%;
 	 		margin: 5px 0px;
 	 		font-size: 12px;
 	 		@include align-self(center);
@@ -587,12 +591,12 @@ input[type="text"] {
 		#event-contributors-container {
 			width: 80vw;
 			@include display-flex();
-			justify-content: flex-start;
+			@include justify-content(space-between);
 			@include flex-wrap(wrap);
 			.card-speaker {
 				@include display-flex();
 				@include flex-direction(column);
-				width: 25vw;
+				width: 22vw;
 				padding: 0px 0px 40px 0px;
 				margin: 0px 10px 40px 10px;
 				border-bottom-left-radius: 4px;
@@ -879,13 +883,46 @@ $admin-components-margin: 0px 10px 0px 10px;
  /*********************************************************************************************/
 /*********************************************************************************************/
 /*********************************************************************************************/
-// TABLET
+// TABLET - PORTRAIT
 
+//@media only screen 
+//and (min-width: 481px)
+//and (max-width: 960px) {
 @media only screen 
-and (min-width: 481px)
-and (max-width: 960px) {
+  and (min-device-width: 765px) 
+  and (max-device-width: 1024px) 
+  {
+  	// INDEX
+  	#wdw-index {
+  		#header-image-index-text {
+  			width: 85vw !important;
+  		}
+		#event-container {
+			max-width: 95vw;
+			margin-top: 40px;
+			}
+		.card-event {
+			width: 30vw !important;
+			.event-card-details-container {
+				.event-card-details-filter-container {
+					.event-card-category, .event-card-level {
+						font-size: 12px !important;
+					}
+				}
+				.btn-display-event-details {
+					display: block !important;
+					width: 100%;
+				}
+			}
+		}
+	}
+
+
+
+
 	#accounts-wrapper {
 		flex-direction: column !important;
 		justify-content: flex-start !important;
 	}
 }
+

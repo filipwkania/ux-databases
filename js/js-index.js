@@ -59,6 +59,7 @@ function fnDisplayEvents(){
                                 <span class="event-card-level">{{level}}</span>\
                                 <span class="event-card-category">{{category}}</span>\
                               </div>\
+                              <button class="btn-display-event-details button" type="button">Details</button>\
                             </div>\
                           </div>\
                         </div>'

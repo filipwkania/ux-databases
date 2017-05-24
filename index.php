@@ -51,7 +51,7 @@
 						<span class="filter-level" data-level-selector="1">For All</span>
 						<span class="filter-level" data-level-selector="2">Intermediate</span>
 						<span class="filter-level" data-level-selector="3">Advanced</span>
-						<span id="filter-level-reset" class="filter-level">Reset</span>
+						<span id="filter-level-reset" class="filter-level">All Levels</span>
 					</div>
 				</div>
 			</div>

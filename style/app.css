@@ -75,6 +75,15 @@
 /*
     Justify content
  */
+#wdw-about #speaker-container .card-speaker .back {
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -webkit-flex-pack: start;
+  -ms-flex-pack: start;
+  -moz-justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start; }
+
 #wdw-index #event-container #event-filters-container {
   -webkit-box-pack: end;
   -moz-box-pack: end;
@@ -84,7 +93,7 @@
   -webkit-justify-content: flex-end;
   justify-content: flex-end; }
 
-.modal-content form, #wdw-index #header-image-index, #wdw-index #event-container .card-event .event-card-details-container, #wdw-about #header-image-about, #wdw-about #speaker-container .card-speaker .back, #wdw-event #header-image-event, #wdw-event #wdw-event-content-container .separator, #wdw-accounts, #wdw-accounts #accounts-wrapper {
+.modal-content form, #wdw-index #header-image-index, #wdw-index #event-container .card-event .event-card-details-container, #wdw-about #header-image-about, #wdw-event #header-image-event, #wdw-event #wdw-event-content-container .separator, #wdw-accounts, #wdw-accounts #accounts-wrapper {
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -webkit-flex-pack: center;
@@ -93,7 +102,7 @@
   -webkit-justify-content: center;
   justify-content: center; }
 
-.header, #wdw-event #header-image-event #txt-event #container-event-header-info #wdw-event-time, #wdw-event #wdw-event-content-container #event-details-container {
+.header, #wdw-event #header-image-event #txt-event #container-event-header-info #wdw-event-time, #wdw-event #wdw-event-content-container #event-details-container, #wdw-event #wdw-event-content-container #event-contributors-container {
   -webkit-box-pack: justify;
   -moz-box-pack: justify;
   -webkit-flex-pack: justify;
@@ -110,7 +119,14 @@
 /*
     Align items
  */
-.modal-content, .modal-content form, .header, #menu, #wdw-index, #wdw-index #header-image-index, #wdw-index #header-image-index #header-image-index-text, #wdw-index #event-container .card-event .card-event-image-overlay, #wdw-about #header-image-about, #wdw-about #header-image-about #txt-about, #wdw-about #speaker-container .card-speaker .back, #wdw-event, #wdw-event #header-image-event, #wdw-event #header-image-event #txt-event, #wdw-event #wdw-event-content-container, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .speaker-card-details, #wdw-event #wdw-event-content-container .separator, #wdw-accounts #container-user-edit,
+#wdw-about #speaker-container .card-speaker .back {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  align-items: flex-start; }
+
+.modal-content, .modal-content form, .header, #menu, #wdw-index, #wdw-index #header-image-index, #wdw-index #header-image-index #header-image-index-text, #wdw-index #event-container .card-event .card-event-image-overlay, #wdw-about #header-image-about, #wdw-about #header-image-about #txt-about, #wdw-event, #wdw-event #header-image-event, #wdw-event #header-image-event #txt-event, #wdw-event #wdw-event-content-container, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .speaker-card-details, #wdw-event #wdw-event-content-container .separator, #wdw-accounts #container-user-edit,
 #wdw-accounts #container-users, #wdw-events {
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -421,6 +437,8 @@ input[type="text"] {
         font-size: 14px;
         font-weight: lighter;
         color: #ffd92d; }
+    #wdw-index #event-container .card-event .event-card-details-container .btn-display-event-details {
+      display: none; }
 
 .filter-level-hide {
   display: none !important; }
@@ -498,6 +516,7 @@ input[type="text"] {
         -o-transform: rotatey(-180deg); }
         #wdw-about #speaker-container .card-speaker .back div {
           width: 90%;
+          height: 90%;
           margin: 5px 0px;
           font-size: 12px;
           font-family: "Open Sans", sans-serif;
@@ -565,10 +584,9 @@ input[type="text"] {
           width: 175px;
           margin: 20px 0px 20px 0px; }
     #wdw-event #wdw-event-content-container #event-contributors-container {
-      width: 80vw;
-      justify-content: flex-start; }
+      width: 80vw; }
       #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker {
-        width: 25vw;
+        width: 22vw;
         padding: 0px 0px 40px 0px;
         margin: 0px 10px 40px 10px;
         border-bottom-left-radius: 4px;
@@ -781,7 +799,20 @@ input[type="text"] {
 /*********************************************************************************************/
 /*********************************************************************************************/
 /*********************************************************************************************/
-@media only screen and (min-width: 481px) and (max-width: 960px) {
+@media only screen and (min-device-width: 765px) and (max-device-width: 1024px) {
+  #wdw-index #header-image-index-text {
+    width: 85vw !important; }
+  #wdw-index #event-container {
+    max-width: 95vw;
+    margin-top: 40px; }
+  #wdw-index .card-event {
+    width: 30vw !important; }
+    #wdw-index .card-event .event-card-details-container .event-card-details-filter-container .event-card-category, #wdw-index .card-event .event-card-details-container .event-card-details-filter-container .event-card-level {
+      font-size: 12px !important; }
+    #wdw-index .card-event .event-card-details-container .btn-display-event-details {
+      display: block !important;
+      width: 100%; }
+
   #accounts-wrapper {
     flex-direction: column !important;
     justify-content: flex-start !important; } }
