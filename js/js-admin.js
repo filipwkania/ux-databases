@@ -726,7 +726,7 @@ function fnSaveEvent() {
 	// otherwise put 0
 	let iSustenance = $('#check-event-sustenance').is(':checked') ? 1 : 0;
 
-	if($('#select-location').val() === "") {
+	if($('#select-location').val() === "select-no-location") {
 		alert('Select location or create a new one');
 	} else if (sCategory === "") {
 		alert('Select event category');
@@ -735,9 +735,9 @@ function fnSaveEvent() {
 	} else {
 		//get ids from selectors
 		let sLocation = JSON.parse($('#select-location').val()).id_location;
-		let sMainPartner = 0;
+		let sMainPartner = '';
 		//if main partner is selected change 0 to his id
-		if($('select-main-partner').val() != "") {
+		if($('#select-main-partner').val() != "select-no-main-partner") {
 			sMainPartner = JSON.parse($('#select-main-partner').val()).id_partner;
 		}
 		let formData = {};
@@ -774,9 +774,9 @@ function fnSaveEvent() {
 			}
 		});
 	// DEBUGGING CODE FOR AJAX REQUEST
-	// ajaxRequest.error(function(xhr, status, error) {
-	// 	console.log(xhr.responseText);	
-	// });
+	ajaxRequest.error(function(xhr, status, error) {
+		console.log(xhr.responseText);	
+	});
 	// END OF DEBUGGING
 	}
 }

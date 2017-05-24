@@ -18,7 +18,7 @@
 	$sPicture = 'defaultEvent.jpg';
 
 	$query = $pdo->prepare("INSERT INTO `ux_databases`.`event` (`id_event`, `name`, `description`, `agenda`, `start`, `end`, `picture`, `price`, `main_partner`, `sustenance`, `level`, `catch_phrase`, `brief_description`, `location`, `category`) 
-		VALUES (NULL , :name, :description, :agenda, :start, :end, :picture, :price, :mainPartner, :sustenance, :level, :catchPhrase, :briefDescription, :location, :category);");
+		VALUES (NULL , :name, :description, :agenda, :start, :end, :picture, :price, nullif(:mainPartner,''), :sustenance, :level, :catchPhrase, :briefDescription, :location, :category);");
 
 	$query->execute(['name'=>$sName, 'description'=>$sDescription, 'agenda'=>$sAgenda, 'start'=> $sStart, 'end'=>$sEnd, 'picture'=>$sPicture, 'price'=>$sPrice, 'mainPartner'=>$sMainPartner, 'sustenance'=> $sSustenance, 'level'=>$sLevel, 'catchPhrase'=>$sCatchPhrase, 'briefDescription'=>$sBriefDescription, 'location'=>$sLocation, 'category'=>$sCategory]);
 
