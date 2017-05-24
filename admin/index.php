@@ -61,6 +61,7 @@
 
 				</tbody>
 			</table>
+			<button id="btn-add-new-user" class="button">Add new</button>
 		</div>
 	</div>
 </div>

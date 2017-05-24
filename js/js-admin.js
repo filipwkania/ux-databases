@@ -6,9 +6,9 @@ $(document).on("click", "#btn-save-speaker", function() {
 	fnSaveSpeaker();
 });
 
-// $(document).on("click", "#btn-add-new-event", function() {
-// 	fnClearEventEdit();
-// });
+$(document).on("click", "#btn-add-new-user", function() {
+	fnShowModal('user');
+});
 
 $(document).on("click", ".cancel-button", function(source) {
 	let sModal = $(source.target).attr("data-mdl");
