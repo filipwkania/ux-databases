@@ -184,7 +184,7 @@ p, span {
 	z-index: 98px;
 	background-color: #eaeaea;
 	font-size: 24px;
-	.menu-icon {
+	.menu-icon, .admin-menu-icon {
 		margin-left: 20px;
 		cursor: pointer;
 	}
@@ -192,7 +192,7 @@ p, span {
 		margin-right: 20px;
 	}
 }
-#menu {
+#menu, #menu-admin {
 	@include display-flex();
 	@include flex-direction(column);
 	@include align-items(center);
@@ -205,14 +205,18 @@ p, span {
 	height: 100vh;
 	background-color: #ffd92d;//#eaeaea;
 	color: #ffffff;
-	font-size: 24px;
+	font-size: 38px;
+	font-family: $font-header;
 	z-index: 99;
-	.menu-link {
+	.menu-link, #btn-menu-events, #btn-menu-accounts {
+		@include display-flex ();
+		@include align-self(flex-start);
 		padding: 20px 0px 20px 0px;
+		margin-left: 30px;
 		cursor: pointer;
 	}
 }
-#content-overlay {
+#content-overlay, #admin-content-overlay {
 	display: none;
 	position: absolute;
 	top: 0px;
@@ -401,6 +405,7 @@ input[type="text"] {
 				background-color: rgba(0, 0, 0, 0.2);
 			}
 			h2, span {
+				font-family: $font-header;
 				cursor: pointer;	
 			}
 		}
@@ -665,13 +670,13 @@ input[type="text"] {
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
 // ACCOUNTS+EVENTS COMMON
-#menu-admin {
+/*#menu-admin {
 	margin: 25px 0px 0px 25px;
 	button {
 		width: 100px;
 		margin-right: 15px;
 	}
-}
+}*/
 #wdw-accounts,
 #wdw-events {
 	margin-top: 0px;
@@ -1096,7 +1101,7 @@ and (max-width: 765px) {
 
 @media only screen 
 and (min-device-width : 320px) 
-and (max-device-width : 667px) {
+and (max-device-width : 480px) {
 	// INDEX
   	#wdw-index {
   		#header-image-index{

@@ -109,10 +109,12 @@ $(document).on("click", "#btn-clear-edit-partner", function() {
 //PSEUDO MENU
 $(document).on("click", "#btn-menu-events", function() {
 	fnOpenWindow("wdw-events");
+	fnHideMenu();
 });
 
 $(document).on("click", "#btn-menu-accounts", function() {
 	fnOpenWindow("wdw-accounts");
+	fnHideMenu();
 });
 //END OF PSEUDO MENU
 
@@ -850,3 +852,29 @@ function fnAddExtraSpeaker(oSource) {
 
 	$('#container-extra-speakers').append(blueprint);
 }
+
+// MENU
+// SHOW MENU
+  $('.admin-menu-icon').click(function(){
+    fnDisplayMenu();
+  })
+// HIDE MENU
+  $('#admin-content-overlay').click(function(){
+    fnHideMenu();
+  })
+// FUNCTIONS
+// MENU
+  function fnDisplayMenu(){
+    // display menu
+    $('#menu-admin').animate({'left':'0px'}, 800);
+    // display the content overlay
+    $('#admin-content-overlay').css({'display':'flex'});
+    $('body').addClass('stop-scrolling');
+    }
+  function fnHideMenu(){
+    // hide menu
+    $('#menu-admin').animate({'left':'-250px'}, 800);
+    // hide overlay
+    $('#admin-content-overlay').css({'display':'none'});
+    $('body').removeClass('stop-scrolling');   
+  }

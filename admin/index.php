@@ -7,12 +7,27 @@
 	<script src="https://use.fontawesome.com/fa11f26e3b.js"></script>
 </head>
 <body>
+
+
 <!-- PSEUDO MENU -->
-<div id="menu-admin">
-	<button id="btn-menu-events">Events</button>
-	<button id="btn-menu-accounts">Accounts</button>
-</div>
+	<div id="menu-admin">
+		<div id="btn-menu-events">Events</div>
+		<div id="btn-menu-accounts">Accounts</div>
+	</div>
+
+	<div id="admin-content-overlay"></div>
+
 <!-- END OF PSEUDO MENU -->
+<!-- ************************************************** -->
+<!-- **************************************************************************************************** -->
+<!-- ************************************************** -->
+<!-- HEADER -->
+	<div class="header">
+		<span class="admin-menu-icon fa fa-bars"></span>
+		<span class="logo fa fa-tag"></span>
+	</div>
+
+
 <!-- **************************************************************************************************** -->
 <!-- ************************************************** -->
 <div id="wdw-login" class="wdw">

@@ -112,7 +112,7 @@
 				<input id="reservation-email" type="text" name="email" placeholder="Email"></input>
 				<div class="modal-buttons">
 					<button id="btn-cancel-reservation" class="cancel-button" type="button">Cancel</button>
-					<button id="btn-confirm-reservation" class="button" type="button">Send</button>
+					<button id="btn-confirm-reservation" class="button" type="button">Reserve</button>
 				</div>
 			</form>
 		</div>
