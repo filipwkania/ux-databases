@@ -132,6 +132,9 @@ $(document).on('click', '.btn-display-event-details', function(){
     sTempSpeaker = sTempSpeaker.replace("{{description}}", sSpeakerDescription);
 
     $('#event-contributors-container').append(sTempSpeaker);
+    if(ajSpeakers == []){
+      $('#event-message-no-speakers').css("display", "flex");
+    }
   }
   })
 })

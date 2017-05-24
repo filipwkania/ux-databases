@@ -591,6 +591,9 @@ input[type="text"] {
 				}
 			}
 		}
+		#event-message-no-speakers {
+			display: none;
+		}
 		#event-contributors-container {
 			width: 80vw;
 			@include display-flex();

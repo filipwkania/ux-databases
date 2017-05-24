@@ -596,6 +596,8 @@ input[type="text"] {
         #wdw-event #wdw-event-content-container #event-details-container #event-location #btn-reserve-seat {
           width: 175px;
           margin: 20px 0px 20px 0px; }
+    #wdw-event #wdw-event-content-container #event-message-no-speakers {
+      display: none; }
     #wdw-event #wdw-event-content-container #event-contributors-container {
       width: 80vw; }
       #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker {

@@ -93,7 +93,7 @@
 				</div>
 			</div>
 			<div id="separator-contributors" class="separator">Contributors</div>
-
+			<span id="event-message-no-speakers">This is a networking event which has no speakers.</span>
 			<div id="event-contributors-container">
 			</div>
 		</div>
