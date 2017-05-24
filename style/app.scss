@@ -267,7 +267,8 @@ th {
 .stop-scrolling {
 	overflow: hidden;
 }
-input {
+input,
+textarea {
 	border: none;
 	box-shadow: none;
 }
@@ -825,6 +826,7 @@ $admin-components-margin: 0px 10px 0px 0px;
 			text-align: center;
 		}
 	#events-header {
+		margin-top: 70px;
 	}
 	#events-content {
 		@include flex-wrap(wrap);
