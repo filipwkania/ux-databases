@@ -870,11 +870,12 @@ input[type="text"] {
 
   #wdw-accounts #tbody-users td:before {
     display: inline-block !important;
-    width: 5em;
-    font-weight: bold; }
+    width: 85px;
+    font-weight: bold;
+    margin-right: 5px; }
   #wdw-accounts #tbody-users td {
     display: block;
-    min-width: 250px; }
+    width: 250px !important; }
   #wdw-accounts #table-users thead {
     display: none; }
   #wdw-accounts #table-users th,
