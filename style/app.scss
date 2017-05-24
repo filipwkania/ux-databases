@@ -457,6 +457,9 @@ input[type="text"] {
 		@include header-image("../images/header-image-about.jpg");
 		#txt-about {
 			@include header-image-text();
+			h2 {
+				@include font-header();
+			}
 			.btn-contact {
 				@include display-flex();
 				@include align-self(flex-start);
@@ -1158,6 +1161,48 @@ and (max-device-width : 667px) {
 			height: 45vh;
 			form {
 				width: 97%;
+				.modal-buttons {
+					width: 100%;
+					justify-content: space-between;
+					.button, .cancel-button {
+						width: 45%;
+						margin-left: 0px;
+					}
+				}
+			}
+		}
+	}
+	// ABOUT
+	#wdw-about {
+		#header-image-about {
+			min-height: 225px !important;
+			#txt-about {
+				width: 100vw !important;
+				align-items: flex-start;
+				#btn-contact {
+					margin-top: 20px;
+				}
+			}
+		}
+		#speaker-container {
+			.card-speaker {
+				width: 50vw !important;
+				height: 50vw !important;
+				.txt-speaker-occupation {
+					font-size: 14px !important;
+				}
+			}
+		}
+	}
+	#mdl-contact {
+		.modal-content {
+			width: 90vw;
+			height: 85vh;
+			form {
+				width: 100%;
+				#container-message-subject {
+					flex-direction: column !important;
+				}
 				.modal-buttons {
 					width: 100%;
 					justify-content: space-between;
