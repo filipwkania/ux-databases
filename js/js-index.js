@@ -9,16 +9,12 @@
     $('.wdw').css({'display':'none'});
     $('#'+wdwToShow).css({'display':'flex'});
     fnHideMenu();
+    // reset event details page
+    $('#event-contributors-container').empty();
   })
 // HIDE MENU
   $('#content-overlay').click(function(){
     fnHideMenu();
-  })
-  // MENU LINKS
-  $(document).on('click', '.menu-link', function(){
-    var wdwToShow = $(this).attr('data-go-to');
-    $('.wdw').css({'display':'none'});
-    $('#'+wdwToShow).css({'display':'flex'});
   })
 
   // FUNCTIONS

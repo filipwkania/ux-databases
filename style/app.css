@@ -880,6 +880,31 @@ input[type="text"] {
       display: block !important;
       width: 100%; }
 
+  #wdw-event #txt-event {
+    width: 85vw !important; }
+  #wdw-event #event-details-container {
+    width: 90vw !important; }
+    #wdw-event #event-details-container #event-location {
+      width: 20% !important; }
+      #wdw-event #event-details-container #event-location #btn-reserve-seat {
+        width: 125px !important; }
+  #wdw-event #event-contributors-container {
+    width: 90vw !important; }
+    #wdw-event #event-contributors-container .card-speaker {
+      width: 29vw !important;
+      margin: 0px !important; }
+
+  #mdl-reservation .modal-content {
+    margin: 25% auto;
+    width: 75vw;
+    height: 35vh; }
+    #mdl-reservation .modal-content h2 {
+      margin-bottom: 20px; }
+    #mdl-reservation .modal-content p {
+      margin-bottom: 20px; }
+    #mdl-reservation .modal-content .modal-buttons {
+      margin-top: 20px; }
+
   #wdw-about #txt-about {
     width: 85vw !important; }
 
@@ -895,5 +920,8 @@ input[type="text"] {
       margin-bottom: 20px; }
     #mdl-contact .modal-content .modal-buttons {
       margin-top: 20px; } }
+/*********************************************************************************************/
+/*********************************************************************************************/
+/*********************************************************************************************/
 
 /*# sourceMappingURL=app.css.map */

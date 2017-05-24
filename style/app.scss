@@ -982,10 +982,10 @@ and (max-width: 765px) {
 		justify-content: flex-start !important;
 	}
 }
- /*********************************************************************************************/
 /*********************************************************************************************/
 /*********************************************************************************************/
-// TABLET - LANDSCAPE
+/*********************************************************************************************/
+// TABLET - PORTRAIT
 
 @media only screen 
   and (min-device-width: 765px) 
@@ -1016,6 +1016,46 @@ and (max-width: 765px) {
 		}
 	}
 
+	// EVENT DETAILS
+	#wdw-event {
+		#txt-event {
+			width: 85vw !important;
+		}
+		#event-details-container {
+			width: 90vw !important;
+			#event-location {
+				width: 20% !important;
+				#btn-reserve-seat {
+					width: 125px !important;
+				}
+			}
+		}
+		#event-contributors-container {
+			width: 90vw !important;
+			.card-speaker {
+				width: 29vw !important;
+				margin: 0px !important;
+			}
+		}
+
+	}
+	#mdl-reservation {
+		.modal-content {
+			margin: 25% auto;
+			width: 75vw;
+			height: 35vh;
+			h2 {
+				margin-bottom: 20px;
+			}
+			p {
+				margin-bottom: 20px;
+			}
+			.modal-buttons {
+				margin-top: 20px;
+			}
+		}
+	}
+
 	// ABOUT
 	#wdw-about {
 		#txt-about {
@@ -1042,3 +1082,8 @@ and (max-width: 765px) {
 		}
 	}
 }
+
+/*********************************************************************************************/
+/*********************************************************************************************/
+/*********************************************************************************************/
+// MOBILE - PORTRAIT

@@ -107,8 +107,9 @@
 		<div class="modal-content">
 			<form id="frm-reservation">
 				<h2>Reserve a seat</h2>
-				<input id="reservation-fullname" type="text" name="fullname"></input>
-				<input id="reservation-email" type="text" name="email"></input>
+				<p>Please enter your name and your email address below and confirm, so we can save a seat for you!</p>
+				<input id="reservation-fullname" type="text" name="fullname" placeholder="Fullname"></input>
+				<input id="reservation-email" type="text" name="email" placeholder="Email"></input>
 				<div class="modal-buttons">
 					<button id="btn-cancel-reservation" class="cancel-button" type="button">Cancel</button>
 					<button id="btn-confirm-reservation" class="button" type="button">Send</button>
