@@ -6,8 +6,43 @@ $(document).on("click", "#btn-save-speaker", function() {
 	fnSaveSpeaker();
 });
 
+// $(document).on("click", "#btn-add-new-event", function() {
+// 	fnClearEventEdit();
+// });
+
+$(document).on("click", ".cancel-button", function(source) {
+	let sModal = $(source.target).attr("data-mdl");
+	fnCloseModal(sModal);
+});
+
+$(document).on("click", ".btn-add-new", function(source) {
+	let sItem = $(source.target).attr("data-item");
+	fnClearForm(sItem);
+	fnShowModal(sItem);
+})
+
+$(document).on("click", ".remove-extra-partner", function(source) {
+	$(source.target).parent().remove();
+});
+
+$(document).on("click", ".remove-extra-speaker", function(source) {
+	$(source.target).parent().remove();
+});
+
+$(document).on("click", "#btn-edit-partner", function() {
+	fnShowModal("partner");
+});
+
+$(document).on("click", "#btn-edit-speaker", function() {
+	fnShowModal("speaker");
+});
+
+$(document).on("click", "#btn-edit-location", function() {
+	fnShowModal("location");
+});
+
 $(document).on("click", "#btn-clear-edit-speaker" ,function() {
-	fnClearSpeakerEdit();
+	fnClearForm('speaker');
 });
 
 $(document).on("click", ".user-edit", function(source) {
@@ -38,8 +73,17 @@ $(document).on("change", "#select-main-partner", function(source) {
 	fnPrepareToEditPartner(source.target);
 });
 
+$(document).on("change", "#select-extra-partners", function(source) {
+	fnAddExtraPartner(source.target);
+});
+
 $(document).on("change", "#select-event", function(source) {
 	fnPrepareToEditEvent(source.target);
+});
+
+$(document).on("change", "#select-event-speakers", function(source) {
+	fnPrepareToEditSpeaker(source.target);
+	fnAddExtraSpeaker(source.target);
 });
 
 $(document).on("click", "#btn-save-partner", function() {
@@ -55,11 +99,11 @@ $(document).on("click", "#btn-clear-edit-event", function() {
 }); 
 
 $(document).on("click", "#btn-clear-edit-location", function() {
-	fnClearLocationEdit();
+	fnClearForm('location');
 });
 
 $(document).on("click", "#btn-clear-edit-partner", function() {
-	fnClearPartnerEdit();
+	fnClearForm('partner');
 });
 
 //PSEUDO MENU
@@ -104,6 +148,14 @@ function fnLogin() {
 	});
 }
 
+function fnShowModal(sModal) {
+	$('#mdl-'+sModal).css('display', 'flex');
+}
+
+function fnCloseModal(sModal) {
+	$('#mdl-'+sModal).hide();
+}
+
 function fnOpenWindow(sWindow) {
 	$('.wdw').hide();
 	$('#'+sWindow).css("display","flex");
@@ -139,10 +191,12 @@ function fnFetchSpeakers() {
 }
 
 function fnLoadSpeakers(aSpeakers) {
-	$('#container-speakers-list').empty();
+	//empty selector
+	$('#select-event-speakers').empty();
 
-	let blueprint = "<input type='checkbox' id='speaker-{{speakerId}}' \
-	value = '{{speakerValue}}'>{{speakerName}}</input>";
+	//add basic option
+	$('#select-event-speakers').append("<option value = 'select-no-speaker'>No speaker selected</option>");
+	let blueprint = "<option id='speaker-{{speakerId}}'	value = '{{speakerValue}}'>{{speakerName}}</option>";
 
 	for(let i = 0; i < aSpeakers.length; i++) {
 		let temp = blueprint;
@@ -151,7 +205,7 @@ function fnLoadSpeakers(aSpeakers) {
 		temp = temp.replace('{{speakerValue}}', JSON.stringify(aSpeakers[i]));
 		temp = temp.replace('{{speakerName}}', aSpeakers[i].full_name);
 
-		$('#container-speakers-list').append(temp);
+		$('#select-event-speakers').append(temp);
 	}
 }
 
@@ -289,7 +343,7 @@ function fnSaveSpeaker() {
 	ajaxRequest.done(function(jData) {
 		if(jData.status === "ok") {
 			fnFetchSpeakers();
-			fnClearSpeakerEdit();
+			fnClearForm('speaker');
 			alert("Speaker is now saved in database");
 		} else {
 			alert("Failed to save speaker in database");
@@ -386,10 +440,6 @@ function fnUpdateUserInTable() {
 	$(oUserRowId).siblings('.user-userRole').text(iRole);
 }
 
-function fnClearSpeakerEdit() {
-	$('#container-speaker-create input').val("");
-}
-
 function fnClearEdit(){
 	//clear use edit input fields
 	$('#container-user-edit input').val("");
@@ -453,7 +503,7 @@ function fnSaveLocation() {
 	ajaxRequest.done(function(jData) {
 		if(jData.status === "ok") {
 			fnFetchLocations();
-			fnClearLocationEdit();
+			fnClearForm('location');
 			alert('Location saved in database!');
 		} else {
 			alert('Error while saving location to database');
@@ -504,11 +554,24 @@ function fnPopulateLocationSelector(aLocations) {
 	}
 }
 
+function fnPrepareToEditSpeaker(oSource) {
+	if($(oSource).val() === 'select-no-speaker') {
+		fnClearForm('speaker');
+	} else {
+		let oSpeaker = JSON.parse($(oSource).val());
+
+		$("#txt-speaker-id").val(oSpeaker.id_speaker);
+		$("#txt-speaker-name").val(oSpeaker.full_name);
+		$("#txt-speaker-occupation").val(oSpeaker.occupation);
+		$("#txt-speaker-description").val(oSpeaker.description);
+	}
+}
+
 function fnPrepareToEditLocation(oSource){
 	if($(oSource).val() === "select-no-location") {
-		fnClearLocationEdit();
+		fnClearForm('location');
 	} else {
-		oLocation = JSON.parse($(oSource).val());
+		let oLocation = JSON.parse($(oSource).val());
 
 		$("#txt-location-id").val(oLocation.id_location);
 		$("#txt-location-address").val(oLocation.address);
@@ -519,9 +582,9 @@ function fnPrepareToEditLocation(oSource){
 
 function fnPrepareToEditPartner(oSource) {
 	if($(oSource).val() === "select-no-main-partner") {
-		fnClearPartnerEdit();
+		fnClearForm('partner');
 	} else {
-		oPartner = JSON.parse($(oSource).val());
+		let oPartner = JSON.parse($(oSource).val());
 
 		$("#txt-partner-id").val(oPartner.id_partner);
 		$("#txt-partner-name").val(oPartner.full_name);
@@ -529,14 +592,6 @@ function fnPrepareToEditPartner(oSource) {
 		$("#txt-partner-email").val(oPartner.email);
 		$("#txt-partner-phone").val(oPartner.phone);
 	}
-}
-
-function fnClearLocationEdit() {
-	$('#container-location-create input').val('');
-}
-
-function fnClearPartnerEdit() {
-	$('#container-partner-create input').val('');
 }
 
 function fnSavePartner() {
@@ -569,7 +624,7 @@ function fnSavePartner() {
 
 	ajaxRequest.done(function(jData) {
 		if(jData.status === "ok") {
-			fnClearPartnerEdit();
+			fnClearForm('partner');
 			fnFetchPartners();
 			alert("Partner saved in database");
 		} else {
@@ -588,18 +643,22 @@ function fnFetchPartners() {
 
 	ajaxRequest.done(function(jData) {
 		if(jData.status === "ok") {
-			fnPopulateMainPartnerSelector(jData.data);
+			fnPopulatePartnerSelectors(jData.data);
 		} else {
 			console.log("Could not load partners from db");
 		}
 	});
 }
 
-function fnPopulateMainPartnerSelector(aPartners) {
-	//clear main-partner selector
+function fnPopulatePartnerSelectors(aPartners) {
+	//clear partner selectors
 	$('#select-main-partner').empty();
-	$('#select-main-partner').append("<option value='select-no-main-partner'>No main-partner</option>");
+	$('#select-extra-partners').empty();
 
+	//add basic option to selectors
+	$('#select-main-partner').append("<option value='select-no-main-partner'>No main-partner</option>");
+	$('#select-extra-partners').append("<option value='select-no-extra-partners'>No extra partners</option>");
+	
 	//blueprint for main-partner option
 	let blueprint = "<option id = 'main-partner-{{partnerId}}'\
 	 value='{{optionValue}}'>{{mainPartnerName}}</option>";
@@ -618,6 +677,7 @@ function fnPopulateMainPartnerSelector(aPartners) {
 
 		//append main-partner to selector
 		$('#select-main-partner').append(temp);
+		$('#select-extra-partners').append(temp);
 	}
 }
 
@@ -757,4 +817,36 @@ function fnLoadEventsToSelector(aEvents) {
 function fnClearEventEdit() {
 	$('#container-event-create input').val("");
 	$('#container-event-create textarea').val("");
+}
+
+function fnClearForm(sItem) {
+	$('#container-'+sItem+'-create input').val("");
+}
+
+function fnAddExtraPartner(oSource) {
+	let blueprint = 
+					'<div class="extra-partner" value="{{partnerId}}">\
+						<span class="extra-partner-name"> {{partnerName}}</span>\
+						<span class="fa fa-fw fa-remove remove-extra-partner"></span>\
+					</div>';
+	let oPartner = JSON.parse($(oSource).val());
+	
+	blueprint = blueprint.replace('{{partnerId}}', oPartner.id_partner);
+	blueprint = blueprint.replace('{{partnerName}}', oPartner.full_name);
+
+	$('#container-extra-partners').append(blueprint);
+}
+
+function fnAddExtraSpeaker(oSource) {
+	let blueprint = 
+					'<div class="extra-speaker" value="{{speakerId}}">\
+						<span class="extra-partner-name"> {{speakerName}}</span>\
+						<span class="fa fa-fw fa-remove remove-extra-speaker"></span>\
+					</div>';
+	let oSpeaker = JSON.parse($(oSource).val());
+	
+	blueprint = blueprint.replace('{{speakerId}}', oSpeaker.id_speaker);
+	blueprint = blueprint.replace('{{speakerName}}', oSpeaker.full_name);
+
+	$('#container-extra-speakers').append(blueprint);
 }
