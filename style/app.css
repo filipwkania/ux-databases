@@ -41,7 +41,7 @@
   flex-direction: row; }
 
 .modal-content, .modal-content form, #menu, #menu-admin, #wdw-index, #wdw-index #header-image-index #header-image-index-text, #wdw-index #event-container #event-filters-container .filter-dropdown-content, #wdw-index #event-container .card-event, #wdw-index #event-container .card-event .card-event-image-overlay, #wdw-index #event-container .card-event .event-card-details-container .event-card-details, #wdw-about, #wdw-about #header-image-about #txt-about, #wdw-about #speaker-container .card-speaker .back, #wdw-event, #wdw-event #header-image-event #txt-event, #wdw-event #wdw-event-content-container, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .speaker-card-details, #modals-admin .modal-content > div:first-of-type, #wdw-accounts #container-user-edit,
-#wdw-accounts #container-users, #wdw-events, #wdw-events #container-location-create,
+#wdw-accounts #container-users, #wdw-events, #wdw-events #events-header, #wdw-events #container-location-create,
 #wdw-events #container-partner-create,
 #wdw-events #container-speaker-create,
 #wdw-events #container-event-extras > div {
@@ -83,7 +83,7 @@
 /*
     Justify content
  */
-#wdw-about #speaker-container .card-speaker .back, #wdw-events #events-header {
+#wdw-about #speaker-container .card-speaker .back {
   -webkit-box-pack: start;
   -moz-box-pack: start;
   -webkit-flex-pack: start;
@@ -127,7 +127,7 @@
 /*
     Align items
  */
-#wdw-about #speaker-container .card-speaker .back {
+#wdw-about #speaker-container .card-speaker .back, #wdw-events #events-header {
   -webkit-box-align: start;
   -ms-flex-align: start;
   -webkit-align-items: flex-start;
@@ -225,7 +225,10 @@ h4, th, label {
   .modal-content h2 {
     font-family: "Open Sans Condensed", sans-serif;
     font-size: "18px";
-    font-weight: bold; }
+    font-weight: bold;
+    margin-bottom: 20px; }
+  .modal-content p {
+    margin-bottom: 20px; }
   .modal-content form {
     width: 90%; }
     .modal-content form #container-message-subject {
@@ -662,6 +665,12 @@ input[type="text"] {
       margin: 0px auto 20px 0px;
       background-color: #eaeaea; }
 
+#mdl-reservation .modal-content {
+  margin: 15% auto;
+  height: 55vh; }
+  #mdl-reservation .modal-content .modal-buttons {
+    margin-top: 20px; }
+
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
@@ -773,7 +782,7 @@ input[type="text"] {
   #wdw-events h2 {
     text-align: center; }
   #wdw-events #events-header {
-    width: 70vw;
+    width: 65vw;
     margin-top: 70px; }
   #wdw-events #events-content {
     width: 100%; }

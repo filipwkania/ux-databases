@@ -134,6 +134,10 @@ h4, th, label {
     border-radius: 4px;
     h2 {
     	@include font-header();
+    	margin-bottom: 20px;
+    }
+    p {
+    	margin-bottom: 20px;
     }
     form {
     	@include display-flex();
@@ -674,6 +678,15 @@ input[type="text"] {
 
 	}
 }
+#mdl-reservation {
+	.modal-content {
+		margin: 15% auto;
+		height: 55vh;
+		.modal-buttons {
+			margin-top: 20px;
+		}
+	}
+}
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
@@ -826,10 +839,9 @@ $admin-components-margin: 0px 10px 0px 0px;
 		}
 	#events-header {
 		@include display-flex();
-		@include justify-content(flex-start);
-		//@include flex-direction(column);
-		//@include align-items(flex-start);
-		width: 70vw;
+		@include flex-direction(column);
+		@include align-items(flex-start);
+		width: 65vw;
 		margin-top: 70px;
 	}
 	#events-content {
