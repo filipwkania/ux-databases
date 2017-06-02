@@ -609,6 +609,14 @@ input[type="text"] {
 				}
 			}
 		}
+		#event-agenda {
+			@include display-flex();
+			@include flex-direction(column);
+			@include align-self(flex-start);
+			@include font-copy-text();
+			width: 80vw;
+			margin: 20px 0px 40px 20px;
+		}
 		#event-message-no-speakers {
 			display: none;
 		}

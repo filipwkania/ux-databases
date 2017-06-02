@@ -27,6 +27,19 @@ $(document).on('click', '.card-event-image', function(){
   $('#location-name').text(oEvent.location_name);
   $('#location-address').text(oEvent.location_address);
 
+  // check if there is an agenda
+  if(oEvent.agenda != null){
+    var aAgenda = oEvent.agenda.split(',');
+    for(i = 0; i < aAgenda.length; i++){
+      aAgenda[i] = aAgenda[i]+' </br>';
+    }
+    var sAgendaBluePrint = '<div id="separator-agenda" class="separator">Agenda</div>\
+                            <div id="event-agenda-container">\
+                              <div id="event-agenda">'+aAgenda.join('')+'</div>\
+                            </div>';
+    $('#separator-contributors').before(sAgendaBluePrint);
+  }
+
   var ajSpeakers = [];
   var sSpeakerBluePrint = '<div class="card-speaker">\
                           <div class="card-speaker-header">\
