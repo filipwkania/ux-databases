@@ -60,6 +60,7 @@ function fnDisplayEvents(){
                                 <span class="event-card-category">{{category}}</span>\
                               </div>\
                               <button class="btn-display-event-details button" type="button">Details</button>\
+                              <input type="hidden" value="{{postal-code}}"">\
                             </div>\
                           </div>\
                         </div>'
@@ -75,7 +76,6 @@ function fnDisplayEvents(){
       // get date of event
       var aEventDate = ajEvents[i].start.split(' ');
       var sEventDate = aEventDate[0];
-      console.log($('#'+sEventDate).length);
       // if container doesn't exist, create it
       if($("#"+sEventDate).length == 0){
         // copy the blue print
@@ -84,7 +84,6 @@ function fnDisplayEvents(){
         var sTempDateContainer = sTempDateContainer.replace('{{date-id}}', sEventDate).replace('{{date}}', sEventDate);
         $('#event-container').append(sTempDateContainer);
       }
-      console.log(sEventDate);
       var sEventId = ajEvents[i].id_event;
       var sEventTitle = ajEvents[i].name;
       var sEventCatchPhrase = ajEvents[i].catch_phrase;
@@ -114,11 +113,15 @@ function fnDisplayEvents(){
       sTempEvent = sTempEvent.replace("{{brief-description}}", sEventBriefDescription);
       sTempEvent = sTempEvent.replace("{{level}}", sEventLevel);
       sTempEvent = sTempEvent.replace("{{category}}", sEventCategory);
-    // append blueprint to event list
-    $('#'+sEventDate).append(sTempEvent);
-    $('.card-event-image').css("background-image", 'url("./images/'+sEventImagePath+'")');
-    }
-    fnLoadSpeakers();
+      // get postal code
+      var iPostalCode = ajEvents[i].location_address.match(/\d{4}/g).join('');
+      // place postal code in hidden input
+      sTempEvent = sTempEvent.replace("{{postal-code}}", iPostalCode);
+      // append blueprint to event list
+      $('#'+sEventDate).append(sTempEvent);
+      $('.card-event-image').css("background-image", 'url("./images/'+sEventImagePath+'")');
+      }
+      fnLoadSpeakers();
   })
 }
 
