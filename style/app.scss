@@ -395,6 +395,30 @@ input[type="text"] {
 			    }
 			}
 		}
+		.date-container {
+			@include display-flex();
+			@include flex-direction(column);
+			border-left: 2px solid $primary-color;
+			.date-label {
+				@include display-flex();
+				@include justify-content(center);
+				@include align-items(center);
+				width: auto;
+				max-width: 150px;
+				height: 40px;
+				background-color: $primary-color;
+				color: white;
+				@include font-subheader();
+			}
+			.date-event-cards {
+				width: 80vw;
+				@include display-flex();
+				@include justify-content(flex-start);
+				.card-event {
+					margin: 20px;
+				}
+			}
+		}
 		.card-event {
 			@include display-flex();
 			@include flex-direction(column);

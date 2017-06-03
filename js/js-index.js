@@ -39,6 +39,10 @@ fnDisplayEvents();
 
 
 function fnDisplayEvents(){
+  var sDateContainerBluePrint = '<div class="date-container">\
+                                  <div class="date-label">{{date}}</div>\
+                                  <div id="{{date-id}}" class="date-event-cards"></div>\
+                                </div>'
   var sEventBluePrint = '<div id="{{id}}" class="card-event" data-level="{{class-level}}" data-category="{{class-category}}">\
                           <div class="card-event-image">\
                             <div class="card-event-image-overlay">\
@@ -63,7 +67,24 @@ function fnDisplayEvents(){
   var sUrl = 'apis/api-get-events-formatted.php';
   $.getJSON(sUrl, function(jData){
     var ajEvents = jData.data;
+    // sort events by date in array
+    ajEvents.sort(function(a,b) { 
+      return new Date(a.start).getTime() - new Date(b.start).getTime() 
+    });
     for(i = 0; i < ajEvents.length; i++){
+      // get date of event
+      var aEventDate = ajEvents[i].start.split(' ');
+      var sEventDate = aEventDate[0];
+      console.log($('#'+sEventDate).length);
+      // if container doesn't exist, create it
+      if($("#"+sEventDate).length == 0){
+        // copy the blue print
+        var sTempDateContainer = sDateContainerBluePrint;
+        // replace placeholders
+        var sTempDateContainer = sTempDateContainer.replace('{{date-id}}', sEventDate).replace('{{date}}', sEventDate);
+        $('#event-container').append(sTempDateContainer);
+      }
+      console.log(sEventDate);
       var sEventId = ajEvents[i].id_event;
       var sEventTitle = ajEvents[i].name;
       var sEventCatchPhrase = ajEvents[i].catch_phrase;
@@ -94,7 +115,7 @@ function fnDisplayEvents(){
       sTempEvent = sTempEvent.replace("{{level}}", sEventLevel);
       sTempEvent = sTempEvent.replace("{{category}}", sEventCategory);
     // append blueprint to event list
-    $('#event-container').append(sTempEvent);
+    $('#'+sEventDate).append(sTempEvent);
     $('.card-event-image').css("background-image", 'url("./images/'+sEventImagePath+'")');
     }
     fnLoadSpeakers();
