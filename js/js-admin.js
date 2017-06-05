@@ -293,8 +293,9 @@ function fnPrepareToEditEvent(oSource) {
 		oEvent.main_partner > 0 
 		? $('#select-main-partner option[id="main-partner-'
 			+oEvent.main_partner+'"]').attr("selected", "selected")
-		: $('#select-main-partner').val("");
-		//select main partner if any
+		: $('#select-main-partner').val("select-no-main-partner");
+		
+		//select location
 		oEvent.location > 0 
 		? $('#select-location option[id="location-'
 			+oEvent.location+'"]').attr("selected", "selected")
@@ -743,6 +744,14 @@ function fnSaveEvent() {
 		if($('#select-main-partner').val() != "select-no-main-partner") {
 			sMainPartner = JSON.parse($('#select-main-partner').val()).id_partner;
 		}
+		let aExtraPartners = $('#container-extra-partners > div').map(function() {
+			return $(this).attr('value');
+		}).get();
+
+		let aSpeakers = $('#container-extra-speakers > div').map(function() {
+			return $(this).attr('value');
+		}).get();
+
 		let formData = {};
 
 		formData.name = $('#txt-event-name').val();
@@ -758,9 +767,9 @@ function fnSaveEvent() {
 		formData.category = sCategory;
 		formData.location = sLocation;
 		formData.mainPartner = sMainPartner;
+		formData.extraPartners = JSON.stringify(aExtraPartners);
+		formData.speakers = JSON.stringify(aSpeakers);
 
-		console.log(formData);
-		
 		let ajaxRequest = $.ajax({
 			url: sUrl,
 			data: formData,
@@ -777,9 +786,9 @@ function fnSaveEvent() {
 			}
 		});
 	// DEBUGGING CODE FOR AJAX REQUEST
-	// ajaxRequest.error(function(xhr, status, error) {
-	// 	console.log(xhr.responseText);	
-	// });
+	ajaxRequest.error(function(xhr, status, error) {
+		console.log(xhr.responseText);	
+	});
 	// END OF DEBUGGING
 	}
 }
@@ -820,6 +829,8 @@ function fnLoadEventsToSelector(aEvents) {
 function fnClearEventEdit() {
 	$('#container-event-create input').val("");
 	$('#container-event-create textarea').val("");
+	$('#container-extra-partners').empty();
+	$('#container-extra-speakers').empty();
 }
 
 function fnClearForm(sItem) {
@@ -874,7 +885,6 @@ function fnFetchEventPartnersSpeakers(sId) {
 function fnLoadEventPartnersSpeakers(aPartners, aSpeakers){
 	//Load extra partners
 	if(aPartners != undefined) {
-		$('#container-extra-partners').empty();
 		for(let i = 0; i < aPartners.length; i++ ) {
 			fnAddExtraPartner(aPartners[i].id_partner, aPartners[i].full_name);
 		}
@@ -882,7 +892,6 @@ function fnLoadEventPartnersSpeakers(aPartners, aSpeakers){
 
 	//Load speakers
 	if( aSpeakers != undefined) {
-		$('#container-extra-speakers').empty();
 		for(let i = 0; i <  aSpeakers.length; i++) {
 			fnAddExtraSpeaker( aSpeakers[i].id_speaker,  aSpeakers[i].full_name);
 		}

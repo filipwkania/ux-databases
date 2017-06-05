@@ -6,7 +6,7 @@
 
 	//load speakers
 	$query = $pdo->prepare("
-	 SELECT es.id_event, s.full_name, s.occupation, s.description, s.picture 
+	 SELECT s.id_speaker, s.full_name, s.occupation, s.description, s.picture 
 	 FROM speaker s
 	 JOIN event_speakers es ON s.id_speaker = es.id_speaker 
 	 AND es.id_event IN (:ids);");
@@ -17,7 +17,7 @@
 
 	//load partners
 	$query = $pdo->prepare("
-	 SELECT eep.id_event, p.logo, p.website
+	 SELECT p.id_partner, p.logo, p.website, p.full_name
 	 FROM partner p
 	 JOIN event_extra_partners eep ON p.id_partner = eep.id_partner 
 	 AND eep.id_event IN (:ids);");
