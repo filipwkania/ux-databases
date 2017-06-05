@@ -127,7 +127,7 @@
 /*
     Align items
  */
-#wdw-about #speaker-container .card-speaker .back, #wdw-events #events-header {
+#wdw-about #speaker-container .card-speaker .back {
   -webkit-box-align: start;
   -ms-flex-align: start;
   -webkit-align-items: flex-start;
@@ -135,7 +135,7 @@
   align-items: flex-start; }
 
 .modal-content, .modal-content form, .header, #menu, #menu-admin, #wdw-index, #wdw-index #header-image-index, #wdw-index #header-image-index #header-image-index-text, #wdw-index #event-container .date-container .date-label, #wdw-index #event-container .card-event .card-event-image-overlay, #wdw-about #header-image-about, #wdw-about #header-image-about #txt-about, #wdw-event, #wdw-event #header-image-event, #wdw-event #header-image-event #txt-event, #wdw-event #wdw-event-content-container, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .speaker-card-details, #wdw-event #wdw-event-content-container .separator, #modals-admin .modal-content > div:first-of-type, #wdw-accounts #container-user-edit,
-#wdw-accounts #container-users, #wdw-events, #wdw-events .extra-speaker,
+#wdw-accounts #container-users, #wdw-events, #wdw-events #events-header, #wdw-events .extra-speaker,
 #wdw-events .extra-partner {
   -webkit-box-align: center;
   -ms-flex-align: center;

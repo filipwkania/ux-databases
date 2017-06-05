@@ -1,7 +1,7 @@
 <?php 
 	require_once('db-connection.php');
 
-	$sEventIds = $_POST['eventIds'];
+	$sEventIds = $_POST['id'];
 	// $sEventIds = '1';
 
 	//load speakers

@@ -74,7 +74,8 @@ $(document).on("change", "#select-main-partner", function(source) {
 });
 
 $(document).on("change", "#select-extra-partners", function(source) {
-	fnAddExtraPartner(source.target);
+	let oPartner = JSON.parse($(source.target).val());
+	fnAddExtraPartner(oPartner.id_partner, oPartner.full_name);
 });
 
 $(document).on("change", "#select-event", function(source) {
@@ -83,7 +84,8 @@ $(document).on("change", "#select-event", function(source) {
 
 $(document).on("change", "#select-event-speakers", function(source) {
 	fnPrepareToEditSpeaker(source.target);
-	fnAddExtraSpeaker(source.target);
+	let oSpeaker = JSON.parse($(source.target).val());
+	fnAddExtraSpeaker(oSpeaker.id_speaker, oSpeaker.full_name);
 });
 
 $(document).on("click", "#btn-save-partner", function() {
@@ -266,10 +268,11 @@ function fnPrepareToEditEvent(oSource) {
 	if($(oSource).val() === "select-no-event") {
 		fnClearEventEdit();
 	} else {
-		console.log($(oSource).val());
 		//get event attributes
 		let oEvent = JSON.parse($(oSource).val());
 
+		//load extra partners and speakers from database
+		fnFetchEventPartnersSpeakers(oEvent.id_event);
 
 		//put values into the edit fields
 		$('#txt-event-id').val(oEvent.id_event);
@@ -823,32 +826,67 @@ function fnClearForm(sItem) {
 	$('#container-'+sItem+'-create input').val("");
 }
 
-function fnAddExtraPartner(oSource) {
+function fnAddExtraPartner(sId, sName) {
 	let blueprint = 
 					'<div class="extra-partner" value="{{partnerId}}">\
 						<span class="extra-partner-name"> {{partnerName}}</span>\
 						<span class="fa fa-fw fa-remove remove-extra-partner"></span>\
 					</div>';
-	let oPartner = JSON.parse($(oSource).val());
-	
-	blueprint = blueprint.replace('{{partnerId}}', oPartner.id_partner);
-	blueprint = blueprint.replace('{{partnerName}}', oPartner.full_name);
+
+	blueprint = blueprint.replace('{{partnerId}}', sId);
+	blueprint = blueprint.replace('{{partnerName}}', sName);
 
 	$('#container-extra-partners').append(blueprint);
 }
 
-function fnAddExtraSpeaker(oSource) {
+function fnAddExtraSpeaker(sId, sName) {
 	let blueprint = 
 					'<div class="extra-speaker" value="{{speakerId}}">\
 						<span class="extra-partner-name"> {{speakerName}}</span>\
 						<span class="fa fa-fw fa-remove remove-extra-speaker"></span>\
 					</div>';
-	let oSpeaker = JSON.parse($(oSource).val());
 	
-	blueprint = blueprint.replace('{{speakerId}}', oSpeaker.id_speaker);
-	blueprint = blueprint.replace('{{speakerName}}', oSpeaker.full_name);
+	blueprint = blueprint.replace('{{speakerId}}', sId);
+	blueprint = blueprint.replace('{{speakerName}}', sName);
 
 	$('#container-extra-speakers').append(blueprint);
+}
+
+function fnFetchEventPartnersSpeakers(sId) {
+	let sUrl = '../apis/api-get-speakers-and-partners.php';
+
+	let ajaxRequest = $.ajax({
+		url: sUrl,
+		data: {id:sId},
+		dataType: "JSON",
+		method: "POST"
+	});
+
+	ajaxRequest.done(function (jData) {
+		if(jData.status === "ok") {
+			fnLoadEventPartnersSpeakers(jData.partners, jData.speakers);
+		} else {
+			console.log('Could not load speakers and extra partners');
+		}
+	});
+}
+
+function fnLoadEventPartnersSpeakers(aPartners, aSpeakers){
+	//Load extra partners
+	if(aPartners != undefined) {
+		$('#container-extra-partners').empty();
+		for(let i = 0; i < aPartners.length; i++ ) {
+			fnAddExtraPartner(aPartners[i].id_partner, aPartners[i].full_name);
+		}
+	}
+
+	//Load speakers
+	if( aSpeakers != undefined) {
+		$('#container-extra-speakers').empty();
+		for(let i = 0; i <  aSpeakers.length; i++) {
+			fnAddExtraSpeaker( aSpeakers[i].id_speaker,  aSpeakers[i].full_name);
+		}
+	}
 }
 
 // MENU
