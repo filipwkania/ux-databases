@@ -36,7 +36,7 @@
 		<div id="event-container">
 			<div id="event-filters-container">
 				<span id="lbl-filters">Filters:</span>
-				<div id="dropdown-filter-level">
+				<div id="dropdown-filter-category">
 					<span id="filter-category-toggle" class="filter-button" data-filter="category">Category</span>
 					<div id="filter-category-dropdown" class="filter-dropdown-content">
 						<span class="filter-category" data-category-selector="1">Business/Administration</span>
@@ -52,6 +52,21 @@
 						<span class="filter-level" data-level-selector="2">Intermediate</span>
 						<span class="filter-level" data-level-selector="3">Advanced</span>
 						<span id="filter-level-reset" class="filter-level">All Levels</span>
+					</div>
+				</div>
+				<div id="dropdown-filter-area">
+					<span id="filter-area-toggle" class="filter-button" data-filter="area">Area</span>
+					<div id="filter-area-dropdown" class="filter-dropdown-content">
+						<span class="filter-area" data-area-selector="1000-1499">Copenhagen K</span>
+						<span class="filter-area" data-area-selector="1500-1799">Copenhagen V</span>
+						<span class="filter-area" data-area-selector="1800-1999">Frederiksberg C</span>
+						<span class="filter-area" data-area-selector="2000">Frederiksberg</span>
+						<span class="filter-area" data-area-selector="2100">Copenhagen Ø</span>
+						<span class="filter-area" data-area-selector="2200">Copenhagen N</span>
+						<span class="filter-area" data-area-selector="2300">Copenhagen S</span>
+						<span class="filter-area" data-area-selector="2400">Copenhagen NV</span>
+						<span class="filter-area" data-area-selector="2450">Copenhagen SV</span>
+						<span id="filter-area-reset">All Areas</span>
 					</div>
 				</div>
 			</div>
