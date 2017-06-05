@@ -269,6 +269,18 @@
 			</div>
 		</div>
 	</div>
+
+	<div id="mdl-event" class="modal">
+		<div class="modal-content">
+			<h2>User details</h2>
+
+			<div class="modal-buttons">
+				<button id="btn-cancel-event" class="cancel-button" data-mdl="user" type="button">Cancel</button>
+				<button id="btn-save-event" class="button" type="button">Save</button>
+			</div>
+		</div>
+	</div>
+
 </div>
 <!-- ************************************************** -->
 <!-- **************************************************************************************************** -->
