@@ -43,7 +43,7 @@ function fnDisplayEvents(){
                                   <div class="date-label">{{date}}</div>\
                                   <div id="{{date-id}}" class="date-event-cards"></div>\
                                 </div>'
-  var sEventBluePrint = '<div id="{{id}}" class="card-event" data-level="{{class-level}}" data-category="{{class-category}}">\
+  var sEventBluePrint = '<div id="{{id}}" class="card-event" data-level="{{class-level}}" data-category="{{class-category}}" data-area="{{postal-code}}">\
                           <div class="card-event-image">\
                             <div class="card-event-image-overlay">\
                               <h2 class="card-event-title">{{title}}</h2>\
@@ -60,7 +60,6 @@ function fnDisplayEvents(){
                                 <span class="event-card-category">{{category}}</span>\
                               </div>\
                               <button class="btn-display-event-details button" type="button">Details</button>\
-                              <input type="hidden" value="{{postal-code}}"">\
                             </div>\
                           </div>\
                         </div>'
@@ -162,4 +161,22 @@ $('.filter-category').click(function(){
 
 $('#filter-category-reset').click(function(){
   $('.card-event').removeClass('filter-category-hide');
+})
+
+$('.filter-area').click(function(){
+  $('.card-event').removeClass('filter-area-hide');
+  var sArea = $(this).attr('data-area-selector');
+  if(sArea.length > 4){
+    $('.card-event').addClass('filter-area-hide');
+    var aArea = sArea.split('-');
+    for(i = aArea[0]; i < aArea[1]; i++){
+      $('.card-event[data-area='+i+']').removeClass('filter-area-hide');
+    }
+  }else{
+    $('.card-event[data-area!='+sArea+']').addClass('filter-area-hide');
+  }
+})
+
+$('#filter-area-reset').click(function(){
+  $('.card-event').removeClass('filter-area-hide');
 })

@@ -338,7 +338,13 @@ input[type="text"] {
 					@include display-flex();
 				}
 			}
-			#dropdown-category-level {
+			#dropdown-filter-category {
+				overflow: hidden;
+				&:hover .filter-dropdown-content {
+					@include display-flex();
+				}
+			}
+			#dropdown-filter-area {
 				overflow: hidden;
 				&:hover .filter-dropdown-content {
 					@include display-flex();
@@ -357,25 +363,7 @@ input[type="text"] {
 			    border-bottom-left-radius: 4px;
 			    z-index: 1;
 			    font-size: 14px;
-			    .filter-level {
-			    	float: none;
-			    	background-color: #f2f2f2;
-				    padding: 10px 15px 10px 15px;
-				    margin: 0px;
-				    border-right: 4px solid $secondary-color-dark;
-				    border-top: 1px solid $secondary-color-light;
-				    border-bottom: 1px solid $secondary-color-light;
-				    font-family: $font-regular;
-				    font-size: 14px;
-				    font-weight: lighter;
-				    text-decoration: none;
-				    text-align: left;
-				    cursor: pointer;
-				    &:hover {
-				    	border-right: 4px solid $primary-color;
-				    }
-			    }
-			    .filter-category {
+			    .filter-level, .filter-category, .filter-area, #filter-area-reset {
 			    	float: none;
 			    	background-color: #f2f2f2;
 				    padding: 10px 15px 10px 15px;
@@ -399,6 +387,7 @@ input[type="text"] {
 			@include display-flex();
 			@include flex-direction(column);
 			border-left: 2px solid $primary-color;
+			min-height: 100px;
 			.date-label {
 				@include display-flex();
 				@include justify-content(center);
@@ -480,10 +469,7 @@ input[type="text"] {
 	}
 }
 // FILTER CLASSES
-.filter-level-hide {
-	display: none !important;
-}
-.filter-category-hide {
+.filter-level-hide, .filter-category-hide, .filter-area-hide {
 	display: none !important;
 }
 

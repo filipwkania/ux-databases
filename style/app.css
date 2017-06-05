@@ -8,7 +8,7 @@
 /*
     Display
  */
-.wdw, .modal-content, .modal-content form, .modal-content form #container-message-subject, .modal-buttons, .header, #menu, #menu-admin, #menu .menu-link, #menu #btn-menu-events, #menu #btn-menu-accounts, #menu-admin .menu-link, #menu-admin #btn-menu-events, #menu-admin #btn-menu-accounts, #wdw-index, #wdw-index #header-image-index, #wdw-index #header-image-index #header-image-index-text, #wdw-index #event-container, #wdw-index #event-container #event-filters-container, #wdw-index #event-container #event-filters-container .filter-button, #wdw-index #event-container #event-filters-container #dropdown-filter-level:hover .filter-dropdown-content, #wdw-index #event-container #event-filters-container #dropdown-category-level:hover .filter-dropdown-content, #wdw-index #event-container #event-filters-container .filter-dropdown-content, #wdw-index #event-container .date-container, #wdw-index #event-container .date-container .date-label, #wdw-index #event-container .date-container .date-event-cards, #wdw-index #event-container .card-event, #wdw-index #event-container .card-event .card-event-image-overlay, #wdw-index #event-container .card-event .event-card-details-container, #wdw-index #event-container .card-event .event-card-details-container .event-card-details, #wdw-index #event-container .card-event .event-card-details-container .event-card-details .event-card-details-filter-container, #wdw-index #event-container .card-event .event-card-details-container .event-card-details .event-card-details-filter-container .event-card-category, #wdw-index #event-container .card-event .event-card-details-container .event-card-details .event-card-details-filter-container .event-card-level, #wdw-about, #wdw-about #header-image-about, #wdw-about #header-image-about #txt-about, #wdw-about #header-image-about #txt-about .btn-contact, #wdw-about #speaker-container, #wdw-about #speaker-container .card-speaker, #wdw-about #speaker-container .card-speaker .back, #wdw-event, #wdw-event #header-image-event, #wdw-event #header-image-event #txt-event, #wdw-event #header-image-event #txt-event #container-event-header-info, #wdw-event #header-image-event #txt-event #container-event-header-info #wdw-event-time, #wdw-event #wdw-event-content-container, #wdw-event #wdw-event-content-container #event-details-container, #wdw-event #wdw-event-content-container #event-agenda, #wdw-event #wdw-event-content-container #event-contributors-container, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header img, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .speaker-card-details, #wdw-event #wdw-event-content-container .separator, #modals-admin .modal-content > div:first-of-type, #wdw-accounts #accounts-wrapper, #wdw-accounts #container-user-edit,
+.wdw, .modal-content, .modal-content form, .modal-content form #container-message-subject, .modal-buttons, .header, #menu, #menu-admin, #menu .menu-link, #menu #btn-menu-events, #menu #btn-menu-accounts, #menu-admin .menu-link, #menu-admin #btn-menu-events, #menu-admin #btn-menu-accounts, #wdw-index, #wdw-index #header-image-index, #wdw-index #header-image-index #header-image-index-text, #wdw-index #event-container, #wdw-index #event-container #event-filters-container, #wdw-index #event-container #event-filters-container .filter-button, #wdw-index #event-container #event-filters-container #dropdown-filter-level:hover .filter-dropdown-content, #wdw-index #event-container #event-filters-container #dropdown-filter-category:hover .filter-dropdown-content, #wdw-index #event-container #event-filters-container #dropdown-filter-area:hover .filter-dropdown-content, #wdw-index #event-container #event-filters-container .filter-dropdown-content, #wdw-index #event-container .date-container, #wdw-index #event-container .date-container .date-label, #wdw-index #event-container .date-container .date-event-cards, #wdw-index #event-container .card-event, #wdw-index #event-container .card-event .card-event-image-overlay, #wdw-index #event-container .card-event .event-card-details-container, #wdw-index #event-container .card-event .event-card-details-container .event-card-details, #wdw-index #event-container .card-event .event-card-details-container .event-card-details .event-card-details-filter-container, #wdw-index #event-container .card-event .event-card-details-container .event-card-details .event-card-details-filter-container .event-card-category, #wdw-index #event-container .card-event .event-card-details-container .event-card-details .event-card-details-filter-container .event-card-level, #wdw-about, #wdw-about #header-image-about, #wdw-about #header-image-about #txt-about, #wdw-about #header-image-about #txt-about .btn-contact, #wdw-about #speaker-container, #wdw-about #speaker-container .card-speaker, #wdw-about #speaker-container .card-speaker .back, #wdw-event, #wdw-event #header-image-event, #wdw-event #header-image-event #txt-event, #wdw-event #header-image-event #txt-event #container-event-header-info, #wdw-event #header-image-event #txt-event #container-event-header-info #wdw-event-time, #wdw-event #wdw-event-content-container, #wdw-event #wdw-event-content-container #event-details-container, #wdw-event #wdw-event-content-container #event-agenda, #wdw-event #wdw-event-content-container #event-contributors-container, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .card-speaker-header img, #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker .speaker-card-details, #wdw-event #wdw-event-content-container .separator, #modals-admin .modal-content > div:first-of-type, #wdw-accounts #accounts-wrapper, #wdw-accounts #container-user-edit,
 #wdw-accounts #container-users, #wdw-accounts #container-user-edit-buttons, #wdw-events #events-header, #wdw-events #container-event-create,
 #wdw-events #container-event-list,
 #wdw-events #events-content, #wdw-events #container-location-create,
@@ -384,7 +384,9 @@ input[type="text"] {
       cursor: pointer; }
     #wdw-index #event-container #event-filters-container #dropdown-filter-level {
       overflow: hidden; }
-    #wdw-index #event-container #event-filters-container #dropdown-category-level {
+    #wdw-index #event-container #event-filters-container #dropdown-filter-category {
+      overflow: hidden; }
+    #wdw-index #event-container #event-filters-container #dropdown-filter-area {
       overflow: hidden; }
     #wdw-index #event-container #event-filters-container .filter-dropdown-content {
       display: none;
@@ -395,7 +397,7 @@ input[type="text"] {
       border-bottom-left-radius: 4px;
       z-index: 1;
       font-size: 14px; }
-      #wdw-index #event-container #event-filters-container .filter-dropdown-content .filter-level {
+      #wdw-index #event-container #event-filters-container .filter-dropdown-content .filter-level, #wdw-index #event-container #event-filters-container .filter-dropdown-content .filter-category, #wdw-index #event-container #event-filters-container .filter-dropdown-content .filter-area, #wdw-index #event-container #event-filters-container .filter-dropdown-content #filter-area-reset {
         float: none;
         background-color: #f2f2f2;
         padding: 10px 15px 10px 15px;
@@ -409,26 +411,11 @@ input[type="text"] {
         text-decoration: none;
         text-align: left;
         cursor: pointer; }
-        #wdw-index #event-container #event-filters-container .filter-dropdown-content .filter-level:hover {
-          border-right: 4px solid #ffd92d; }
-      #wdw-index #event-container #event-filters-container .filter-dropdown-content .filter-category {
-        float: none;
-        background-color: #f2f2f2;
-        padding: 10px 15px 10px 15px;
-        margin: 0px;
-        border-right: 4px solid #393939;
-        border-top: 1px solid #eaeaea;
-        border-bottom: 1px solid #eaeaea;
-        font-family: "Open Sans", sans-serif;
-        font-size: 14px;
-        font-weight: lighter;
-        text-decoration: none;
-        text-align: left;
-        cursor: pointer; }
-        #wdw-index #event-container #event-filters-container .filter-dropdown-content .filter-category:hover {
+        #wdw-index #event-container #event-filters-container .filter-dropdown-content .filter-level:hover, #wdw-index #event-container #event-filters-container .filter-dropdown-content .filter-category:hover, #wdw-index #event-container #event-filters-container .filter-dropdown-content .filter-area:hover, #wdw-index #event-container #event-filters-container .filter-dropdown-content #filter-area-reset:hover {
           border-right: 4px solid #ffd92d; }
   #wdw-index #event-container .date-container {
-    border-left: 2px solid #ffd92d; }
+    border-left: 2px solid #ffd92d;
+    min-height: 100px; }
     #wdw-index #event-container .date-container .date-label {
       width: auto;
       max-width: 150px;
@@ -483,10 +470,7 @@ input[type="text"] {
     #wdw-index #event-container .card-event .event-card-details-container .btn-display-event-details {
       display: none; }
 
-.filter-level-hide {
-  display: none !important; }
-
-.filter-category-hide {
+.filter-level-hide, .filter-category-hide, .filter-area-hide {
   display: none !important; }
 
 /********************************************************************************************************************************/
