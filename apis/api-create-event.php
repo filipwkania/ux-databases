@@ -19,7 +19,7 @@
 	$sExtraPartners = $_POST['extraPartners'];
 	$sSpeakers = $_POST['speakers'];
 
-	$sPicture = 'defaultEvent.jpg';
+	$sPicture = 'event.jpg';
 
 	$aExtraPartners = json_decode($sExtraPartners);
 	$aSpeakers = json_decode($sSpeakers);
