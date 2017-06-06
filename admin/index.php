@@ -85,7 +85,7 @@
 					<th>Location</th>
 					<th>Start</th>
 					<th>Edit</th>
-					<th>Delete</th>
+					<th>Cancel</th>
 				</tr>
 			</thead>
 			<tbody id="tbody-events">

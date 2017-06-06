@@ -285,7 +285,7 @@ function fnPopulateEventTable(aEvents) {
 		<td class='text-left event-location' data-th='Location'>{{location}}</td>\
 		<td class='text-left event-start' data-th='Start'>{{start}}</td>\
 		<td class='text-center event-edit' data-th='Edit'><span class='fa fa-fw fa-edit'></span></td>\
-		<td class='text-center event-delete' data-th='Delete'><span class='fa fa-fw fa-remove'></span></td>\
+		<td class='text-center event-delete' data-th='Cancel'><span class='fa fa-fw fa-remove'></span></td>\
 	</tr>";
 
 	//replace place holders with actual data
@@ -384,6 +384,7 @@ function fnSaveSpeaker() {
 		if(jData.status === "ok") {
 			fnFetchSpeakers();
 			fnClearForm('speaker');
+			fnCloseModal('speaker');
 			alert("Speaker is now saved in database");
 		} else {
 			alert("Failed to save speaker in database");
@@ -546,6 +547,7 @@ function fnSaveLocation() {
 		if(jData.status === "ok") {
 			fnFetchLocations();
 			fnClearForm('location');
+			fnCloseModal('location');
 			alert('Location saved in database!');
 		} else {
 			alert('Error while saving location to database');
@@ -668,6 +670,7 @@ function fnSavePartner() {
 		if(jData.status === "ok") {
 			fnClearForm('partner');
 			fnFetchPartners();
+			fnCloseModal('partner');
 			alert("Partner saved in database");
 		} else {
 			alert("Error while adding partner to db");
@@ -824,6 +827,8 @@ function fnSaveEvent() {
 		ajaxRequest.done(function(jData) {
 			if(jData.status === "ok") {
 				fnFetchEvents();
+				fnClearEventEdit();
+				fnCloseModal('event');
 				alert('Event saved in database');
 			} else {
 				alert('Error while saving event in database');

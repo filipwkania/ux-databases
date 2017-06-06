@@ -758,17 +758,41 @@ input[type="text"] {
   height: 50px; }
 
 #tbody-events td {
-  padding-right: 5px;
-  padding-bottom: 5px;
   width: 200px; }
 #tbody-events td:nth-last-of-type(-n+2) {
   width: 15px;
   text-align: center; }
 
+table {
+  border: none;
+  -webkit-border-horizontal-spacing: 0px;
+  -webkit-border-vertical-spacing: 0px; }
+
+#tbody-users td,
+#tbody-events td {
+  border: none;
+  padding: 5px; }
+#tbody-users tr:nth-child(even),
+#tbody-events tr:nth-child(even) {
+  background-color: #fff; }
+#tbody-users tr:hover,
+#tbody-events tr:hover {
+  background-color: #ffe77d; }
 #tbody-users td:before,
 #tbody-events td:before {
   display: none;
   content: attr(data-th) ": "; }
+#tbody-users .fa-edit:hover,
+#tbody-users .fa-remove:hover,
+#tbody-events .fa-edit:hover,
+#tbody-events .fa-remove:hover {
+  cursor: pointer; }
+#tbody-users .fa-edit:hover,
+#tbody-events .fa-edit:hover {
+  color: #4CAF50; }
+#tbody-users .fa-remove:hover,
+#tbody-events .fa-remove:hover {
+  color: #F44336; }
 
 #modals-admin .modal-content {
   width: 75%; }
@@ -801,13 +825,12 @@ input[type="text"] {
 #wdw-accounts #container-user-edit-buttons {
   margin-left: 5px;
   width: 210px; }
-#wdw-accounts .fa-edit:hover,
-#wdw-accounts .fa-remove:hover {
-  cursor: pointer; }
 #wdw-accounts #btn-add-new-user {
   margin-top: 10px; }
 #wdw-accounts #tbody-users td:nth-child(-n+6) {
   width: 120px; }
+#wdw-accounts #tbody-users td:nth-last-of-type(-n+2) {
+  text-align: center; }
 
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/

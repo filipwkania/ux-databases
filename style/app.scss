@@ -771,8 +771,6 @@ input[type="text"] {
 	}
 #tbody-events {
 	td {
-		padding-right: 5px;
-		padding-bottom: 5px;
 		width: 200px;
 	}
   td:nth-last-of-type(-n+2) {
@@ -780,12 +778,40 @@ input[type="text"] {
   	text-align: center;
   }
 }
+
+table {
+	border: none;
+	 -webkit-border-horizontal-spacing: 0px;
+   -webkit-border-vertical-spacing: 0px;
+}
+
 #tbody-users,
 #tbody-events {
+	td {
+		border: none;
+		padding: 5px;
+	}
+	tr:nth-child(even) {
+		background-color: #fff;
+	}
+	tr:hover {
+		background-color: $primary-hover-color;
+	}
 	td:before {
 		display: none;
     content: attr(data-th)": ";
   }
+	.fa-edit:hover,
+	.fa-remove:hover {
+		cursor: pointer;
+	}
+	.fa-edit:hover {
+		color: #4CAF50;
+	}
+	.fa-remove:hover{
+		color: #F44336;
+	}
+
 }
 #modals-admin {
 	.modal-content {
@@ -846,10 +872,6 @@ input[type="text"] {
 		margin-left: 5px;
 		width: 210px;
 	}
-	.fa-edit:hover,
-	.fa-remove:hover {
-		cursor: pointer;
-	}
 	#btn-add-new-user {
 		margin-top: 10px;
 	}
@@ -857,6 +879,9 @@ input[type="text"] {
 		td:nth-child(-n+6) {
 			width: 120px;
 		}	
+		td:nth-last-of-type(-n+2) {
+			text-align: center;
+		}
 	}
 }
 
