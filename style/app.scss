@@ -578,6 +578,9 @@ input[type="text"] {
 	}
 	}
 	}
+	.footer {
+		margin-top: 0px !important;
+	}
 }
 
 /********************************************************************************************************************************/
@@ -1253,6 +1256,9 @@ and (max-width: 765px) {
 		#txt-about {
 			width: 85vw !important;
 		}
+		.footer {
+			margin-top: 0px !important;
+		}
 	}
 	#mdl-contact {
 		.modal-content {
@@ -1397,6 +1403,9 @@ and (max-device-width : 480px) {
 					font-size: 14px !important;
 				}
 			}
+		}
+		.footer {
+			margin-top: 0px !important;
 		}
 	}
 	#mdl-contact {

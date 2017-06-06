@@ -582,6 +582,8 @@ input[type="text"] {
           font-size: 16px;
           font-weight: bold;
           color: white; }
+  #wdw-about .footer {
+    margin-top: 0px !important; }
 
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
@@ -1067,6 +1069,8 @@ table {
 
   #wdw-about #txt-about {
     width: 85vw !important; }
+  #wdw-about .footer {
+    margin-top: 0px !important; }
 
   #mdl-contact .modal-content {
     margin: 15% auto;
@@ -1161,6 +1165,8 @@ table {
     height: 50vw !important; }
     #wdw-about #speaker-container .card-speaker .txt-speaker-occupation {
       font-size: 14px !important; }
+  #wdw-about .footer {
+    margin-top: 0px !important; }
 
   #mdl-contact .modal-content {
     width: 90vw;
