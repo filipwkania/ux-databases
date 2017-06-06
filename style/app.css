@@ -55,7 +55,7 @@
 /*
     Flex wrap
  */
-#wdw-index #event-container, #wdw-about #speaker-container, #wdw-event #wdw-event-content-container #event-contributors-container, #mdl-event .modal-content, #mdl-event #events-content, #mdl-event #container-extra-partners,
+#wdw-index #event-container, #wdw-index #event-container .date-container, #wdw-about #speaker-container, #wdw-event #wdw-event-content-container #event-contributors-container, #mdl-event .modal-content, #mdl-event #events-content, #mdl-event #container-extra-partners,
 #mdl-event #container-extra-speakers {
   -webkit-flex-wrap: wrap;
   -moz-flex-wrap: wrap;
@@ -271,6 +271,7 @@ h4, th, label {
 .footer {
   width: 100vw;
   height: 55px;
+  position: relative;
   bottom: 0px;
   left: 0px;
   margin-top: 20px;
@@ -1029,6 +1030,8 @@ table {
   #wdw-index #event-container {
     max-width: 95vw;
     margin-top: 40px; }
+    #wdw-index #event-container .date-container {
+      width: 100%; }
   #wdw-index .card-event {
     width: 30vw !important; }
     #wdw-index .card-event .event-card-details-container .event-card-details-filter-container .event-card-category, #wdw-index .card-event .event-card-details-container .event-card-details-filter-container .event-card-level {
@@ -1086,17 +1089,28 @@ table {
     #wdw-index #header-image-index #header-image-index-text {
       width: 85vw !important; }
   #wdw-index #event-container {
-    max-width: 90vw;
+    max-width: 95vw;
     margin-top: 40px; }
     #wdw-index #event-container #event-filters-container {
       justify-content: flex-start; }
-    #wdw-index #event-container .card-event {
-      width: 90vw !important;
-      min-height: 400px; }
-      #wdw-index #event-container .card-event .event-card-details-container {
-        margin-top: 20px; }
-        #wdw-index #event-container .card-event .event-card-details-container .btn-display-event-details {
-          display: block !important; }
+      #wdw-index #event-container #event-filters-container #lbl-filters {
+        margin-right: 20px !important; }
+    #wdw-index #event-container .date-container {
+      width: 100vw;
+      margin-left: 0px;
+      border: none !important; }
+      #wdw-index #event-container .date-container .date-label {
+        width: 100vw;
+        max-width: 100vw; }
+      #wdw-index #event-container .date-container .date-event-cards {
+        flex-direction: column !important; }
+      #wdw-index #event-container .date-container .card-event {
+        width: 90vw !important;
+        min-height: 400px; }
+        #wdw-index #event-container .date-container .card-event .event-card-details-container {
+          margin-top: 20px; }
+          #wdw-index #event-container .date-container .card-event .event-card-details-container .btn-display-event-details {
+            display: block !important; }
 
   #wdw-event #header-image-event {
     min-height: 225px !important; }
