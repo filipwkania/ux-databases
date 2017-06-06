@@ -71,6 +71,14 @@
 				</div>
 			</div>
 		</div>
+		<div class="footer">
+			<span class="lbl-partners">Partners:</span>
+			<img class="partner-logo" src="images/batman.svg" alt="Batman Logo">
+			<img class="partner-logo" src="images/superman.svg" alt="Superman Logo">
+			<img class="partner-logo" src="images/captain-america.svg" alt="Captain America Logo">
+			<img class="partner-logo" src="images/spiderman.svg" alt="Spiderman Logo">
+			<img class="partner-logo" src="images/thor.svg" alt="Thor Logo">
+		</div>
 	</div>
 
 <!-- ******************************************************************************************************* -->
@@ -111,6 +119,14 @@
 			<span id="event-message-no-speakers">This is a networking event which has no speakers.</span>
 			<div id="event-contributors-container">
 			</div>
+		</div>
+		<div class="footer">
+			<span class="lbl-partners">Partners:</span>
+			<img class="partner-logo" src="images/batman.svg" alt="Batman Logo">
+			<img class="partner-logo" src="images/superman.svg" alt="Superman Logo">
+			<img class="partner-logo" src="images/captain-america.svg" alt="Captain America Logo">
+			<img class="partner-logo" src="images/spiderman.svg" alt="Spiderman Logo">
+			<img class="partner-logo" src="images/thor.svg" alt="Thor Logo">
 		</div>
 	</div>
 
@@ -158,6 +174,14 @@
 			</div>
 		</div>
 		<div id="speaker-container"></div>
+		<div class="footer">
+			<span class="lbl-partners">Partners:</span>
+			<img class="partner-logo" src="images/batman.svg" alt="Batman Logo">
+			<img class="partner-logo" src="images/superman.svg" alt="Superman Logo">
+			<img class="partner-logo" src="images/captain-america.svg" alt="Captain America Logo">
+			<img class="partner-logo" src="images/spiderman.svg" alt="Spiderman Logo">
+			<img class="partner-logo" src="images/thor.svg" alt="Thor Logo">
+		</div>
 	</div>
 
 <!-- ******************************************************************************************************* -->
@@ -198,8 +222,9 @@
 
 <!-- ******************************************************************************************************* -->
 <!-- ******************************************************************************************************* -->
+<div id="credit">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 <script src="js/js-index.js"></script>
 <script src="js/js-event.js"></script>
 <script src="js/js-about.js"></script>

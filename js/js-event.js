@@ -26,7 +26,12 @@ $(document).on('click', '.card-event-image', function(){
 
   $('#location-name').text(oEvent.location_name);
   $('#location-address').text(oEvent.location_address);
-
+  // remove agenda from previous event
+  if($('#separator-agenda').length != 0){
+    $('#separator-agenda').remove();
+    $('#event-agenda-container').remove();
+    $('#event-agenda').remove();
+  }
   // check if there is an agenda
   if(oEvent.agenda != null){
     var aAgenda = oEvent.agenda.split(',');
@@ -164,7 +169,6 @@ $('#btn-confirm-reservation').click(function(){
   var formData = $('#frm-reservation').serialize();
   var iEventId = $('#details-event-id').val();
   formData = formData+'&event='+iEventId;
-  console.log(formData);
 
   // post data to api
     $.ajax(

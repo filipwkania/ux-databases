@@ -200,6 +200,24 @@ h4, th, label {
 		margin-right: 20px;
 	}
 }
+.footer {
+	@include display-flex();
+	@include justify-content(space-around);
+	@include align-items(center);
+	width: 100vw;
+	height: 55px;
+	bottom: 0px;
+	left: 0px;
+	margin-top: 20px;
+	background-color: $secondary-color-dark;
+	.lbl-partners {
+		color: white !important;
+	}
+	.partner-logo {
+		height: 30px !important;
+		width: auto;
+	}
+}
 #menu, #menu-admin {
 	@include display-flex();
 	@include flex-direction(column);
@@ -275,6 +293,9 @@ input,
 textarea {
 	border: none;
 	box-shadow: none;
+}
+#credit {
+	display: none;
 }
 /*
 input[type="text"] {
