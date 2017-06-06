@@ -791,7 +791,7 @@ table {
 		border: none;
 		padding: 5px;
 	}
-	tr:nth-child(even) {
+	tr:nth-child(odd) {
 		background-color: #fff;
 	}
 	tr:hover {
@@ -802,12 +802,13 @@ table {
     content: attr(data-th)": ";
   }
 	.fa-edit:hover,
-	.fa-remove:hover {
+	.fa-remove:hover,
+	.fa-rotate-left:hover {
 		cursor: pointer;
 	}
 	.fa-edit:hover,
 	.fa-rotate-left:hover {
-		color: #4CAF50;
+		color: #CDDC39;
 	}
 	.fa-remove:hover{
 		color: #F44336;
@@ -913,6 +914,9 @@ $admin-components-margin: 0px 10px 0px 0px;
 		width: 65vw;
 		margin-top: 70px;
 	}
+	#btn-add-new-event {
+		margin-top: 15px;
+	}
 }
 
 #mdl-event {
@@ -971,10 +975,8 @@ $admin-components-margin: 0px 10px 0px 0px;
 			margin: 10px 10px 10px 0px;
 		}
 	}
-	#container-button-box {
-		button {
-			margin-left: 0px;
-		}
+	#container-buttons-box {
+		width: 210px;
 	}
 	#container-edit-event-buttons button {
 		width: 198px;

@@ -772,8 +772,8 @@ table {
 #tbody-events td {
   border: none;
   padding: 5px; }
-#tbody-users tr:nth-child(even),
-#tbody-events tr:nth-child(even) {
+#tbody-users tr:nth-child(odd),
+#tbody-events tr:nth-child(odd) {
   background-color: #fff; }
 #tbody-users tr:hover,
 #tbody-events tr:hover {
@@ -784,14 +784,16 @@ table {
   content: attr(data-th) ": "; }
 #tbody-users .fa-edit:hover,
 #tbody-users .fa-remove:hover,
+#tbody-users .fa-rotate-left:hover,
 #tbody-events .fa-edit:hover,
-#tbody-events .fa-remove:hover {
+#tbody-events .fa-remove:hover,
+#tbody-events .fa-rotate-left:hover {
   cursor: pointer; }
 #tbody-users .fa-edit:hover,
 #tbody-users .fa-rotate-left:hover,
 #tbody-events .fa-edit:hover,
 #tbody-events .fa-rotate-left:hover {
-  color: #4CAF50; }
+  color: #CDDC39; }
 #tbody-users .fa-remove:hover,
 #tbody-events .fa-remove:hover {
   color: #F44336; }
@@ -848,6 +850,8 @@ table {
 #wdw-events #events-header {
   width: 65vw;
   margin-top: 70px; }
+#wdw-events #btn-add-new-event {
+  margin-top: 15px; }
 
 #mdl-event .modal-content {
   overflow-y: scroll;
@@ -878,8 +882,8 @@ table {
   padding-left: 10px; }
   #mdl-event #container-edit-event-buttons button {
     margin: 10px 10px 10px 0px; }
-#mdl-event #container-button-box button {
-  margin-left: 0px; }
+#mdl-event #container-buttons-box {
+  width: 210px; }
 #mdl-event #container-edit-event-buttons button {
   width: 198px; }
 #mdl-event #container-event-extras > * {
