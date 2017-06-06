@@ -3,6 +3,7 @@
 <head>
 	<title>Very Unique And Catchy Company Name</title>
 	<link rel="stylesheet" type="text/css" href="style/app.css">
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700" rel="stylesheet">
 	<script src="https://use.fontawesome.com/fa11f26e3b.js"></script>
 </head>

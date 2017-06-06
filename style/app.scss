@@ -645,6 +645,35 @@ input[type="text"] {
 				}
 			}
 		}
+		.accordion {
+		    color: $primary-color;
+		    cursor: pointer;
+		    padding: 18px;
+		    text-align: left;
+		    border: none;
+		    outline: none;
+		    transition: 0.4s;
+		}
+		.panel {
+		    padding: 0 18px;
+		    background-color: white;
+		    display: none;
+		}
+		#lbl-agenda {
+			@include display-flex();
+			margin-top: 20px;
+			color: $primary-color;
+			@include font-subheader;
+			cursor: pointer;
+			&:hover {
+				color: $primary-hover-color;
+			}
+		}
+		#event-agenda {
+			display: none;
+			margin-top: 20px;
+		}
+		/*
 		#event-agenda {
 			@include display-flex();
 			@include flex-direction(column);
@@ -653,6 +682,7 @@ input[type="text"] {
 			width: 80vw;
 			margin: 20px 0px 40px 20px;
 		}
+		*/
 		#event-message-no-speakers {
 			display: none;
 		}
