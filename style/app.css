@@ -995,7 +995,15 @@ table {
 @media only screen and (min-width: 481px) and (max-width: 765px) {
   #accounts-wrapper {
     flex-direction: column !important;
-    justify-content: flex-start !important; } }
+    justify-content: flex-start !important; }
+
+  #container-event-left select,
+  #container-event-left textarea,
+  #container-event-left input,
+  #container-event-right select,
+  #container-event-right textarea,
+  #container-event-right input {
+    width: 160px !important; } }
 /*********************************************************************************************/
 /*********************************************************************************************/
 /*********************************************************************************************/
