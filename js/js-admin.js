@@ -14,6 +14,14 @@ $(document).on("click", "#btn-add-new-event", function() {
 	fnShowModal('event');
 });
 
+$(document).on("click", ".event-cancel", function(source) {
+	fnCancelEvent($(source.target).parent().siblings('.event-info'));
+});
+
+$(document).on("click", ".event-restore", function(source) {
+	fnRestoreEvent($(source.target).parent().siblings('.event-info'));
+});
+
 $(document).on("click", ".cancel-button", function(source) {
 	let sModal = $(source.target).attr("data-mdl");
 	fnCloseModal(sModal);
@@ -279,13 +287,13 @@ function fnPopulateEventTable(aEvents) {
 
 	//blueprint for table row with user
 	let blueprint =
-	"<tr class='event-row'>\
+	"<tr class='event-row {{cancelled}}'>\
 		<input type='hidden' class='event-info' value='{{event}}'></input>\
 		<td class='text-left event-name' data-th='Name'>{{name}}</td>\
 		<td class='text-left event-location' data-th='Location'>{{location}}</td>\
 		<td class='text-left event-start' data-th='Start'>{{start}}</td>\
 		<td class='text-center event-edit' data-th='Edit'><span class='fa fa-fw fa-edit'></span></td>\
-		<td class='text-center event-delete' data-th='Cancel'><span class='fa fa-fw fa-remove'></span></td>\
+		<td {{cancelable}}></td>\
 	</tr>";
 
 	//replace place holders with actual data
@@ -295,6 +303,17 @@ function fnPopulateEventTable(aEvents) {
 		sHtmlToAppend = sHtmlToAppend.replace("{{name}}", aEvents[i]['name']);
 		sHtmlToAppend = sHtmlToAppend.replace("{{location}}", aEvents[i]['location_name']);
 		sHtmlToAppend = sHtmlToAppend.replace("{{start}}", aEvents[i]['start']);
+
+		//add inactive class if event is cancelled or inactive
+		if(aEvents[i]['is_active'] === 0) {
+			sHtmlToAppend = sHtmlToAppend.replace("{{cancelled}}", "event-inactive");
+			sHtmlToAppend = sHtmlToAppend.replace("{{cancelable}}", "class='text-center' data-th='Restore'><span class='fa fa-fw fa-rotate-left event-restore'></span");
+		} else {
+			sHtmlToAppend = sHtmlToAppend.replace("{{cancelled}}", "");
+			sHtmlToAppend = sHtmlToAppend.replace("{{cancelable}}", "class='text-center' data-th='Cancel'><span class='fa fa-fw fa-remove event-cancel'></span");
+		}
+
+
 		// append user row to table
 		$('#tbody-events').append(sHtmlToAppend);
 	}
@@ -486,6 +505,52 @@ function fnUpdateUserInTable() {
 function fnClearEdit(){
 	//clear use edit input fields
 	$('#container-user-edit input').val("");
+}
+
+function fnCancelEvent(oSource) {
+	let sUrl = '../apis/api-cancel-event.php';
+	let sId = JSON.parse($(oSource).val()).id_event;
+
+	let ajaxRequest = $.ajax({
+		url: sUrl,
+		data: {id:sId},
+		dataType: "JSON",
+		method: "POST"
+	});
+
+	ajaxRequest.done(function(jData) {
+		if(jData.status === "ok") {
+			$(oSource).siblings('[data-th="Cancel"]').remove();
+			$(oSource).parent().append("<td class='text-center' data-th='Restore'><span class='fa fa-fw fa-rotate-left event-restore'></span></td>");
+			$(oSource).parent().addClass('event-inactive');
+			alert('Event successfully cancelled');
+		} else {
+			alert('Failed to cancel the event');
+		}
+	}); 
+}
+
+function fnRestoreEvent(oSource) {
+	let sUrl = '../apis/api-restore-event.php';
+	let sId = JSON.parse($(oSource).val()).id_event;
+
+	let ajaxRequest = $.ajax({
+		url: sUrl,
+		data: {id:sId},
+		dataType: "JSON",
+		method: "POST"
+	});
+
+	ajaxRequest.done(function(jData) {
+		if(jData.status === "ok") {
+			$(oSource).siblings('[data-th="Restore"]').remove();
+			$(oSource).parent().append("<td class='text-center' data-th='Cancel'><span class='fa fa-fw fa-remove event-cancel'></span></td>");
+			$(oSource).parent().removeClass('event-inactive');
+			alert('Event successfully restored');
+		} else {
+			alert('Failed to restore the event');
+		}
+	}); 
 }
 
 function fnDeleteUser(oSource) {

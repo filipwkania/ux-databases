@@ -805,13 +805,16 @@ table {
 	.fa-remove:hover {
 		cursor: pointer;
 	}
-	.fa-edit:hover {
+	.fa-edit:hover,
+	.fa-rotate-left:hover {
 		color: #4CAF50;
 	}
 	.fa-remove:hover{
 		color: #F44336;
 	}
-
+	.event-inactive {
+		background-color: #FF8A80 !important;
+	}
 }
 #modals-admin {
 	.modal-content {

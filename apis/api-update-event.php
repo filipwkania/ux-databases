@@ -25,7 +25,7 @@
 	// $aExtraPartners = json_decode($sExtraPartners);
 	// $aSpeakers = json_decode($sSpeakers);
 
-	//Insert event
+	//Update event
 	$query = $pdo->prepare("UPDATE `ux_databases`.`event`
 		SET
 		`name` = :name,`description` = :description,`agenda` = :agenda,`start` = :start,`end` = :end,`picture` = :picture, `price` = :price, `main_partner` = nullif(:mainPartner,''), `sustenance` = :sustenance, `level` = :level,`is_active` = 1,`is_canceled` = 0,`catch_phrase` = :catchPhrase,`brief_description` = :briefDescription,`location` = :location,`category` = :category 

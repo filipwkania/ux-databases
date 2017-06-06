@@ -788,11 +788,16 @@ table {
 #tbody-events .fa-remove:hover {
   cursor: pointer; }
 #tbody-users .fa-edit:hover,
-#tbody-events .fa-edit:hover {
+#tbody-users .fa-rotate-left:hover,
+#tbody-events .fa-edit:hover,
+#tbody-events .fa-rotate-left:hover {
   color: #4CAF50; }
 #tbody-users .fa-remove:hover,
 #tbody-events .fa-remove:hover {
   color: #F44336; }
+#tbody-users .event-inactive,
+#tbody-events .event-inactive {
+  background-color: #FF8A80 !important; }
 
 #modals-admin .modal-content {
   width: 75%; }
