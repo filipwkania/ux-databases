@@ -1,7 +1,12 @@
 <?php
 	require_once('db-connection.php');
 
-	$query = $pdo->prepare("SELECT * FROM event");
+	$query = $pdo->prepare("
+		SELECT 
+		event.*, 
+		location.location_name AS location_name 
+		FROM event
+		LEFT JOIN location ON location.id_location = event.location;");
 	$query->execute();
 	$aEvents = $query->fetchAll();
 

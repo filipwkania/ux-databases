@@ -709,7 +709,7 @@ input[type="text"] {
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
 /********************************************************************************************************************************/
-// ACCOUNTS+EVENTS COMMON
+// ADMIN ACCOUNTS+EVENTS COMMON
 /*#menu-admin {
 	margin: 25px 0px 0px 25px;
 	button {
@@ -719,13 +719,16 @@ input[type="text"] {
 }*/
 #wdw-accounts,
 #wdw-events {
-	margin-top: 0px;
 	width: 100%;
+}
+#wdw-accounts,
+#wdw-events,
+.tab-admin-event {
+	margin-top: 0px;
 	h2, h4 {
-		// text-align: center;
-		margin-bottom: 15px;
-		height: 28px;
-		line-height: 28px;
+		// margin-bottom: 15px;
+		height: 35px;
+		line-height: 35px;
 	}
 	select,
 	label:not([class="floating-label"]),
@@ -752,12 +755,37 @@ input[type="text"] {
 	.input-row {
 		position: relative;
 	}
-	.label-row {
+	.label-row, h4 {
 		margin: 5px;
 	}
 	label:not([class="floating-label"]) {
 		line-height: 35px;
 	}
+}
+#table-users th,
+#table-events th {
+		text-align: left;
+		min-width: 50px;
+		font-size: 1.1em;
+		height: 50px;
+	}
+#tbody-events {
+	td {
+		padding-right: 5px;
+		padding-bottom: 5px;
+		width: 200px;
+	}
+  td:nth-last-of-type(-n+2) {
+  	width: 15px;
+  	text-align: center;
+  }
+}
+#tbody-users,
+#tbody-events {
+	td:before {
+		display: none;
+    content: attr(data-th)": ";
+  }
 }
 #modals-admin {
 	.modal-content {
@@ -765,6 +793,7 @@ input[type="text"] {
 		.modal-buttons {
 			@include justify-content(center);
 			width: 100%;
+			margin-bottom: 10px;
 		}
 	}
 	.modal-content > div:first-of-type {
@@ -806,24 +835,7 @@ input[type="text"] {
 			width: 205px;
 		}
 	}
-	#table-users th {
-		text-align: left;
-		min-width: 50px;
-		font-size: 1.1em;
-		height: 50px;
-	}
-	#tbody-users {
-		td:nth-child(-n+6) {
-			width: 120px;
-		}
-		td:before {
-			display: none;
-	    content: attr(data-th)": ";
-	  }
-	  td {
-	  	height: 25px;
-	  }
-	}
+	
 	#container-user-edit {
 		margin-right: 50px;
 		margin-bottom: 25px;
@@ -841,6 +853,11 @@ input[type="text"] {
 	#btn-add-new-user {
 		margin-top: 10px;
 	}
+	#tbody-users {
+		td:nth-child(-n+6) {
+			width: 120px;
+		}	
+	}
 }
 
 /********************************************************************************************************************************/
@@ -849,13 +866,18 @@ input[type="text"] {
 // EVENTS
 
 $admin-components-margin: 0px 10px 0px 0px;
+
+.second-modal {
+	z-index: 100; 
+}
+
 #wdw-events {
-	@include flex-direction(column);
-	@include align-items(center);
-		margin-bottom: 25px;
-		h2 {
-			text-align: center;
-		}
+	#events-wrapper {
+		@include display-flex();
+		@include flex-direction(column);
+		@include align-items(center);
+		width: 100%;	
+	}
 	#events-header {
 		@include display-flex();
 		@include flex-direction(column);
@@ -863,17 +885,31 @@ $admin-components-margin: 0px 10px 0px 0px;
 		width: 65vw;
 		margin-top: 70px;
 	}
+}
+
+#mdl-event {
+	.modal-content {
+		overflow-y: scroll;
+		overflow-x: hidden;
+		@include flex-flow(row, wrap);
+		@include justify-content(center);
+	}
 	#events-content {
 		@include flex-wrap(wrap);
 		@include justify-content(center);
+		@include align-items(flex-start);
 		width: 100%;
-		h2, h4 {
+		min-height: 420px;
+		h2 {
 			margin-top: 25px;
 		}
 	}
-	#txt-event-agenda, 
-	#txt-event-description {
+
+	#txt-event-agenda{
 		height: 210px;
+	}
+	#txt-event-description {
+		height: 255px;
 	}
 	#txt-event-catch-phrase,
 	#txt-event-brief-description {
@@ -919,7 +955,7 @@ $admin-components-margin: 0px 10px 0px 0px;
 		margin: $admin-components-margin;
 	}
 	.tab-admin-event {
-		min-width: 250px;
+		min-width: 210px;
 	}
 	#container-speaker-list {
 		margin-bottom: 10px;
@@ -947,6 +983,7 @@ $admin-components-margin: 0px 10px 0px 0px;
 		cursor: pointer;
 	}
 }
+
 
 
 // FLOATING LABELS STUFF
@@ -979,12 +1016,29 @@ $admin-components-margin: 0px 10px 0px 0px;
 
 @media screen and (max-width: 480px) {
 	
-	#wdw-events {
+	#modals-admin {
+		.modal-content {
+			width: 90vw !important;
+		}
+		.modal-buttons {
+			flex-direction: column-reverse !important;
+			align-items: center;
+			button {
+				margin: 0px 10px 10px 0px;
+				width: 200px;
+			}
+		}
+	}
+	#mdl-event .modal-content {
+		height: 90%;
+		.label-row {
+			text-align: center;
+			padding: 0px;
+		}
 		button {
 			margin-bottom: 10px;
 		}
 		#container-event-create,
-		#events-content,
 		#container-event-list,
 		#container-edit-event-buttons,
 		#container-event-partners,
@@ -997,16 +1051,26 @@ $admin-components-margin: 0px 10px 0px 0px;
 			width: 200px !important;
 		}
 	}
-	#modals-admin {
-		.modal-content {
-			width: 75vw !important;
-		}
-		.modal-buttons {
-			flex-direction: column-reverse !important;
-			button {
-				margin-bottom: 10px;
+	#wdw-events {
+		#tbody-events {
+			td:before {
+				display: inline-block !important;
+				width: 75px;
+				font-weight: bold;
+				margin-right: 5px;
+		  }
+		  td {
+				display: block;
+				width: 280px !important;
 			}
 		}
+		#table-events thead {
+			display: none;
+		}
+		#table-events th,
+		#table-events td {
+			margin: 10px 10px;
+		}	
 	}
 	#wdw-accounts {
 		#tbody-users {

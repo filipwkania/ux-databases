@@ -10,6 +10,10 @@ $(document).on("click", "#btn-add-new-user", function() {
 	fnShowModal('user');
 });
 
+$(document).on("click", "#btn-add-new-event", function() {
+	fnShowModal('event');
+});
+
 $(document).on("click", ".cancel-button", function(source) {
 	let sModal = $(source.target).attr("data-mdl");
 	fnCloseModal(sModal);
@@ -78,8 +82,11 @@ $(document).on("change", "#select-extra-partners", function(source) {
 	fnAddExtraPartner(oPartner.id_partner, oPartner.full_name);
 });
 
-$(document).on("change", "#select-event", function(source) {
-	fnPrepareToEditEvent(source.target);
+// $(document).on("change", "#select-event", function(source) {
+// 	fnPrepareToEditEvent(source.target);
+// });
+$(document).on("click", ".event-edit .fa-edit", function(source) {
+	fnPrepareToEditEvent($(source.target).parent().siblings('.event-info'));
 });
 
 $(document).on("change", "#select-event-speakers", function(source) {
@@ -158,6 +165,9 @@ function fnShowModal(sModal) {
 
 function fnCloseModal(sModal) {
 	$('#mdl-'+sModal).hide();
+	if(sModal === "event") {
+		fnClearEventEdit();
+	}
 }
 
 function fnOpenWindow(sWindow) {
@@ -237,16 +247,16 @@ function fnPopulateUserTable(aUsers) {
 
 	//blueprint for table row with user
 	let blueprint =
-	'<tr class="user-row">\
-		<input type="hidden" class="user-id" value="{{id}}"></input>\
-		<td class="text-left user-fullName" data-th="Full name">{{fullName}}</td>\
-		<td class="text-left user-username" data-th="Username">{{username}}</td>\
-		<td class="text-left user-email" data-th="Email">{{email}}</td>\
-		<td class="text-left user-password" data-th="Password">{{password}}</td>\
-		<td class="text-left user-userRole" data-th="Role" data-role-id={{roleId}}>{{userRole}}</td>\
-		<td class="text-center user-edit" data-th="Edit"><span class="fa fa-fw fa-edit"></span></td>\
-		<td class="text-center user-delete" data-th="Delete"><span class="fa fa-fw fa-remove"></span></td>\
-	</tr>';
+	"<tr class='user-row'>\
+		<input type='hidden' class='user-id' value='{{id}}'></input>\
+		<td class='text-left user-fullName' data-th='Full name'>{{fullName}}</td>\
+		<td class='text-left user-username' data-th='Username'>{{username}}</td>\
+		<td class='text-left user-email' data-th='Email'>{{email}}</td>\
+		<td class='text-left user-password' data-th='Password'>{{password}}</td>\
+		<td class='text-left user-userRole' data-th='Role' data-role-id={{roleId}}>{{userRole}}</td>\
+		<td class='text-center user-edit' data-th='Edit'><span class='fa fa-fw fa-edit'></span></td>\
+		<td class='text-center user-delete' data-th='Delete'><span class='fa fa-fw fa-remove'></span></td>\
+	</tr>";
 
 	//replace place holders with actual data
 	for(let i = 0; i < aUsers.length; i++) {
@@ -263,6 +273,32 @@ function fnPopulateUserTable(aUsers) {
 	}
 }
 
+function fnPopulateEventTable(aEvents) {
+	//clear table body
+	$("#tbody-events").empty();
+
+	//blueprint for table row with user
+	let blueprint =
+	"<tr class='event-row'>\
+		<input type='hidden' class='event-info' value='{{event}}'></input>\
+		<td class='text-left event-name' data-th='Name'>{{name}}</td>\
+		<td class='text-left event-location' data-th='Location'>{{location}}</td>\
+		<td class='text-left event-start' data-th='Start'>{{start}}</td>\
+		<td class='text-center event-edit' data-th='Edit'><span class='fa fa-fw fa-edit'></span></td>\
+		<td class='text-center event-delete' data-th='Delete'><span class='fa fa-fw fa-remove'></span></td>\
+	</tr>";
+
+	//replace place holders with actual data
+	for(let i = 0; i < aEvents.length; i++) {
+		let sHtmlToAppend = blueprint;
+		sHtmlToAppend = sHtmlToAppend.replace("{{event}}", JSON.stringify(aEvents[i]));
+		sHtmlToAppend = sHtmlToAppend.replace("{{name}}", aEvents[i]['name']);
+		sHtmlToAppend = sHtmlToAppend.replace("{{location}}", aEvents[i]['location_name']);
+		sHtmlToAppend = sHtmlToAppend.replace("{{start}}", aEvents[i]['start']);
+		// append user row to table
+		$('#tbody-events').append(sHtmlToAppend);
+	}
+}
 function fnPrepareToEditEvent(oSource) {
 
 	if($(oSource).val() === "select-no-event") {
@@ -300,6 +336,8 @@ function fnPrepareToEditEvent(oSource) {
 		? $('#select-location option[id="location-'
 			+oEvent.location+'"]').attr("selected", "selected")
 		: $('#select-location').val("");
+
+		fnShowModal('event');
 	}
 }
 
@@ -770,6 +808,7 @@ function fnSaveEvent() {
 		formData.extraPartners = JSON.stringify(aExtraPartners);
 		formData.speakers = JSON.stringify(aSpeakers);
 
+		//if id field is not empty, update event instead of create
 		if($('#txt-event-id') != "") {
 			sUrl = '../apis/api-update-event.php';
 			formData.id = $('#txt-event-id').val();
@@ -808,7 +847,8 @@ function fnFetchEvents() {
 
 	ajaxRequest.done(function(jData) {
 		if(jData.status === "ok") {
-			fnLoadEventsToSelector(jData.data);
+			// fnLoadEventsToSelector(jData.data);
+			fnPopulateEventTable(jData.data);
 		} else {
 			console.log('Could not load events');
 		}

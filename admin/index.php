@@ -7,8 +7,6 @@
 	<script src="https://use.fontawesome.com/fa11f26e3b.js"></script>
 </head>
 <body>
-
-
 <!-- PSEUDO MENU -->
 	<div id="menu-admin">
 		<div id="btn-menu-events">Events</div>
@@ -43,7 +41,7 @@
 <div id="wdw-accounts" class="wdw">
 	<div id="accounts-wrapper">
 		<div id="container-users">
-			<h2>Users list:</h2>
+			<h2>Users list</h2>
 			<table id="table-users">
 				<thead>
 					<tr>
@@ -69,138 +67,40 @@
 <!-- **************************************************************************************************** -->
 <!-- ************************************************** -->
 <div id="wdw-events" class="wdw">
-	<div id="events-header">
-		<h2>Select event to edit</h2>
-		<div id="container-event-list">
-			<select id="select-event">
-				<option>No events to edit</option>
-			</select>
-<!-- 			<button id="btn-add-new-event"><span class="fa fa-fw fa-plus"></span> add new</button> -->
-		</div>
-	</div>
-	<div id="events-content">
-		<div class="tab-admin-event">
-			<h2>Event edit panel</h2>
-			<div id="container-event-create">
-				<div id="container-event-left">
-					<input id="txt-event-id" type="hidden"></input>
-					<div class="input-row">
-						<input id="txt-event-name" class="field" placeholder="event name" required></input>
-						<label class="floating-label">Event name:</label>
-					</div>
-					<div class="input-row">
-						<textarea id="txt-event-catch-phrase" class="field" placeholder="catch phrase" required></textarea>
-						<label class="floating-label">Catch phrase:</label>
-					</div>
-					<div class="input-row">
-						<textarea id="txt-event-brief-description" class="field" placeholder="brief description" required></textarea>
-						<label class="floating-label">Brief description:</label>						
-					</div>	
-					<div class="input-row">
-						<textarea id="txt-event-description" class="field" placeholder="full description" required></textarea>
-						<label class="floating-label">Full description:</label>
-					</div>
-<!-- 					<div class="input-row">
-						<input id="txt-event-price" class="field" placeholder="price" required></input>
-						<label class="floating-label">Price:</label>
-					</div> -->
-<!-- 					<div class="input-row">
-						<input id="check-event-sustenance" type="checkbox">Sustenance</input>
-					</div> -->
-				</div>
-				<div id="container-event-right">
-					<div class="label-row"><label>Event level </label></div>
-					<select id="select-event-level">
-						<option value="1">For all</option>
-						<option value="2">Intermediate</option>
-						<option value="3">Advanced</option>
-					</select>
-					<div class="label-row"><label>Event category </label></div>
-					<select id="select-event-category">
-						<option value="1">Tech talk</option>
-						<option value="2">Business/Administration</option>
-						<option value="3">General</option>
-					</select>
-					<div class="input-row">
-						<input id="txt-event-start" class="field" placeholder="start date time" required></input>
-						<label class="floating-label">Start:</label>
-					</div>
-					<div class="input-row">
-						<input id="txt-event-end" class="field" placeholder="end date time" required></input>
-						<label class="floating-label">End:</label>
-					</div>
-					<div class="input-row">
-						<textarea id="txt-event-agenda" class="field" placeholder="agenda" required></textarea>
-						<label class="floating-label">Agenda:</label>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="tab-admin-event">
-			<div id="container-event-extras">
-				<div id="container-event-main-partner">
-					<h4>Main partner</h4>
-					<div id="container-main-partner">
-						<select id="select-main-partner">
-							<option>No main partner</option>
-						</select>
-						<div id="container-buttons-box">
-							<button id="btn-edit-partner" class="btn-edit edit-button">Edit</button>
-							<button data-item="partner" class="btn-edit btn-add-new button">Add new</button>
-						</div>
-					</div>
-				</div>
-				<div id="container-event-location">
-					<h4>Location</h4>
-					<div id="container-location-list">
-						<select id="select-location">
-							<option>No locations yet</option>
-						</select>
-						<div id="container-buttons-box">
-							<button id="btn-edit-location" class="btn-edit edit-button">Edit</button>
-							<button data-item="location" class="btn-edit btn-add-new button">Add new</button>
-						</div>
-					</div>
-				</div>
-				<div id="container-event-speakers">
-					<h4>Speakers</h4>	
-					<div id="container-speaker-list">
-						<select id="select-event-speakers">
-							<option>No event speakers</option>
-						</select>
-						<div id="container-buttons-box">
-							<button id="btn-edit-speaker" class="btn-edit edit-button">Edit</button>
-							<button data-item="speaker" class="btn-edit btn-add-new button">Add new</button>
-						</div>
-					</div>
-					<div id="container-extra-speakers">
-					<!-- speakers list placeholder -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="tab-admin-event">
-			<div id="container-event-partners">
-				<h4>Add extra partners</h4>
-				<select id="select-extra-partners">
-					<option>No extra partners</option>
+	<div id="events-wrapper">
+		<div id="events-header">
+	<!-- 		<h2>Select event to edit</h2>
+			<div id="container-event-list">
+				<select id="select-event">
+					<option>No events to edit</option>
 				</select>
-				<div id="container-extra-partners">
-				<!-- extra partners placeholder -->
-				</div>
-			</div>
+	 			<button id="btn-add-new-event"><span class="fa fa-fw fa-plus"></span> add new</button>
+			</div> -->
 		</div>
-	</div>
-	<div id="container-edit-event-buttons">
-		<button id="btn-clear-edit-event" class="edit-button">Clear </button>
-		<button id="btn-save-event" class="button">Save event</button>
+		<h2>Events list</h2>
+		<table id="table-events">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Location</th>
+					<th>Start</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody id="tbody-events">
+				<!-- placeholder for events -->
+
+			</tbody>
+		</table>
+		<button id="btn-add-new-event" class="button">Add new</button>
 	</div>
 </div>
 <!-- ************************************************** -->
 <!-- **************************************************************************************************** -->
 <!-- ************************************************** -->
 <div id="modals-admin">
-	<div id="mdl-partner" class="modal">
+	<div id="mdl-partner" class="modal second-modal">
 		<div class="modal-content">
 			<h2>Partner details</h2>
 			<div id="container-partner-create">
@@ -217,7 +117,7 @@
 		</div>
 	</div>
 
-	<div id="mdl-speaker" class="modal">
+	<div id="mdl-speaker" class="modal second-modal">
 		<div class="modal-content">
 			<h2>Speaker details</h2>
 			<div id="container-speaker-create">
@@ -233,7 +133,7 @@
 		</div>
 	</div>
 
-	<div id="mdl-location" class="modal">
+	<div id="mdl-location" class="modal second-modal">
 		<div class="modal-content">
 			<h2>Location details</h2>
 			<div id="container-location-create">
@@ -270,17 +170,127 @@
 		</div>
 	</div>
 
-	<div id="mdl-event" class="modal">
+	<div id="mdl-event" class="modal lesser-modal">
 		<div class="modal-content">
-			<h2>User details</h2>
-
-			<div class="modal-buttons">
-				<button id="btn-cancel-event" class="cancel-button" data-mdl="user" type="button">Cancel</button>
-				<button id="btn-save-event" class="button" type="button">Save</button>
+			<h2>Event details</h2>
+			<div id="events-content">
+				<div class="tab-admin-event">
+					<div id="container-event-create">
+						<div id="container-event-left">
+							<input id="txt-event-id" type="hidden"></input>
+							<div class="label-row"><label>Event level </label></div>
+							<select id="select-event-level">
+								<option value="1">For all</option>
+								<option value="2">Intermediate</option>
+								<option value="3">Advanced</option>
+							</select>
+							<div class="input-row">
+								<input id="txt-event-name" class="field" placeholder="event name" required></input>
+								<label class="floating-label">Event name:</label>
+							</div>
+							<div class="input-row">
+								<textarea id="txt-event-brief-description" class="field" placeholder="brief description" required></textarea>
+								<label class="floating-label">Brief description:</label>						
+							</div>	
+							<div class="input-row">
+								<textarea id="txt-event-description" class="field" placeholder="full description" required></textarea>
+								<label class="floating-label">Full description:</label>
+							</div>
+		<!-- 					<div class="input-row">
+								<input id="txt-event-price" class="field" placeholder="price" required></input>
+								<label class="floating-label">Price:</label>
+							</div> -->
+		<!-- 					<div class="input-row">
+								<input id="check-event-sustenance" type="checkbox">Sustenance</input>
+							</div> -->
+						</div>
+						<div id="container-event-right">
+							<div class="label-row"><label>Event category </label></div>
+							<select id="select-event-category">
+								<option value="1">Tech talk</option>
+								<option value="2">Business/Administration</option>
+								<option value="3">General</option>
+							</select>
+							<div class="input-row">
+								<textarea id="txt-event-catch-phrase" class="field" placeholder="catch phrase" required></textarea>
+								<label class="floating-label">Catch phrase:</label>
+							</div>
+							<div class="input-row">
+								<input id="txt-event-start" class="field" placeholder="start date time" required></input>
+								<label class="floating-label">Start:</label>
+							</div>
+							<div class="input-row">
+								<input id="txt-event-end" class="field" placeholder="end date time" required></input>
+								<label class="floating-label">End:</label>
+							</div>
+							<div class="input-row">
+								<textarea id="txt-event-agenda" class="field" placeholder="agenda" required></textarea>
+								<label class="floating-label">Agenda:</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-admin-event">
+					<div id="container-event-extras">
+						<div id="container-event-main-partner">
+							<h4>Main partner</h4>
+							<div id="container-main-partner">
+								<select id="select-main-partner">
+									<option>No main partner</option>
+								</select>
+								<div id="container-buttons-box">
+									<button id="btn-edit-partner" class="btn-edit edit-button">Edit</button>
+									<button data-item="partner" class="btn-edit btn-add-new button">Add new</button>
+								</div>
+							</div>
+						</div>
+						<div id="container-event-location">
+							<h4>Location</h4>
+							<div id="container-location-list">
+								<select id="select-location">
+									<option>No locations yet</option>
+								</select>
+								<div id="container-buttons-box">
+									<button id="btn-edit-location" class="btn-edit edit-button">Edit</button>
+									<button data-item="location" class="btn-edit btn-add-new button">Add new</button>
+								</div>
+							</div>
+						</div>
+						<div id="container-event-speakers">
+							<h4>Speakers</h4>	
+							<div id="container-speaker-list">
+								<select id="select-event-speakers">
+									<option>No event speakers</option>
+								</select>
+								<div id="container-buttons-box">
+									<button id="btn-edit-speaker" class="btn-edit edit-button">Edit</button>
+									<button data-item="speaker" class="btn-edit btn-add-new button">Add new</button>
+								</div>
+							</div>
+							<div id="container-extra-speakers">
+							<!-- speakers list placeholder -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-admin-event">
+					<div id="container-event-partners">
+						<h4>Add extra partners</h4>
+						<select id="select-extra-partners">
+							<option>No extra partners</option>
+						</select>
+						<div id="container-extra-partners">
+						<!-- extra partners placeholder -->
+						</div>
+					</div>
+				</div>
+				<div class="modal-buttons">
+					<button id="btn-cancel-event" class="cancel-button" data-mdl="event" type="button">Cancel</button>
+					<button id="btn-save-event" class="button" type="button">Save event</button>
+				</div>
 			</div>
 		</div>
 	</div>
-
 </div>
 <!-- ************************************************** -->
 <!-- **************************************************************************************************** -->
