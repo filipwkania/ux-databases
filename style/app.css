@@ -83,7 +83,7 @@
 /*
     Justify content
  */
-#wdw-index #event-container .date-container .date-event-cards, #wdw-about #speaker-container .card-speaker .back {
+#wdw-index #event-container .date-container .date-event-cards, #wdw-about #speaker-container .card-speaker .back, #wdw-event #wdw-event-content-container #event-contributors-container {
   -webkit-box-pack: start;
   -moz-box-pack: start;
   -webkit-flex-pack: start;
@@ -110,7 +110,7 @@
   -webkit-justify-content: center;
   justify-content: center; }
 
-.header, #wdw-event #header-image-event #txt-event #container-event-header-info #wdw-event-time, #wdw-event #wdw-event-content-container #event-details-container, #wdw-event #wdw-event-content-container #event-contributors-container, #wdw-accounts #container-user-edit-buttons {
+.header, #wdw-event #header-image-event #txt-event #container-event-header-info #wdw-event-time, #wdw-event #wdw-event-content-container #event-details-container, #wdw-accounts #container-user-edit-buttons {
   -webkit-box-pack: justify;
   -moz-box-pack: justify;
   -webkit-flex-pack: justify;
@@ -645,7 +645,7 @@ input[type="text"] {
       #wdw-event #wdw-event-content-container #event-contributors-container .card-speaker {
         width: 22vw;
         padding: 0px 0px 40px 0px;
-        margin: 0px 10px 40px 10px;
+        margin: 0px 30px 40px 30px;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         background-color: #ffffff; }
@@ -1051,8 +1051,8 @@ table {
   #wdw-event #event-contributors-container {
     width: 90vw !important; }
     #wdw-event #event-contributors-container .card-speaker {
-      width: 29vw !important;
-      margin: 0px !important; }
+      width: 25vw !important;
+      margin: 0px 15px 0px 15px !important; }
 
   #mdl-reservation .modal-content {
     margin: 25% auto;
@@ -1129,9 +1129,9 @@ table {
       align-self: flex-start;
       margin-top: 20px !important; }
   #wdw-event #event-contributors-container {
-    width: 90vw; }
+    width: 100vw !important; }
     #wdw-event #event-contributors-container .card-speaker {
-      width: 90vw !important; }
+      width: 95vw !important; }
       #wdw-event #event-contributors-container .card-speaker .card-speaker-header {
         height: auto !important; }
         #wdw-event #event-contributors-container .card-speaker .card-speaker-header img {
@@ -1139,7 +1139,7 @@ table {
 
   #mdl-reservation .modal-content {
     width: 90vw;
-    height: 45vh; }
+    height: 75vh; }
     #mdl-reservation .modal-content form {
       width: 97%; }
       #mdl-reservation .modal-content form .modal-buttons {
