@@ -196,6 +196,12 @@ $('#btn-confirm-reservation').click(function(){
   })
 })
 
+// back to overview
+$('#back-to-overview-button').click(function(){
+  $('.wdw').css({'display':'none'});
+  $('#wdw-index').css({'display':'flex'});
+})
+
 
 function fnDisplayReservationModal(){
   $('#mdl-reservation').css("display", "flex");
