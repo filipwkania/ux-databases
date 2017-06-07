@@ -38,12 +38,6 @@ $(document).on('click', '.card-event-image', function(){
     for(i = 0; i < aAgenda.length; i++){
       aAgenda[i] = aAgenda[i]+' </br>';
     }
-    /*
-    var sAgendaBluePrint = '<div id="separator-agenda" class="separator">Agenda</div>\
-                            <div id="event-agenda-container">\
-                              <div id="event-agenda">'+aAgenda.join('')+'</div>\
-                            </div>';
-    */
     var sAgendaBluePrint = '<div id="lbl-agenda">Agenda</div>\
                             <div id="event-agenda">'+aAgenda.join('')+'</div>'
     //$('#separator-contributors').before(sAgendaBluePrint);

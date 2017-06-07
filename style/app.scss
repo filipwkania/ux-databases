@@ -636,6 +636,15 @@ input[type="text"] {
 			#event-description {
 				width: 75%;
 				@include font-copy-text();
+				#back-to-overview-button {
+					margin-top: 20px;
+					color: $secondary-color-dark;
+					@include font-copy-text;
+					cursor: pointer;
+					&:hover {
+						color: #6F6F6F;
+					}
+				}
 			}
 			#event-location {
 				width: 17%;

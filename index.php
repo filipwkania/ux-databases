@@ -109,6 +109,7 @@
 			<div id="event-details-container">
 				<div id="event-description">
 					<div id="event-description-text"></div>
+					<div id="back-to-overview-button">Back to the overview</div>
 				</div>
 				<div id="event-location">
 					<span id="location-name"></span>
